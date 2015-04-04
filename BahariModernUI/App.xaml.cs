@@ -13,5 +13,7 @@ namespace BahariModernUI
     /// </summary>
     public partial class App : Application
     {
+        //public string LoginUser { set; get; }
+        //public string LoginName { set; get; }
     }
 }

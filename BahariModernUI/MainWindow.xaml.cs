@@ -24,6 +24,19 @@ namespace BahariModernUI
         public MainWindow()
         {
             InitializeComponent();
+
+
+            //App app = (App)App.Current;
+            //if (app.LoginName == "")
+            //{
+            //    this.login.DisplayName = "login";
+            //    this.login.Source = new Uri("/Pages/RegisterPage.xaml", UriKind.Relative);
+            //}
+            //else
+            //{
+            //    this.login.DisplayName = "your" + app.LoginName;
+            //    this.login.Source = new Uri("/Pages/RegisterPage.xaml", UriKind.Relative);
+            //}
         }
     }
 }
