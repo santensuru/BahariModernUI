@@ -5,14 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Loaded="Button_Click">
     <Grid Style="{StaticResource ContentRoot}">
         <!-- TODO: set @SelectedSource -->
-        <mui:ModernTab Layout="List" SelectedSource="/Pages/Register/Login.xaml">
+        <mui:ModernTab Layout="List" x:Name="layout" SelectedSource="/Pages/Register/Login.xaml" >
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="Register" Source="/Pages/Register/Register.xaml" />
-                <mui:Link DisplayName="Login" Source="/Pages/Register/Login.xaml" />
+                <mui:Link x:Name="register" DisplayName="Register" Source="/Pages/Register/Register.xaml" />
+                <mui:Link x:Name="login" DisplayName="Login" Source="/Pages/Register/Login.xaml" />
+                <mui:Link DisplayName="People" Source="/Pages/Register/People.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

@@ -21,7 +21,7 @@
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="login" GroupKey="settings">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="your" Source="/Pages/RegisterPage.xaml" />
+                <mui:Link DisplayName="login" Source="/Pages/RegisterPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
@@ -29,6 +29,6 @@
     <mui:ModernWindow.TitleLinks>
         <mui:Link DisplayName="home" Source="/Pages/Home.xaml" />
         <mui:Link DisplayName="settings" Source="/Pages/SettingsPage.xaml" />
-        <mui:Link x:Name="login" />
+        <mui:Link DisplayName="login" Source="/Pages/RegisterPage.xaml" />
     </mui:ModernWindow.TitleLinks>
 </mui:ModernWindow>
