@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="BahariModernUI.Pages.Personality.Landing"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mui="http://firstfloorsoftware.com/ModernUI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Loaded="Load">
+    <Grid Style="{StaticResource ContentRoot}">
+        <Grid x:Name="login">
+            <ScrollViewer>
+                <StackPanel MinWidth="200">
+                    <TextBlock Text="LOGIN" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                    <TextBlock Text="User Name : " />
+                    <TextBox Name="user" />
+                    <TextBlock Text="Password : " />
+                    <PasswordBox Name="password" />
+                    <Button Click="Login_Click" Margin="0,8,0,0">Login</Button>
+
+                    <TextBlock Text="OR" Margin="0,8,0,8" TextAlignment="Center" />
+
+                    <TextBlock Text="REGISTER" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                    <TextBlock Text="Full Name : " />
+                    <TextBox Name="regname" />
+                    <TextBlock Text="User Name : " />
+                    <TextBox Name="reguser" />
+                    <TextBlock Text="Password : " />
+                    <PasswordBox Name="regpassword" />
+                    <Button Click="Register_Click" Margin="0,8,0,0">Register</Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid x:Name="logout">
+            <ScrollViewer>
+                <StackPanel MinWidth="200">
+                    <TextBlock x:Name="name" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                    <TextBlock x:Name="score" />
+                    <Image x:Name="photo" />
+
+                    <TextBlock Text="" Margin="0,8,0,8" />
+
+                    <TextBlock Text="LOGOUT" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                    <TextBlock Text="Are you sure to logout?" />
+                    <Button Click="Logout_Click" Margin="0,8,0,0">Logout</Button>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+    
+    
+</UserControl>
