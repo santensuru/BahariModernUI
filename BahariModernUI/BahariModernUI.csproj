@@ -122,6 +122,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Personality\Landing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Personality\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +184,9 @@
     </Compile>
     <Compile Include="Pages\PersonalityPage.xaml.cs">
       <DependentUpon>PersonalityPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Personality\Landing.xaml.cs">
+      <DependentUpon>Landing.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Personality\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>

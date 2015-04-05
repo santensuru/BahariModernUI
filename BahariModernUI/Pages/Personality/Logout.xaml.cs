@@ -75,20 +75,6 @@ namespace BahariModernUI.Pages.Personality
                 error += fail.Message.ToString() + "\n\n";
                 MessageBox.Show(error);
             }
-
-            if (app.LoginName == "")
-            {
-                BBCodeBlock bs = new BBCodeBlock();
-                try
-                {
-                    bs.LinkNavigator.Navigate(new Uri("/Pages/Personality/Login.xaml", UriKind.Relative), this);
-
-                }
-                catch (Exception error)
-                {
-                    ModernDialog.ShowMessage(error.Message, FirstFloor.ModernUI.Resources.NavigationFailed, MessageBoxButton.OK);
-                }
-            }
         }
     }
 }

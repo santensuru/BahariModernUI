@@ -26,6 +26,7 @@ namespace BahariModernUI
         public MainWindow()
         {
             InitializeComponent();
+            app.LoginName = "";
         }
     }
 }

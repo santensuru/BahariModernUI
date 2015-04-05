@@ -142,21 +142,5 @@ namespace BahariModernUI.Pages.Personality
             }
         }
 
-        private void Load(object sender, RoutedEventArgs e)
-        {
-            if (app.LoginName != "")
-            {
-                BBCodeBlock bs = new BBCodeBlock();
-                try
-                {
-                    bs.LinkNavigator.Navigate(new Uri("/Pages/Personality/Logout.xaml", UriKind.Relative), this);
-
-                }
-                catch (Exception error)
-                {
-                    ModernDialog.ShowMessage(error.Message, FirstFloor.ModernUI.Resources.NavigationFailed, MessageBoxButton.OK);
-                }
-            }
-        }
     }
 }

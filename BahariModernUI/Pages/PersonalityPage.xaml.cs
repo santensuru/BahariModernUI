@@ -20,27 +20,9 @@ namespace BahariModernUI.Pages
     /// </summary>
     public partial class PersonalityPage : UserControl
     {
-        App app = (App)App.Current;
         public PersonalityPage()
         {
             InitializeComponent();
-            app.LoginName = "";
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (app.LoginName == "")
-            {
-                this.layout.SelectedSource = new Uri("/Pages/Personality/Login.xaml", UriKind.RelativeOrAbsolute);
-
-                this.personality.Source = new Uri("/Pages/Personality/Login.xaml", UriKind.RelativeOrAbsolute);
-            }
-            else
-            {
-                this.layout.SelectedSource = new Uri("/Pages/Personality/Logout.xaml", UriKind.RelativeOrAbsolute);
-
-                this.personality.Source = new Uri("/Pages/Personality/Logout.xaml", UriKind.RelativeOrAbsolute);
-            }
         }
     }
 }
