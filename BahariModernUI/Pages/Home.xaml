@@ -4,12 +4,23 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF">
     <Grid Style="{StaticResource ContentRoot}">
-        <ScrollViewer>
-            <StackPanel MinWidth="200">
-                <TextBlock Text="Hello :)" />
-            </StackPanel>
-        </ScrollViewer>
+        <m:Map Name="myMap"
+               Center="-5, 120"
+               ZoomLevel="4"
+               CredentialsProvider="AouC7mgYMB3qto9mldi9eD6hXv_B3zxUjWgloMJ9x-b8S3qMdj_oeH0jRqw9B372"
+               Mode="Road">
+            
+        </m:Map>
+
+        <!--<StackPanel HorizontalAlignment="Left">
+            <Button Content="Get My Location" Click="Get_Button" Width="105" Height="27" />
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Content="+" FontSize="25" Click="Plus_Button" Width="80" Height="40" />
+            <Button Content="-" FontSize="25" Click="Minus_Button" Width="80" Height="40" />
+        </StackPanel>-->
     </Grid>
 </UserControl>

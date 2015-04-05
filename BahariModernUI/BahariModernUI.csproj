@@ -58,6 +58,9 @@
     <Reference Include="FirstFloor.ModernUI">
       <HintPath>..\packages\ModernUI.WPF.1.0.6\lib\net45\FirstFloor.ModernUI.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -167,6 +170,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Compile Include="Model\PeopleModel.cs" />
+    <Compile Include="Model\PushpinMap.cs" />
     <Compile Include="Model\SQLiteDatabase.cs">
       <SubType>Code</SubType>
     </Compile>

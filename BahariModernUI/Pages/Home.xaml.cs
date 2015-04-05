@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,26 @@ namespace BahariModernUI.Pages
         public Home()
         {
             InitializeComponent();
+            Pushpin center = new Pushpin();
+            center.Location = new Location(-5, 120);
+
+            ToolTipService.SetToolTip(center, "Indonesia yey :D");
+            myMap.Children.Add(center);
         }
+
+        //private void Get_Button(object sender, RoutedEventArgs e)
+        //{
+            
+        //}
+
+        //private void Plus_Button(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void Minus_Button(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }
