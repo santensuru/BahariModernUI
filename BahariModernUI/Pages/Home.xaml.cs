@@ -24,11 +24,18 @@ namespace BahariModernUI.Pages
         public Home()
         {
             InitializeComponent();
-            Pushpin center = new Pushpin();
-            center.Location = new Location(-5, 120);
+            Pushpin[] center = new Pushpin[2];
+            center[0] = new Pushpin();
+            center[0].Location = new Location(-5, 120);
 
-            ToolTipService.SetToolTip(center, "Indonesia yey :D");
-            myMap.Children.Add(center);
+            ToolTipService.SetToolTip(center[0], "Indonesia yey :D");
+            myMap.Children.Add(center[0]);
+
+            center[1] = new Pushpin();
+            center[1].Location = new Location(4, 109);
+
+            ToolTipService.SetToolTip(center[1], "Coba 2");
+            myMap.Children.Add(center[1]);
         }
 
         //private void Get_Button(object sender, RoutedEventArgs e)
