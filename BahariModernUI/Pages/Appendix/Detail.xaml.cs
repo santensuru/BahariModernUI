@@ -28,5 +28,15 @@ namespace BahariModernUI.Pages.Appendix
             // define the dialog buttons
             this.Buttons = new Button[] { this.OkButton, this.CancelButton };
         }
+
+        public Detail(String Param)
+        {
+            InitializeComponent();
+
+            // define the dialog buttons
+            this.Buttons = new Button[] { this.OkButton, this.CancelButton };
+
+            this.dialog.Text = "Coba parameter => " + Param;
+        }
     }
 }

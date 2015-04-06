@@ -30,7 +30,7 @@ namespace BahariModernUI.Pages.Appendix
             InitializeComponent();
             var _mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            Detail newdialoge = new Detail();
+            Detail newdialoge = new Detail("Param");
             newdialoge.Owner = _mainWindow;
             newdialoge.ShowDialog();
         }

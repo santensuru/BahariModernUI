@@ -10,6 +10,6 @@
 
     <!-- Note: ModernDialog buttons are defined in the constructor of the code behind class -->
 
-    <TextBlock Text="Replace the content of the dialog with your own." />
+    <TextBlock x:Name="dialog"  Text="Replace the content of the dialog with your own." />
     
 </mui:ModernDialog>
