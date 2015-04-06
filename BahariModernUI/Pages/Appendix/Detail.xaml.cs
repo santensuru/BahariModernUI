@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,23 +17,16 @@ using System.Windows.Shapes;
 namespace BahariModernUI.Pages.Appendix
 {
     /// <summary>
-    /// Interaction logic for FreshWater.xaml
+    /// Interaction logic for Detail.xaml
     /// </summary>
-    public partial class FreshWater : UserControl
+    public partial class Detail : ModernDialog
     {
-        public FreshWater()
+        public Detail()
         {
             InitializeComponent();
-        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            InitializeComponent();
-            var _mainWindow = (MainWindow)Application.Current.MainWindow;
-
-            Detail newdialoge = new Detail();
-            newdialoge.Owner = _mainWindow;
-            newdialoge.ShowDialog();
+            // define the dialog buttons
+            this.Buttons = new Button[] { this.OkButton, this.CancelButton };
         }
     }
 }

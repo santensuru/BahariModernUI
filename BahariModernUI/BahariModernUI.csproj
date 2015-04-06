@@ -112,6 +112,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Appendix\Detail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Appendix\FreshWater.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -179,6 +183,9 @@
     </Compile>
     <Compile Include="Pages\AppendixPage.xaml.cs">
       <DependentUpon>AppendixPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Appendix\Detail.xaml.cs">
+      <DependentUpon>Detail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Appendix\FreshWater.xaml.cs">
       <DependentUpon>FreshWater.xaml</DependentUpon>

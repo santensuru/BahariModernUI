@@ -11,6 +11,7 @@
             <StackPanel MinWidth="200">
                 <TextBlock Text="BASIC PAGE" Style="{StaticResource Heading2}" />
                 <TextBlock Text="Content goes here" />
+                <Button Click="Button_Click">Baru</Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>
