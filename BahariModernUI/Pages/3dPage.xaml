@@ -9,8 +9,29 @@
     
     <Grid Margin="17,27,17,17">
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Ocean-Underwater-Wallpaper-Widescreen-03.jpg" Opacity="0.8" Stretch="UniformToFill" />
+            <ImageBrush ImageSource="/Assets/Ocean-Underwater-Wallpaper-Widescreen-03.jpg" Opacity="0.85" Stretch="UniformToFill" />
         </Grid.Background>
+
+        <Rectangle
+  Name="MyRectangle"
+  Width="Auto" 
+  Height="Auto"
+  Fill="Blue">
+            <Rectangle.Triggers>
+                <!-- Animates the rectangle's opacity. -->
+                <EventTrigger RoutedEvent="Rectangle.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation
+            Storyboard.TargetName="MyRectangle" 
+            Storyboard.TargetProperty="Opacity"
+            From="0.35" To="0.0" Duration="0:0:5" 
+            AutoReverse="True" RepeatBehavior="Forever" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
 
     </Grid>
     <!--<Grid Style="{StaticResource ContentRoot}">
