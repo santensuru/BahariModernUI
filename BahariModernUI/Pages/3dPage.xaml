@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf">
     
     <Grid Margin="17,27,17,17">
         <Grid.Background>
@@ -32,6 +33,15 @@
                 </EventTrigger>
             </Rectangle.Triggers>
         </Rectangle>
+
+        <Grid HorizontalAlignment="Left" Height="250" Margin="241,37,0,0" VerticalAlignment="Top" Width="250">
+            <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True">
+                <!-- Remember to add light to the scene -->
+                <HelixToolkit:SunLight/>
+                <!-- You can also add elements here in the xaml -->
+                <HelixToolkit:GridLinesVisual3D Width="8" Length="8" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
+            </HelixToolkit:HelixViewport3D>
+        </Grid>
 
     </Grid>
     <!--<Grid Style="{StaticResource ContentRoot}">
