@@ -22,10 +22,12 @@ namespace BahariModernUI.Pages
     /// </summary>
     public partial class Home : UserControl
     {
+        Pushpin[] center = new Pushpin[2];
+        
         public Home()
         {
             InitializeComponent();
-            Pushpin[] center = new Pushpin[2];
+            //Pushpin[] center = new Pushpin[2];
             center[0] = new Pushpin();
             center[0].Location = new Location(-5, 120);
 
@@ -43,11 +45,41 @@ namespace BahariModernUI.Pages
 
         private void Left_Click(object sender, MouseButtonEventArgs e)
         {
+            
+
+            Point mousePosition = e.GetPosition(this);
+            Location pinLocation = myMap.ViewportPointToLocation(mousePosition);
+            var lat = pinLocation.Latitude;
+            var lon = pinLocation.Longitude;
+            //lat.ToString() + " " + lon.ToString()
+
+            double a = CekDistance(center[0].Location, pinLocation);
+            double b = CekDistance(center[1].Location, pinLocation);
+
+            string text;
+
+            if (a < b)
+            {
+                text = ToolTipService.GetToolTip(center[0]).ToString();
+            }
+            else
+            {
+                text = ToolTipService.GetToolTip(center[1]).ToString();
+            }
+
             var _mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            Detail newdialoge = new Detail("Param");
+            Detail newdialoge = new Detail(text);
             newdialoge.Owner = _mainWindow;
             newdialoge.ShowDialog();
+
+            e.Handled = true;
+
+        }
+
+        private double CekDistance(Location a, Location b)
+        {
+            return Math.Sqrt(Math.Pow(a.Longitude - b.Longitude, 2) + Math.Pow(a.Latitude - b.Latitude, 2));
         }
 
         //private void Get_Button(object sender, RoutedEventArgs e)
