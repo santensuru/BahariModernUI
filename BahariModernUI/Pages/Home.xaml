@@ -8,10 +8,10 @@
              xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF">
     <Grid Style="{StaticResource ContentRoot}">
         <m:Map Name="myMap"
-               Center="-5, 120"
-               ZoomLevel="4"
+               Center="-3, 120"
+               ZoomLevel="5"
                CredentialsProvider="AouC7mgYMB3qto9mldi9eD6hXv_B3zxUjWgloMJ9x-b8S3qMdj_oeH0jRqw9B372"
-               Mode="Road">
+               Mode="AerialWithLabels">
             
         </m:Map>
 
