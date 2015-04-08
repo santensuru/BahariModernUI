@@ -1,5 +1,8 @@
-﻿using System;
+﻿using BahariModernUI.Model;
+using FirstFloor.ModernUI.Windows.Controls;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,14 +26,56 @@ namespace BahariModernUI.Pages.Appendix
         public FreshWater()
         {
             InitializeComponent();
+
+
+            try
+            {
+                SQLiteDatabase db = new SQLiteDatabase();
+                DataTable users;
+                String query = "SELECT NAMA ";
+                query += "FROM BIOTA ";
+                query += "WHERE HABITAT = 0;";
+
+                users = db.GetDataTable(query);
+
+                List<BiotaModel> _biota = new List<BiotaModel>();
+
+                // Or looped through for some other reason
+                foreach (DataRow r in users.Rows)
+                {
+                    _biota.Add(new BiotaModel { Nama = r["NAMA"].ToString() });
+                    //MessageBox.Show( _peoples.Count().ToString() );
+                }
+
+                tStack.ItemsSource = _biota;
+            }
+            catch (Exception fail)
+            {
+                String error = "The following error has occurred:\n\n";
+                error += fail.Message.ToString() + "\n\n";
+                MessageBox.Show(error);
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+
+
+        //    var _mainWindow = (MainWindow)Application.Current.MainWindow;
+
+        //    Detail newdialoge = new Detail("Param");
+        //    newdialoge.Owner = _mainWindow;
+        //    newdialoge.ShowDialog();
+        //}
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            InitializeComponent();
             var _mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            Detail newdialoge = new Detail("Param");
+            TextBlock o = e.OriginalSource as TextBlock;
+            //ModernDialog.ShowMessage(o.Text, "", MessageBoxButton.OK);
+
+            Detail newdialoge = new Detail(o.Text);
             newdialoge.Owner = _mainWindow;
             newdialoge.ShowDialog();
         }

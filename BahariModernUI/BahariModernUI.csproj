@@ -213,6 +213,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Compile Include="Model\BiotaModel.cs" />
     <Compile Include="Model\PeopleModel.cs" />
     <Compile Include="Model\PushpinMap.cs" />
     <Compile Include="Model\SQLiteDatabase.cs">

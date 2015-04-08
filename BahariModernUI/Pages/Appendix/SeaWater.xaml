@@ -9,8 +9,17 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel MinWidth="200">
-                <TextBlock Text="BASIC PAGE" Style="{StaticResource Heading2}" />
-                <TextBlock Text="Content goes here" />
+                <ListBox x:Name="tStack">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,15" Orientation="Horizontal" VerticalAlignment="Top">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text="{Binding Nama}" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" ></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
         </ScrollViewer>
     </Grid>
