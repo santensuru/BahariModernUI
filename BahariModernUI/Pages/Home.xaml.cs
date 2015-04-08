@@ -1,7 +1,9 @@
-﻿using BahariModernUI.Pages.Appendix;
+﻿using BahariModernUI.Model;
+using BahariModernUI.Pages.Appendix;
 using Microsoft.Maps.MapControl.WPF;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,32 +24,76 @@ namespace BahariModernUI.Pages
     /// </summary>
     public partial class Home : UserControl
     {
-        Pushpin[] center = new Pushpin[3];
+        Pushpin[] center;
+        static int tot;
         
         public Home()
         {
             InitializeComponent();
-            //Pushpin[] center = new Pushpin[2];
-            center[0] = new Pushpin();
-            center[0].Location = new Location(-5, 120);
 
-            ToolTipService.SetToolTip(center[0], "Indonesia yey :D");
-            center[0].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
-            myMap.Children.Add(center[0]);
+            try
+            {
+                SQLiteDatabase db = new SQLiteDatabase();
+                DataTable biota;
+                
+                String query = "SELECT COUNT(*) AS TOT ";
+                query += "FROM BIOTA;";
+                biota = db.GetDataTable(query);
+                foreach (DataRow r in biota.Rows)
+                {
+                    tot = Convert.ToInt32(r["TOT"].ToString());
+                }
 
-            center[1] = new Pushpin();
-            center[1].Location = new Location(4, 109);
+                center = new Pushpin[tot];
 
-            ToolTipService.SetToolTip(center[1], "Penyu Blimbing");
-            center[1].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
-            myMap.Children.Add(center[1]);
+                query = "SELECT * ";
+                query += "FROM BIOTA;";
 
-            center[2] = new Pushpin();
-            center[2].Location = new Location(3, 109);
+                biota = db.GetDataTable(query);
 
-            ToolTipService.SetToolTip(center[2], "Coba 3");
-            center[2].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
-            myMap.Children.Add(center[2]);
+                //ModernDialog.ShowMessage(query, "", MessageBoxButton.OK);
+
+                int i = 0;
+                // Or looped through for some other reason
+                foreach (DataRow r in biota.Rows)
+                {
+                    center[i] = new Pushpin();
+                    center[i].Location = new Location(Convert.ToDouble(r["LATITUDE"].ToString()), Convert.ToDouble(r["LONGITUDE"].ToString()));
+
+                    ToolTipService.SetToolTip(center[0], r["NAMA"].ToString());
+                    center[i].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
+                    myMap.Children.Add(center[i]);
+                    i++;
+                }
+            }
+            catch (Exception fail)
+            {
+                String error = "The following error has occurred:\n\n";
+                error += fail.Message.ToString() + "\n\n";
+                MessageBox.Show(error);
+            }
+
+            ////Pushpin[] center = new Pushpin[2];
+            //center[0] = new Pushpin();
+            //center[0].Location = new Location(-5, 120);
+
+            //ToolTipService.SetToolTip(center[0], "Indonesia yey :D");
+            //center[0].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
+            //myMap.Children.Add(center[0]);
+
+            //center[1] = new Pushpin();
+            //center[1].Location = new Location(4, 109);
+
+            //ToolTipService.SetToolTip(center[1], "Penyu Blimbing");
+            //center[1].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
+            //myMap.Children.Add(center[1]);
+
+            //center[2] = new Pushpin();
+            //center[2].Location = new Location(3, 109);
+
+            //ToolTipService.SetToolTip(center[2], "Coba 3");
+            //center[2].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
+            //myMap.Children.Add(center[2]);
         }
 
         private void Left_Click(object sender, MouseButtonEventArgs e)
@@ -64,7 +110,7 @@ namespace BahariModernUI.Pages
             int i;
             double min = 999999999;
             int posision = 0;
-            for (i = 0; i < 3; i++)
+            for (i = 0; i < tot; i++)
             {
                 location[i] = CekDistance(center[i].Location, pinLocation);
                 if (location[i] < min)
