@@ -38,7 +38,7 @@ namespace BahariModernUI.Pages
             center[1] = new Pushpin();
             center[1].Location = new Location(4, 109);
 
-            ToolTipService.SetToolTip(center[1], "Coba 2");
+            ToolTipService.SetToolTip(center[1], "Penyu Blimbing");
             center[1].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
             myMap.Children.Add(center[1]);
 

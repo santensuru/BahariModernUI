@@ -17,7 +17,8 @@
   Name="MyRectangle"
   Width="Auto" 
   Height="Auto"
-  Fill="Blue">
+  Fill="Blue"
+  Opacity="0.35">
             <Rectangle.Triggers>
                 <!-- Animates the rectangle's opacity. -->
                 <EventTrigger RoutedEvent="Rectangle.Loaded">
@@ -34,7 +35,7 @@
             </Rectangle.Triggers>
         </Rectangle>
 
-        <Grid HorizontalAlignment="Left" Height="250" Margin="241,37,0,0" VerticalAlignment="Top" Width="250">
+        <Grid HorizontalAlignment="center" Height="500" Margin="0,0,0,0" VerticalAlignment="center" Width="500">
             <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True">
                 <!-- Remember to add light to the scene -->
                 <HelixToolkit:SunLight/>

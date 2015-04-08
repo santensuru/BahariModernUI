@@ -9,7 +9,16 @@
                   Title="ModernDialog">
 
     <!-- Note: ModernDialog buttons are defined in the constructor of the code behind class -->
+    <Grid>
+        <ScrollViewer>
+            <StackPanel MinWidth="200">
+                <Image x:Name="image" Width="200" Height="200" Stretch="UniformToFill" />
+                <TextBlock Text="PERSEBARAN" Style="{StaticResource Heading2}" Margin="0,8,0,8" />
+                <TextBlock x:Name="persebaran" />
+                <TextBlock Text="KETERANGAN" Style="{StaticResource Heading2}" Margin="0,8,0,8" />
+                <TextBlock x:Name="keterangan" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 
-    <TextBlock x:Name="dialog"  Text="Replace the content of the dialog with your own." />
-    
 </mui:ModernDialog>
