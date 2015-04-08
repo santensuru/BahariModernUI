@@ -165,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\FavoritePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PersonalityPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -233,6 +237,9 @@
     </Compile>
     <Compile Include="Pages\3dPage.xaml.cs">
       <DependentUpon>3dPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FavoritePage.xaml.cs">
+      <DependentUpon>FavoritePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PersonalityPage.xaml.cs">
       <DependentUpon>PersonalityPage.xaml</DependentUpon>

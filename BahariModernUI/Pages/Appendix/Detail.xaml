@@ -12,7 +12,16 @@
     <Grid>
         <ScrollViewer>
             <StackPanel MinWidth="200">
-                <Image x:Name="image" Width="200" Height="200" Stretch="UniformToFill" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="50"/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Margin="25,0,0,0" x:Name="image" Width="200" Height="200" Stretch="UniformToFill" />
+                    <Button x:Name="plus" Click="Plus" Grid.Column="1" Margin="0,0,0,150" ToolTip="Add To Favorite">+</Button>
+                    <Button x:Name="minus" Click="Minus" Grid.Column="1" Margin="0,0,0,150" ToolTip="Remove From Favorite">-</Button>
+                </Grid>
+                
                 <TextBlock Text="PERSEBARAN" Style="{StaticResource Heading2}" Margin="0,8,0,8" />
                 <TextBlock x:Name="persebaran" TextWrapping="Wrap" />
                 <TextBlock Text="KETERANGAN" Style="{StaticResource Heading2}" Margin="0,8,0,8" />

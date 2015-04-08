@@ -61,6 +61,17 @@ namespace BahariModernUI.Pages.Appendix
                     //ModernDialog.ShowMessage(r["GAMBAR"].ToString(), "", MessageBoxButton.OK);
                     persebaran.Text = r["PERSEBARAN"].ToString();
                     keterangan.Text = r["KETERANGAN"].ToString();
+
+                    if (r["FAVORIT"].ToString() == "1")
+                    {
+                        minus.Visibility = System.Windows.Visibility.Visible;
+                        plus.Visibility = System.Windows.Visibility.Hidden;
+                    }
+                    else
+                    {
+                        minus.Visibility = System.Windows.Visibility.Hidden;
+                        plus.Visibility = System.Windows.Visibility.Visible;
+                    }
                 }
             }
             catch (Exception fail)
@@ -103,5 +114,58 @@ namespace BahariModernUI.Pages.Appendix
             return image;
         }
 
+        private void Plus(object sender, RoutedEventArgs e)
+        {
+            minus.Visibility = System.Windows.Visibility.Visible;
+            plus.Visibility = System.Windows.Visibility.Hidden;
+
+            SQLiteDatabase db = new SQLiteDatabase();
+            Dictionary<String, String> data = new Dictionary<String, String>();
+            data.Add("FAVORIT", "1");
+
+            string condition = "NAMA LIKE '%" + this.Title + "%'";
+            try
+            {
+                if (db.Update("BIOTA", data, condition) == true)
+                {
+                    ModernDialog.ShowMessage("Set as favorite succesfully.", "Favorite", MessageBoxButton.OK);
+                }
+                else
+                {
+                    ModernDialog.ShowMessage("Set as favorite failed.", "Favorite", MessageBoxButton.OK);
+                }
+            }
+            catch (Exception crap)
+            {
+                MessageBox.Show(crap.Message);
+            }
+        }
+
+        private void Minus(object sender, RoutedEventArgs e)
+        {
+            minus.Visibility = System.Windows.Visibility.Hidden;
+            plus.Visibility = System.Windows.Visibility.Visible;
+
+            SQLiteDatabase db = new SQLiteDatabase();
+            Dictionary<String, String> data = new Dictionary<String, String>();
+            data.Add("FAVORIT", "0");
+
+            string condition = "NAMA LIKE '%" + this.Title + "%'";
+            try
+            {
+                if (db.Update("BIOTA", data, condition) == true)
+                {
+                    ModernDialog.ShowMessage("Remove from favorite succesfully.", "Favorite", MessageBoxButton.OK);
+                }
+                else
+                {
+                    ModernDialog.ShowMessage("Remove from favorite failed.", "Favorite", MessageBoxButton.OK);
+                }
+            }
+            catch (Exception crap)
+            {
+                MessageBox.Show(crap.Message);
+            }
+        }
     }
 }
