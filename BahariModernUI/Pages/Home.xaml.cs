@@ -1,5 +1,6 @@
 ﻿using BahariModernUI.Model;
 using BahariModernUI.Pages.Appendix;
+using FirstFloor.ModernUI.Windows.Controls;
 using Microsoft.Maps.MapControl.WPF;
 using System;
 using System.Collections.Generic;
@@ -37,17 +38,19 @@ namespace BahariModernUI.Pages
                 DataTable biota;
                 
                 String query = "SELECT COUNT(*) AS TOT ";
-                query += "FROM BIOTA;";
+                query += "FROM PERSEBARAN;";
                 biota = db.GetDataTable(query);
                 foreach (DataRow r in biota.Rows)
                 {
                     tot = Convert.ToInt32(r["TOT"].ToString());
                 }
 
+                //ModernDialog.ShowMessage(tot.ToString(), "", MessageBoxButton.OK);
+
                 center = new Pushpin[tot];
 
                 query = "SELECT * ";
-                query += "FROM BIOTA;";
+                query += "FROM PERSEBARAN;";
 
                 biota = db.GetDataTable(query);
 
@@ -60,7 +63,7 @@ namespace BahariModernUI.Pages
                     center[i] = new Pushpin();
                     center[i].Location = new Location(Convert.ToDouble(r["LATITUDE"].ToString()), Convert.ToDouble(r["LONGITUDE"].ToString()));
 
-                    ToolTipService.SetToolTip(center[0], r["NAMA"].ToString());
+                    ToolTipService.SetToolTip(center[i], r["NAMA"].ToString());
                     center[i].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
                     myMap.Children.Add(center[i]);
                     i++;
