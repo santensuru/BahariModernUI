@@ -1,5 +1,9 @@
-﻿using System;
+﻿using FirstFloor.ModernUI.Windows.Controls;
+using HelixToolkit.Wpf;
+using HelixToolkit.Wpf.SharpDX;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +27,25 @@ namespace BahariModernUI.Pages
         public MapPage()
         {
             InitializeComponent();
+
+            //background.AlignmentX = AlignmentX.Right;
+
+            //var mi = new ModelImporter();
+            //System.Windows.Media.Media3D.Model3DGroup currentModel = mi.Load("C:\\Users\\user\\Downloads\\Compressed\\1\\Amago.max", null, true);
+
+            //// Display the model
+            //foo.Content = currentModel;
+
+            HelixToolkit.Wpf.ObjReader CurrentHelixObjReader = new HelixToolkit.Wpf.ObjReader();
+
+            Uri uri = new Uri("C:/Users/user/Downloads/Compressed/jelly fish series jelly fish one/jellyfish series jelly fish one improved.obj", UriKind.Relative);
+            ModernDialog.ShowMessage(uri.ToString(), "", MessageBoxButton.OK);
+
+            System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelixObjReader.Read(uri.ToString());
+
+            // Display the model
+            foo.Content = MyModel;
         }
+
     }
 }

@@ -10,7 +10,7 @@
     
     <Grid Margin="17,27,17,17">
         <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Ocean-Underwater-Wallpaper-Widescreen-03.jpg" Opacity="0.85" Stretch="UniformToFill" />
+            <ImageBrush x:Name="background" ImageSource="/Assets/Ocean-Underwater-Wallpaper-Widescreen-03.jpg" Opacity="0.85" Stretch="UniformToFill" />
         </Grid.Background>
 
         <Rectangle
@@ -39,6 +39,7 @@
             <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True">
                 <!-- Remember to add light to the scene -->
                 <HelixToolkit:SunLight/>
+                <ModelVisual3D x:Name="foo"/>
                 <!-- You can also add elements here in the xaml -->
                 <HelixToolkit:GridLinesVisual3D Width="8" Length="8" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
             </HelixToolkit:HelixViewport3D>

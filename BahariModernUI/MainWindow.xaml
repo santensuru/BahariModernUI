@@ -13,6 +13,7 @@
                 <mui:Link DisplayName="3d experience" Source="/Pages/3dPage.xaml" />
                 <mui:Link DisplayName="appendix" Source="/Pages/AppendixPage.xaml" />
                 <mui:Link DisplayName="favorite" Source="/Pages/FavoritePage.xaml" />
+                <mui:Link DisplayName="game" Source="/Pages/GamePage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
         <mui:LinkGroup DisplayName="settings" GroupKey="settings">
