@@ -39,12 +39,20 @@ namespace BahariModernUI.Pages
             HelixToolkit.Wpf.ObjReader CurrentHelixObjReader = new HelixToolkit.Wpf.ObjReader();
 
             Uri uri = new Uri("C:/Users/user/Downloads/Compressed/jelly fish series jelly fish one/jellyfish series jelly fish one improved.obj", UriKind.Relative);
-            ModernDialog.ShowMessage(uri.ToString(), "", MessageBoxButton.OK);
+            //ModernDialog.ShowMessage(uri.ToString(), "", MessageBoxButton.OK);
 
             System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelixObjReader.Read(uri.ToString());
 
             // Display the model
             foo.Content = MyModel;
+
+            //foo.Transform.
+
+        }
+
+        private void myView_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            text.Text = myView.CurrentPosition.ToString();
         }
 
     }

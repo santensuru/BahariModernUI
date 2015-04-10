@@ -6,7 +6,8 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf">
+             xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
+             xmlns:ux="clr-namespace:BahariModernUI">
     
     <Grid Margin="17,27,17,17">
         <Grid.Background>
@@ -35,15 +36,77 @@
             </Rectangle.Triggers>
         </Rectangle>
 
-        <Grid HorizontalAlignment="center" Height="500" Margin="0,0,0,0" VerticalAlignment="center" Width="500">
-            <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True">
-                <!-- Remember to add light to the scene -->
-                <HelixToolkit:SunLight/>
-                <ModelVisual3D x:Name="foo"/>
-                <!-- You can also add elements here in the xaml -->
-                <HelixToolkit:GridLinesVisual3D Width="8" Length="8" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>
-            </HelixToolkit:HelixViewport3D>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="500"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+
+                <Grid.Resources>
+                    <ux:NotEmptyConverter x:Key="NotEmptyConverter" />
+
+                    <Style TargetType="{x:Type Control}" x:Key="DefaultStyle">
+                        <Setter Property="FontSize" Value="20" />
+                        <Setter Property="Margin" Value="10"/>
+                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+                    </Style>
+
+                    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultStyle}"></Style>
+
+                </Grid.Resources>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Text="Search" Foreground="DarkGray" />
+                <TextBox Grid.Row="0" Name="TextBoxEdit" 
+                Text="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
+                    <TextBox.Style>
+                        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultStyle}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=FirstName.Length, FallbackValue=0, TargetNullValue=0}" Value="0">
+                                    <Setter Property="Background" Value="Transparent"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=FirstName, FallbackValue=0, TargetNullValue=0, Converter={StaticResource NotEmptyConverter}}" Value="false">
+                                    <Setter Property="Background" Value="White"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+            <!--<Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Search" HorizontalAlignment="Right"></TextBlock>
+                <TextBox Grid.Column="1" x:Name="search" ></TextBox>
+            </Grid>-->
+            <Grid Grid.Row="1" HorizontalAlignment="center" Height="500" Margin="0,0,0,0" VerticalAlignment="center" Width="500">
+                <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True" CameraMode="WalkAround" MouseDown="myView_MouseDown" CameraRotationMode="Trackball">
+                    <!-- Remember to add light to the scene -->
+                    <HelixToolkit:SunLight/>
+                    <ModelVisual3D x:Name="foo"/>
+
+                    <!-- You can also add elements here in the xaml -->
+                    <!--<HelixToolkit:GridLinesVisual3D Width="8" Length="8" MinorDistance="1" MajorDistance="1" Thickness="0.01"/>-->
+                </HelixToolkit:HelixViewport3D>
+
+
+            </Grid>
+            <Grid Grid.Row="2">
+                <TextBlock x:Name="text" Text="Tes" FontSize="30" Foreground="White" TextAlignment="Center"/>
+            </Grid>
         </Grid>
+
+        
+
+
+
 
     </Grid>
     <!--<Grid Style="{StaticResource ContentRoot}">
