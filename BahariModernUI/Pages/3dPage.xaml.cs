@@ -75,17 +75,17 @@ namespace BahariModernUI.Pages
             }
         }
 
-        private void Left_Button(object sender, RoutedEventArgs e)
-        {
-            ax3d.Angle += 30;
-            ax3d.Angle %= 360;
-        }
+        //private void Left_Button(object sender, RoutedEventArgs e)
+        //{
+        //    ax3d.Angle += 30;
+        //    ax3d.Angle %= 360;
+        //}
 
-        private void Right_Button(object sender, RoutedEventArgs e)
-        {
-            ax3d.Angle -= 30;
-            ax3d.Angle %= 360;
-        }
+        //private void Right_Button(object sender, RoutedEventArgs e)
+        //{
+        //    ax3d.Angle -= 30;
+        //    ax3d.Angle %= 360;
+        //}
 
         private void Left_RepeatButton(object sender, RoutedEventArgs e)
         {
