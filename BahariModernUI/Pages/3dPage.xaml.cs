@@ -27,7 +27,6 @@ namespace BahariModernUI.Pages
         public MapPage()
         {
             InitializeComponent();
-
             
 
             //background.AlignmentX = AlignmentX.Right;

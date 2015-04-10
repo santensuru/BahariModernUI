@@ -53,10 +53,10 @@
             </Rectangle.Triggers>
         </Rectangle>
 
-        <Grid>
+        <Grid x:Name="layout">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
-                <RowDefinition Height="500"/>
+                <RowDefinition Height="480*"/>
                 <!--<RowDefinition Height="50"/>-->
             </Grid.RowDefinitions>
 
@@ -99,8 +99,10 @@
                 <TextBlock Grid.Column="0" Text="Search" HorizontalAlignment="Right"></TextBlock>
                 <TextBox Grid.Column="1" x:Name="search" ></TextBox>
             </Grid>-->
-            <Grid Grid.Row="1" HorizontalAlignment="center" Height="500" Margin="0,0,0,0" VerticalAlignment="center" Width="500">
-                <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True" CameraMode="WalkAround" MouseDown="myView_MouseDown" CameraRotationMode="Trackball">
+            <Grid Grid.Row="1" HorizontalAlignment="center" Margin="0,0,0,0" VerticalAlignment="center" 
+                  Height="{Binding ActualHeight, ElementName=layout}"
+                  Width="{Binding ActualWidth, ElementName=layout}">
+                <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True" CameraMode="WalkAround" MouseDown="myView_MouseDown" CameraRotationMode="Trackball" >
                     <!-- Remember to add light to the scene -->
                     <HelixToolkit:SunLight/>
                     <ModelVisual3D x:Name="foo"/>
