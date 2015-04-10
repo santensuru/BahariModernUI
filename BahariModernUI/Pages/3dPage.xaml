@@ -7,8 +7,25 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
              xmlns:HelixToolkit="clr-namespace:HelixToolkit.Wpf;assembly=HelixToolkit.Wpf"
-             xmlns:ux="clr-namespace:BahariModernUI">
-    
+             xmlns:local="clr-namespace:BahariModernUI">
+
+    <UserControl.Resources>
+
+        <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
+        <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
+        <SolidColorBrush x:Key="brushWatermarkBorder" Color="Indigo" />
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <local:TextInputToVisibilityConverter x:Key="TextInputToVisibilityConverter" />
+
+        <Style x:Key="EntryFieldStyle" TargetType="Grid" >
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="20,0" />
+        </Style>
+
+    </UserControl.Resources>
+
     <Grid Margin="17,27,17,17">
         <Grid.Background>
             <ImageBrush x:Name="background" ImageSource="/Assets/Ocean-Underwater-Wallpaper-Widescreen-03.jpg" Opacity="0.85" Stretch="UniformToFill" />
@@ -38,46 +55,42 @@
 
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="500"/>
-                <RowDefinition Height="50"/>
+                <!--<RowDefinition Height="50"/>-->
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
 
-                <Grid.Resources>
-                    <ux:NotEmptyConverter x:Key="NotEmptyConverter" />
-
-                    <Style TargetType="{x:Type Control}" x:Key="DefaultStyle">
-                        <Setter Property="FontSize" Value="20" />
-                        <Setter Property="Margin" Value="10"/>
-                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
-                        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-                    </Style>
-
-                    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultStyle}"></Style>
-
-                </Grid.Resources>
+            <Grid Background="LightBlue">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="25" />
+                    <!--<RowDefinition Height="25" />
+                    <RowDefinition />-->
                 </Grid.RowDefinitions>
-                <TextBox Grid.Row="0" Text="Search" Foreground="DarkGray" />
-                <TextBox Grid.Row="0" Name="TextBoxEdit" 
-                Text="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" >
-                    <TextBox.Style>
-                        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource DefaultStyle}">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Path=FirstName.Length, FallbackValue=0, TargetNullValue=0}" Value="0">
-                                    <Setter Property="Background" Value="Transparent"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding Path=FirstName, FallbackValue=0, TargetNullValue=0, Converter={StaticResource NotEmptyConverter}}" Value="false">
-                                    <Setter Property="Background" Value="White"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
+
+                <Grid Grid.Row="0" Background="{StaticResource brushWatermarkBackground}" Style="{StaticResource EntryFieldStyle}" >
+                    <TextBlock Margin="5,2" Text="Search..." Foreground="{StaticResource brushWatermarkForeground}"
+                       Visibility="{Binding ElementName=txtUserEntry, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <TextBox Name="txtUserEntry" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"
+                       KeyDown="txtUserEntry_KeyDown"/>
+                </Grid>
+                <!--This prompt dissappears as you type...-->
+
+                <!--<Grid Grid.Row="1" Background="{StaticResource brushWatermarkBackground}" Style="{StaticResource EntryFieldStyle}" >
+                    <TextBlock Margin="5,2" Text="This dissappears as the control gets focus..." Foreground="{StaticResource brushWatermarkForeground}" >
+                        <TextBlock.Visibility>
+                            <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
+                                <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
+                                <Binding ElementName="txtUserEntry2" Path="IsFocused" />
+                            </MultiBinding>
+                        </TextBlock.Visibility>
+                    </TextBlock>
+                    <TextBox Name="txtUserEntry2" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" />
+                </Grid>-->
+
             </Grid>
+
+
             <!--<Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -98,9 +111,9 @@
 
 
             </Grid>
-            <Grid Grid.Row="2">
+            <!--<Grid Grid.Row="2">
                 <TextBlock x:Name="text" Text="Tes" FontSize="30" Foreground="White" TextAlignment="Center"/>
-            </Grid>
+            </Grid>-->
         </Grid>
 
         

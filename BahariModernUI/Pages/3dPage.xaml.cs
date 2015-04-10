@@ -28,6 +28,8 @@ namespace BahariModernUI.Pages
         {
             InitializeComponent();
 
+            
+
             //background.AlignmentX = AlignmentX.Right;
 
             //var mi = new ModelImporter();
@@ -52,7 +54,17 @@ namespace BahariModernUI.Pages
 
         private void myView_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            text.Text = myView.CurrentPosition.ToString();
+            //text.Text = myView.CurrentPosition.ToString();
+        }
+
+        private void txtUserEntry_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                ModernDialog.ShowMessage(txtUserEntry.Text.ToString(), "", MessageBoxButton.OK);
+
+
+            }
         }
 
     }
