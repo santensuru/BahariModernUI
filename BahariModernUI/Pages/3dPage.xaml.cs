@@ -1,8 +1,10 @@
-﻿using FirstFloor.ModernUI.Windows.Controls;
+﻿using BahariModernUI.Model;
+using FirstFloor.ModernUI.Windows.Controls;
 using HelixToolkit.Wpf;
 using HelixToolkit.Wpf.SharpDX;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,11 +29,45 @@ namespace BahariModernUI.Pages
     {
 
         AxisAngleRotation3D ax3d;
+        byte[] stream;
             
         public MapPage()
         {
             InitializeComponent();
-            
+
+            try
+            {
+                SQLiteDatabase db = new SQLiteDatabase();
+                DataTable biota;
+
+                String query = "SELECT * ";
+                query += "FROM OBJEK ";
+                query += "WHERE NAMA LIKE '%Tuna%';";
+
+                biota = db.GetDataTable(query);
+
+                //ModernDialog.ShowMessage(query, "", MessageBoxButton.OK);
+
+                // Or looped through for some other reason
+                foreach (DataRow r in biota.Rows)
+                {
+                    //string temp = r["DATA"].ToString();
+                    //stream = new byte[temp.Length * sizeof(char)];
+                    //stream = GetBytes(temp);
+                    
+                    stream = new byte[((byte[])r["DATA"]).Length];
+                    stream = ((byte[])r["DATA"]);
+                    //ModernDialog.ShowMessage(stream.ToString(), "", MessageBoxButton.OK);
+                }
+            }
+            catch (Exception fail)
+            {
+                String error = "The following error has occurred:\n\n";
+                error += fail.Message.ToString() + "\n\n";
+                MessageBox.Show(error);
+            }
+
+            Stream streams = new MemoryStream(stream);
 
             //background.AlignmentX = AlignmentX.Right;
 
@@ -41,18 +77,23 @@ namespace BahariModernUI.Pages
             //// Display the model
             //foo.Content = currentModel;
 
-            HelixToolkit.Wpf.ObjReader CurrentHelixObjReader = new HelixToolkit.Wpf.ObjReader();
+            //HelixToolkit.Wpf.ObjReader CurrentHelixObjReader = new HelixToolkit.Wpf.ObjReader();
 
-            Uri uri = new Uri("C:/Users/user/Downloads/Compressed/Tuna/Tuna/TUNA.obj", UriKind.Relative);
+            //Uri uri = new Uri("C:/Users/user/Downloads/Compressed/Tuna/Tuna/TUNA.obj", UriKind.Relative);
             //Uri uri = new Uri("C:/Users/user/Downloads/Compressed/jelly fish series jelly fish one/jellyfish series jelly fish one improved.obj", UriKind.Relative);
             //ModernDialog.ShowMessage(uri.ToString(), "", MessageBoxButton.OK);
 
-            System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelixObjReader.Read(uri.ToString());
+            //System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelixObjReader.Read(streams);
+
+            HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
+            //Uri uri = new Uri("C:/Users/user/Downloads/Compressed/Tuna/Tuna/TUNA.3ds", UriKind.Relative);
+
+            System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
 
             // Display the model
             foo.Content = MyModel;
 
-            ax3d = new AxisAngleRotation3D(new Vector3D(0, 2, 0), 1);
+            ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 2), 1); // 0bj -> 0 2 0
             RotateTransform3D myRotateTransform = new RotateTransform3D(ax3d);
             foo.Transform = myRotateTransform;
 
@@ -69,8 +110,50 @@ namespace BahariModernUI.Pages
         {
             if (e.Key == Key.Return)
             {
-                ModernDialog.ShowMessage(txtUserEntry.Text.ToString(), "", MessageBoxButton.OK);
+                //ModernDialog.ShowMessage(txtUserEntry.Text.ToString(), "", MessageBoxButton.OK);
+                stream = null;
 
+                try
+                {
+                    SQLiteDatabase db = new SQLiteDatabase();
+                    DataTable biota;
+
+                    String query = "SELECT * ";
+                    query += "FROM OBJEK ";
+                    query += "WHERE NAMA LIKE '%" + txtUserEntry.Text.ToString() + "%';";
+
+                    biota = db.GetDataTable(query);
+
+                    // Or looped through for some other reason
+                    foreach (DataRow r in biota.Rows)
+                    {
+                        stream = new byte[((byte[])r["DATA"]).Length];
+                        stream = ((byte[])r["DATA"]);
+                    }
+                }
+                catch (Exception fail)
+                {
+                    String error = "The following error has occurred:\n\n";
+                    error += fail.Message.ToString() + "\n\n";
+                    MessageBox.Show(error);
+                }
+
+                if (stream == null)
+                {
+                    ModernDialog.ShowMessage(txtUserEntry.Text.ToString() + " not found.", "3D Experience", MessageBoxButton.OK);
+                }
+                else
+                {
+
+                    Stream streams = new MemoryStream(stream);
+
+                    HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
+
+                    System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
+
+                    // Display the model
+                    foo.Content = MyModel;
+                }
 
             }
         }
@@ -98,5 +181,15 @@ namespace BahariModernUI.Pages
             ax3d.Angle -= 10;
             ax3d.Angle %= 360;
         }
+
+
+        //static byte[] GetBytes(string str)
+        //{
+        //    byte[] bytes = new byte[str.Length * sizeof(char)];
+        //    System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+        //    return bytes;
+        //}
+
+
     }
 }
