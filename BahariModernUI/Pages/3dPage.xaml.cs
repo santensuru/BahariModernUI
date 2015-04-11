@@ -35,6 +35,8 @@ namespace BahariModernUI.Pages
         {
             InitializeComponent();
 
+            myView.Camera = new System.Windows.Media.Media3D.PerspectiveCamera { Position = new Point3D(0, 0, 0), LookDirection = new Vector3D(0, -1, 0), UpDirection = new Vector3D(0, 0, 1) };
+
             try
             {
                 SQLiteDatabase db = new SQLiteDatabase();
@@ -93,11 +95,9 @@ namespace BahariModernUI.Pages
             // Display the model
             foo.Content = MyModel;
 
-            ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 2), 1); // 0bj -> 0 2 0
+            ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 2), 180); // 0bj -> 0 2 0
             RotateTransform3D myRotateTransform = new RotateTransform3D(ax3d);
             foo.Transform = myRotateTransform;
-
-            //foo.Transform.
 
         }
 
@@ -180,6 +180,11 @@ namespace BahariModernUI.Pages
         {
             ax3d.Angle -= 10;
             ax3d.Angle %= 360;
+        }
+
+        private void Load(object sender, RoutedEventArgs e)
+        {
+            ax3d.Angle = 180;
         }
 
 
