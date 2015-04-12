@@ -35,7 +35,10 @@ namespace BahariModernUI.Pages
         {
             InitializeComponent();
 
-            myView.Camera = new System.Windows.Media.Media3D.PerspectiveCamera { Position = new Point3D(0, 0, 0), LookDirection = new Vector3D(0, -1, 0), UpDirection = new Vector3D(0, 0, 1) };
+            myView.Camera = new System.Windows.Media.Media3D.OrthographicCamera { Position = new Point3D(0, 0, 0), LookDirection = new Vector3D(0, -1, 0), UpDirection = new Vector3D(0, 0, 1) };
+            myView.ShowFrameRate = true;
+            myView.IsRotationEnabled = false;
+            myView.IsMoveEnabled = false;
 
             try
             {
