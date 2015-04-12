@@ -35,7 +35,7 @@ namespace BahariModernUI.Pages
         {
             InitializeComponent();
 
-            myView.Camera = new System.Windows.Media.Media3D.OrthographicCamera { Position = new Point3D(0, 0, 0), LookDirection = new Vector3D(0, -1, 0), UpDirection = new Vector3D(0, 0, 1) };
+            myView.Camera = new System.Windows.Media.Media3D.OrthographicCamera { Position = new Point3D(0, -10000, 0), LookDirection = new Vector3D(0, -1000, 0), UpDirection = new Vector3D(0, 0, 1000) };
             myView.ShowFrameRate = true;
             myView.IsRotationEnabled = false;
             myView.IsMoveEnabled = false;
@@ -98,7 +98,7 @@ namespace BahariModernUI.Pages
             // Display the model
             foo.Content = MyModel;
 
-            ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 2), 180); // 0bj -> 0 2 0
+            ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 3), 180); // 0bj -> 0 2 0
             RotateTransform3D myRotateTransform = new RotateTransform3D(ax3d);
             foo.Transform = myRotateTransform;
 
