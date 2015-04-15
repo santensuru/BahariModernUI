@@ -1,10 +1,13 @@
-﻿using FirstFloor.ModernUI.Presentation;
+﻿using BahariModernUI.Model;
+using FirstFloor.ModernUI.Presentation;
+using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace BahariModernUI.Pages.Settings
@@ -79,7 +82,40 @@ namespace BahariModernUI.Pages.Settings
 
             // and make sure accent color is up-to-date
             this.SelectedAccentColor = AppearanceManager.Current.AccentColor;
+
+            //// save themes
+            //GoSaveThemes();
         }
+
+        //private void GoSaveThemes()
+        //{
+        //    SQLiteDatabase db = new SQLiteDatabase();
+
+        //    Dictionary<String, String> data = new Dictionary<String, String>();
+        //    data.Add("THEME", this.SelectedTheme.DisplayName);
+        //    data.Add("COLOR", this.SelectedAccentColor.ToString());
+        //    data.Add("FONT", this.SelectedFontSize);
+
+        //    ModernDialog.ShowMessage(data.ElementAt(0).Value + " " + data.ElementAt(1).Value + " " + data.ElementAt(2).Value, "Themes", MessageBoxButton.OK);
+
+        //    string condition = "WHERE ID = 1;";
+        //    try
+        //    {
+        //        if (db.Update("SETTING", data, condition) == true)
+        //        {
+        //            ModernDialog.ShowMessage("Saved :) .", "Themes", MessageBoxButton.OK);
+        //        }
+        //        else
+        //        {
+        //            ModernDialog.ShowMessage("Failed :( , Please try again.", "Themes", MessageBoxButton.OK);
+        //        }
+        //    }
+        //    catch (Exception crap)
+        //    {
+        //        MessageBox.Show(crap.Message);
+        //    }
+
+        //}
 
         private void OnAppearanceManagerPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

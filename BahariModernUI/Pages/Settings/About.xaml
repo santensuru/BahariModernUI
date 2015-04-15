@@ -9,7 +9,11 @@
         <ScrollViewer>
             <StackPanel MinWidth="200">
                 <TextBlock Text="ABOUT" Style="{StaticResource Heading2}" />
-                <TextBlock Text="Bahari is an application for educating people about Indonesian water habitat." Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock x:Name="about" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock Text="POWERED BY" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="poweredBy" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock Text="LICENSE" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="license" Margin="0,0,0,8" TextWrapping="Wrap" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
