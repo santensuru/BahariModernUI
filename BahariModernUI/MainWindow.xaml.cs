@@ -30,10 +30,13 @@ namespace BahariModernUI
         {
             InitializeComponent();
             app.LoginName = "";
+            app.LoginUser = "";
 
             String color = "";
             String theme = "";
             String font = "";
+            String login = "";
+            String name = "";
             try
             {
                 SQLiteDatabase db = new SQLiteDatabase();
@@ -46,13 +49,13 @@ namespace BahariModernUI
 
                 //ModernDialog.ShowMessage(query, "", MessageBoxButton.OK);
 
-                int i = 0;
                 // Or looped through for some other reason
                 foreach (DataRow r in biota.Rows)
                 {
                     color = r["COLOR"].ToString();
                     theme = r["THEME"].ToString();
                     font = r["FONT"].ToString();
+                    login = r["LOGIN"].ToString();
                 }
             }
             catch (Exception fail)
@@ -76,7 +79,38 @@ namespace BahariModernUI
                 if (font == "small")
                     AppearanceManager.Current.FontSize = FirstFloor.ModernUI.Presentation.FontSize.Small;
             }
-            
+
+            if (login != "")
+            {
+                app.LoginUser = login;
+
+                try
+                {
+                    SQLiteDatabase db = new SQLiteDatabase();
+                    DataTable users;
+                    String query = "SELECT NAME \"Name\" ";
+                    query += "FROM USER ";
+                    query += "WHERE USERNAME = '" + login + "';";
+
+                    users = db.GetDataTable(query);
+
+                    // Or looped through for some other reason
+                    foreach (DataRow r in users.Rows)
+                    {
+                        name = r["Name"].ToString();
+                    }
+                }
+                catch (Exception fail)
+                {
+                    String error = "The following error has occurred:\n\n";
+                    error += fail.Message.ToString() + "\n\n";
+                    MessageBox.Show(error);
+                }
+
+                app.LoginName = name;
+
+                //MessageBox.Show(name);
+            }
         }
 
         static byte[] StringToByteArray(string hex)

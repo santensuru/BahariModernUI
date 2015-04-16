@@ -69,6 +69,8 @@ namespace BahariModernUI.Pages.Personality
                 this.login.Visibility = System.Windows.Visibility.Visible; 
                 this.logout.Visibility = System.Windows.Visibility.Hidden;
             }
+
+            Reload();
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -112,6 +114,7 @@ namespace BahariModernUI.Pages.Personality
                         this.password.Password = "";
                         this.login.Visibility = System.Windows.Visibility.Hidden;
                         this.logout.Visibility = System.Windows.Visibility.Visible;
+                        logindata(app.LoginUser);
                         Reload();
 
                     }
@@ -153,6 +156,7 @@ namespace BahariModernUI.Pages.Personality
                         ModernDialog.ShowMessage("Success :) . Auto login.", "Registration", MessageBoxButton.OK);
                         this.login.Visibility = System.Windows.Visibility.Hidden;
                         this.logout.Visibility = System.Windows.Visibility.Visible;
+                        logindata(app.LoginUser);
                         Reload();
                     }
                     else
@@ -174,6 +178,8 @@ namespace BahariModernUI.Pages.Personality
         {
             app.LoginName = "";
             app.LoginUser = "";
+
+            logindata("");
 
             ModernDialog.ShowMessage("Logout.", "Logout", MessageBoxButton.OK);
 
@@ -207,6 +213,29 @@ namespace BahariModernUI.Pages.Personality
                 String error = "The following error has occurred:\n\n";
                 error += fail.Message.ToString() + "\n\n";
                 MessageBox.Show(error);
+            }
+        }
+
+        private void logindata(string who) {
+            SQLiteDatabase db = new SQLiteDatabase();
+            Dictionary<String, String> data = new Dictionary<String, String>();
+            data.Add("LOGIN", who);
+
+            string condition = "ID = 1";
+            try
+            {
+                if (db.Update("SETTING", data, condition) == true)
+                {
+                    //ModernDialog.ShowMessage("Set as favorite succesfully.", "Favorite", MessageBoxButton.OK);
+                }
+                else
+                {
+                    //ModernDialog.ShowMessage("Set as favorite failed.", "Favorite", MessageBoxButton.OK);
+                }
+            }
+            catch (Exception crap)
+            {
+                MessageBox.Show(crap.Message);
             }
         }
     }
