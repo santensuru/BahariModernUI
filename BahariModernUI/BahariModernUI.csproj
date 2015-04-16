@@ -47,7 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>digital-ocean.ico</ApplicationIcon>
+    <ApplicationIcon>logo terangi bahari 2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -351,10 +351,13 @@
   <ItemGroup>
     <Resource Include="Pages\Game\fishy.swf" />
     <Resource Include="Pages\Game\FishyFlashGame.htm" />
+    <SplashScreen Include="Assets\logo terangi bahari 2.png" />
+    <Content Include="Assets\logo terangi bahari 2.ico" />
+    <Content Include="logo terangi bahari 2.ico" />
     <Content Include="sharpdx_direct3d11_effects_x64.dll" />
     <Content Include="sharpdx_direct3d11_effects_x86.dll" />
     <Resource Include="Assets\digital-ocean.ico" />
-    <SplashScreen Include="Assets\digital-ocean.png" />
+    <None Include="Assets\digital-ocean.png" />
     <Resource Include="Assets\Ocean-Underwater-Wallpaper-Widescreen-03.jpg" />
     <Content Include="digital-ocean.ico" />
   </ItemGroup>
