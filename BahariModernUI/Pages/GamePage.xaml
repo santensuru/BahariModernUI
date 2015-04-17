@@ -8,7 +8,21 @@
              d:DesignHeight="300" d:DesignWidth="300"
              Loaded="Load">
     <Grid Style="{StaticResource ContentRoot}">
-        <WebBrowser Name="webBrowser" Focusable="True" ></WebBrowser>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="25" />
+        </Grid.RowDefinitions>
+        <WebBrowser Grid.Row="0"
+                    Name="webBrowser" Focusable="True" MinWidth="600" MinHeight="450"
+                    MaxWidth="810" MaxHeight="600"
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                    ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                    UseLayoutRounding="True" ForceCursor="True"
+                    Cursor="Hand" ></WebBrowser>
+       
+        <TextBlock Grid.Row="1" x:Name="detail"
+            Text="source: http://www.ausarabexplore.info/interactives/coral/coral.html"
+            TextAlignment="Center" />
     </Grid>
 </UserControl>

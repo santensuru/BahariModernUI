@@ -25,7 +25,7 @@ namespace BahariModernUI.Pages.Settings
             InitializeComponent();
 
             this.about.Text = "Terangi Bahari is an application for educating people about Indonesian water habitat.";
-            this.poweredBy.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite";
+            this.poweredBy.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite\nwww.ausarabexplore.info";
             this.license.Text = "-";
         }
     }
