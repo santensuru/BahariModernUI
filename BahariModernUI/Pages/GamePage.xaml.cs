@@ -36,6 +36,9 @@ namespace BahariModernUI.Pages
             var brush = (Brush)converter.ConvertFromString(AppearanceManager.Current.AccentColor.ToString());
 
             detail.Foreground = brush;
+
+            //System.Windows.Forms.HtmlDocument document = (System.Windows.Forms.HtmlDocument)webBrowser.Document;
+            //document.Body.Style = "background-color:" + AppearanceManager.Current.AccentColor.ToString();
         }
 
         //void webBrowser_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -60,6 +63,9 @@ namespace BahariModernUI.Pages
             var brush = (Brush)converter.ConvertFromString(AppearanceManager.Current.AccentColor.ToString());
 
             detail.Foreground = brush;
+
+            //System.Windows.Forms.HtmlDocument document = (System.Windows.Forms.HtmlDocument)webBrowser.Document;
+            //document.Body.Style = "background-color:" + AppearanceManager.Current.AccentColor.ToString();
         }
     }
 }

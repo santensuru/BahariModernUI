@@ -14,14 +14,14 @@
         </Grid.RowDefinitions>
         <WebBrowser Grid.Row="0"
                     Name="webBrowser" Focusable="True" MinWidth="600" MinHeight="450"
-                    MaxWidth="810" MaxHeight="600"
+                    MaxWidth="810" MaxHeight="570"
                     VerticalAlignment="Center" HorizontalAlignment="Center"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"
                     UseLayoutRounding="True" ForceCursor="True"
                     Cursor="Hand" ></WebBrowser>
        
-        <TextBlock Grid.Row="1" x:Name="detail"
+        <TextBlock Grid.Row="1" x:Name="detail" Margin="0,8,0,0"
             Text="source: http://www.ausarabexplore.info/interactives/coral/coral.html"
             TextAlignment="Center" />
     </Grid>
