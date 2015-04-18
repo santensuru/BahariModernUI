@@ -120,5 +120,12 @@ namespace BahariModernUI
                              .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
                              .ToArray();
         }
+
+        private void ModernWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Left = (System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Right - this.Width) / 2;
+            this.Top = (System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2;
+            //this.Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;
+        }
     }
 }
