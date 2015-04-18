@@ -53,19 +53,19 @@ namespace BahariModernUI.Pages
         //    //throw new NotImplementedException();
         //}
 
-        private void Load(object sender, RoutedEventArgs e)
-        {
-            webBrowser.Navigate("C:/Users/user/Documents/Visual Studio 2013/Projects/BahariModernUI/BahariModernUI/Pages/Game/FishyFlashGame.htm");
-            webBrowser.Focusable = true;
-            webBrowser.Focus();
+        //private void Load(object sender, RoutedEventArgs e)
+        //{
+        //    webBrowser.Navigate("C:/Users/user/Documents/Visual Studio 2013/Projects/BahariModernUI/BahariModernUI/Pages/Game/FishyFlashGame.htm");
+        //    webBrowser.Focusable = true;
+        //    webBrowser.Focus();
 
-            var converter = new System.Windows.Media.BrushConverter();
-            var brush = (Brush)converter.ConvertFromString(AppearanceManager.Current.AccentColor.ToString());
+        //    var converter = new System.Windows.Media.BrushConverter();
+        //    var brush = (Brush)converter.ConvertFromString(AppearanceManager.Current.AccentColor.ToString());
 
-            detail.Foreground = brush;
+        //    detail.Foreground = brush;
 
-            //System.Windows.Forms.HtmlDocument document = (System.Windows.Forms.HtmlDocument)webBrowser.Document;
-            //document.Body.Style = "background-color:" + AppearanceManager.Current.AccentColor.ToString();
-        }
+        //    //System.Windows.Forms.HtmlDocument document = (System.Windows.Forms.HtmlDocument)webBrowser.Document;
+        //    //document.Body.Style = "background-color:" + AppearanceManager.Current.AccentColor.ToString();
+        //}
     }
 }

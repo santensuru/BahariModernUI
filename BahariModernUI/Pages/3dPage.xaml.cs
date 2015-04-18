@@ -15,6 +15,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
@@ -100,7 +101,16 @@ namespace BahariModernUI.Pages
 
             ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 3), 180); // 0bj -> 0 2 0
             RotateTransform3D myRotateTransform = new RotateTransform3D(ax3d);
+
+            //Vector3DAnimation vAnimation = new
+            //    Vector3DAnimation(new Vector3D(0, 0, -3),// new Vector3D(0, 3, 0),
+            //    new Duration(TimeSpan.FromMilliseconds(1000)));
+            //vAnimation.RepeatBehavior = RepeatBehavior.Forever;
+            //myRotateTransform.Rotation.BeginAnimation(AxisAngleRotation3D.AxisProperty,
+            //vAnimation);
+
             foo.Transform = myRotateTransform;
+
 
         }
 
