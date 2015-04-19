@@ -14,6 +14,11 @@
                Mode="AerialWithLabels">
             
         </m:Map>
+        <ComboBox x:Name="dropDown" SelectionChanged="ComboBox_SelectionChanged" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <ComboBoxItem Content="Biota Laut" IsSelected="True" />
+            <ComboBoxItem Content="Terumbu Karang" />
+            <ComboBoxItem Content="Kawasan Konservasi" />
+        </ComboBox>
 
         <!--<StackPanel HorizontalAlignment="Left">
             <Button Content="Get My Location" Click="Get_Button" Width="105" Height="27" />

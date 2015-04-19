@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -38,7 +39,8 @@ namespace BahariModernUI.Pages
                 DataTable biota;
                 
                 String query = "SELECT COUNT(*) AS TOT ";
-                query += "FROM PERSEBARAN;";
+                query += "FROM PERSEBARAN ";
+                query += "WHERE JENIS LIKE '%Biota Laut%';";
                 biota = db.GetDataTable(query);
                 foreach (DataRow r in biota.Rows)
                 {
@@ -50,7 +52,8 @@ namespace BahariModernUI.Pages
                 center = new Pushpin[tot];
 
                 query = "SELECT * ";
-                query += "FROM PERSEBARAN;";
+                query += "FROM PERSEBARAN ";
+                query += "WHERE JENIS LIKE '%Biota Laut%';";
 
                 biota = db.GetDataTable(query);
 
@@ -140,10 +143,20 @@ namespace BahariModernUI.Pages
 
             var _mainWindow = (MainWindow)Application.Current.MainWindow;
 
-            Detail newdialoge = new Detail(text);
-            newdialoge.Owner = _mainWindow;
-            newdialoge.ShowDialog();
-
+            ContentControl selectedText = dropDown.SelectedItem as ContentControl;
+            if (selectedText.Content.ToString() != "Kawasan Konservasi")
+            {
+                Detail newdialoge = new Detail(text);
+                newdialoge.Owner = _mainWindow;
+                newdialoge.ShowDialog();
+            }
+            else
+            {
+                DetailKawasan newdialoge = new DetailKawasan(text);
+                newdialoge.Owner = _mainWindow;
+                newdialoge.ShowDialog();
+            }
+            
             e.Handled = true;
 
         }
@@ -152,6 +165,57 @@ namespace BahariModernUI.Pages
         {
             //return Math.Sqrt(Math.Pow(a.Longitude - b.Longitude, 2) + Math.Pow(a.Latitude - b.Latitude, 2));
             return Math.Abs(a.Longitude - b.Longitude) + Math.Abs(a.Latitude - b.Latitude);
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ContentControl selectedText = dropDown.SelectedItem as ContentControl;
+            //ModernDialog.ShowMessage(selectedText.Content.ToString(), "", MessageBoxButton.OK);
+
+            myMap.Children.Clear(); 
+            
+            try
+            {
+                SQLiteDatabase db = new SQLiteDatabase();
+                DataTable biota;
+
+                String query = "SELECT COUNT(*) AS TOT ";
+                query += "FROM PERSEBARAN ";
+                query += "WHERE JENIS LIKE '%" + selectedText.Content.ToString() + "%';";
+                biota = db.GetDataTable(query);
+                foreach (DataRow r in biota.Rows)
+                {
+                    tot = Convert.ToInt32(r["TOT"].ToString());
+                }
+
+                center = new Pushpin[tot];
+
+                query = "SELECT * ";
+                query += "FROM PERSEBARAN ";
+                query += "WHERE JENIS LIKE '%" + selectedText.Content.ToString() + "%';";
+
+                biota = db.GetDataTable(query);
+
+                int i = 0;
+                // Or looped through for some other reason
+                foreach (DataRow r in biota.Rows)
+                {
+                    center[i] = new Pushpin();
+                    center[i].Location = new Location(Convert.ToDouble(r["LATITUDE"].ToString()), Convert.ToDouble(r["LONGITUDE"].ToString()));
+
+                    ToolTipService.SetToolTip(center[i], r["NAMA"].ToString());
+                    center[i].MouseLeftButtonDown += new MouseButtonEventHandler(Left_Click);
+                    myMap.Children.Add(center[i]);
+                    i++;
+                }
+            }
+            catch (Exception fail)
+            {
+                String error = "The following error has occurred:\n\n";
+                error += fail.Message.ToString() + "\n\n";
+                MessageBox.Show(error);
+            }
+            
         }
 
         //private void Get_Button(object sender, RoutedEventArgs e)
