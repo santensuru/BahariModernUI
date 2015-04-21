@@ -194,7 +194,7 @@ namespace BahariModernUI.Pages.Personality
             {
                 SQLiteDatabase db = new SQLiteDatabase();
                 DataTable users;
-                String query = "SELECT NAME \"Name\" ";
+                String query = "SELECT NAME, SCORE ";
                 query += "FROM USER ";
                 query += "WHERE USERNAME = '" + app.LoginUser + "';";
 
@@ -203,7 +203,8 @@ namespace BahariModernUI.Pages.Personality
                 // Or looped through for some other reason
                 foreach (DataRow r in users.Rows)
                 {
-                    this.name.Text = r["Name"].ToString().ToUpper();
+                    this.name.Text = r["NAME"].ToString().ToUpper();
+                    this.score.Text = r["SCORE"].ToString();
                     //this.score.Text = "0";
                     //this.photo.Source = null;
                 }

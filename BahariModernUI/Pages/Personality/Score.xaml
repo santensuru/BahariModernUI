@@ -5,12 +5,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300"
+             Loaded="Load">
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel MinWidth="200">
-                <TextBlock Text="BASIC PAGE" Style="{StaticResource Heading2}" />
-                <TextBlock Text="Content goes here" />
+                <StackPanel Margin="0,0,0,15" Orientation="Horizontal" VerticalAlignment="Top">
+                    <TextBlock Text="NAME" Style="{StaticResource Heading2}" Margin="0,0,0,8" Width="200" />
+                    <TextBlock Text="SCORE" Style="{StaticResource Heading2}" Margin="0,0,0,8" Width="48" />
+                </StackPanel>
+                <ListBox x:Name="tStack">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,15" Orientation="Horizontal" VerticalAlignment="Top">
+                                <TextBlock Text="{Binding Name}" Width="200"></TextBlock>
+                                <TextBlock Text="{Binding Score}" Width="48" TextAlignment="Right"></TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
             </StackPanel>
         </ScrollViewer>
     </Grid>

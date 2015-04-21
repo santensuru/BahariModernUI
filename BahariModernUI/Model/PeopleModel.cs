@@ -9,5 +9,6 @@ namespace BahariModernUI.Model
     class PeopleModel
     {
         public String Name { set; get; }
+        public int Score { set; get; }
     }
 }

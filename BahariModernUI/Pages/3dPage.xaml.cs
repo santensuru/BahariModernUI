@@ -31,10 +31,17 @@ namespace BahariModernUI.Pages
 
         AxisAngleRotation3D ax3d;
         byte[] stream;
+        bool lockedToggle = false;
             
         public MapPage()
         {
             InitializeComponent();
+
+            toggle.Content = "off";
+            toggle.IsChecked = false;
+
+            // if realsense not detected
+            // lockedToggle = true;
 
             myView.Camera = new System.Windows.Media.Media3D.OrthographicCamera { Position = new Point3D(0, -10000, 0), LookDirection = new Vector3D(0, -1000, 0), UpDirection = new Vector3D(0, 0, 1000) };
             myView.ShowFrameRate = true;
@@ -200,6 +207,24 @@ namespace BahariModernUI.Pages
             ax3d.Angle = 180;
         }
 
+        private void ToggleClick(object sender, RoutedEventArgs e)
+        {
+            if (toggle.Content.Equals("on") && lockedToggle == false)
+            {
+                toggle.Content = "off";
+                toggle.IsChecked = false;
+            }
+            else if (toggle.Content.Equals("off") && lockedToggle == false)
+            {
+                toggle.Content = "on";
+                toggle.IsChecked = true;
+            }
+
+            if (toggle.IsChecked == true && lockedToggle == false)
+            {
+                // enable realsense
+            }
+        }
 
         //static byte[] GetBytes(string str)
         //{
