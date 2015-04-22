@@ -26,7 +26,7 @@ namespace BahariModernUI.Pages
         {
             InitializeComponent();
 
-            webBrowser.Navigate("C:/Users/user/Documents/Visual Studio 2013/Projects/BahariModernUI/BahariModernUI/Pages/Game/FishyFlashGame.htm");
+            webBrowser.Navigate(new Uri("http://www.ausarabexplore.info/interactives/coral/coral.html", UriKind.RelativeOrAbsolute));
             //webBrowser.PreviewKeyDown += webBrowser_PreviewKeyDown;
             //webBrowser.KeyDown += webBrowser_KeyDown;
             webBrowser.Focusable = true;

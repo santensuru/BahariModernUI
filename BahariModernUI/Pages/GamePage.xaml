@@ -13,7 +13,7 @@
             <RowDefinition Height="25" />
         </Grid.RowDefinitions>
         <WebBrowser Grid.Row="0" Name="webBrowser" Focusable="True"
-                    Width="810" Height="575" Cursor="Hand"
+                    Width="810" Height="555" Cursor="Hand"
                     VerticalAlignment="Center" HorizontalAlignment="Center"
                     ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                     ScrollViewer.VerticalScrollBarVisibility="Hidden"

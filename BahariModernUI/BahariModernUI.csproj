@@ -361,7 +361,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pages\Game\fishy.swf" />
-    <Resource Include="Pages\Game\FishyFlashGame.htm" />
+    <EmbeddedResource Include="Pages\Game\FishyFlashGame.htm" />
     <SplashScreen Include="Assets\logo terangi bahari 2.png" />
     <Content Include="Assets\logo terangi bahari 2.ico" />
     <Resource Include="Assets\logo terangi bahari about.png" />
