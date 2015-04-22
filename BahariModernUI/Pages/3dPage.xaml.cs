@@ -8,6 +8,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -31,7 +32,9 @@ namespace BahariModernUI.Pages
 
         AxisAngleRotation3D ax3d;
         byte[] stream;
-        bool lockedToggle = false;
+        //bool lockedToggle = false;
+
+        Dictionary<string, Thread> threads = new Dictionary<string,Thread>();
             
         public MapPage()
         {
@@ -39,9 +42,10 @@ namespace BahariModernUI.Pages
 
             toggle.Content = "off";
             toggle.IsChecked = false;
-
+            
             // if realsense not detected
             // lockedToggle = true;
+            //toggle.IsEnabled = false;
 
             myView.Camera = new System.Windows.Media.Media3D.OrthographicCamera { Position = new Point3D(0, -10000, 0), LookDirection = new Vector3D(0, -1000, 0), UpDirection = new Vector3D(0, 0, 1000) };
             myView.ShowFrameRate = true;
@@ -209,21 +213,67 @@ namespace BahariModernUI.Pages
 
         private void ToggleClick(object sender, RoutedEventArgs e)
         {
-            if (toggle.Content.Equals("on") && lockedToggle == false)
+            if (toggle.Content.Equals("on"))
             {
                 toggle.Content = "off";
                 toggle.IsChecked = false;
             }
-            else if (toggle.Content.Equals("off") && lockedToggle == false)
+            else if (toggle.Content.Equals("off"))
             {
                 toggle.Content = "on";
                 toggle.IsChecked = true;
             }
 
-            if (toggle.IsChecked == true && lockedToggle == false)
+            if (toggle.IsChecked == true)
             {
                 // enable realsense
+
+                Thread thread = new Thread(ada);
+                thread.Start();
+                threads.Add("realsense", thread);
+                Thread.Sleep(5);
             }
+            else
+            {
+                Thread thread = threads["realsense"];
+                thread.Abort();
+                threads.Clear();
+            }
+        }
+
+        public void ada()
+        {
+            // Create an instance of the SenseManager.
+            PXCMSenseManager sm = PXCMSenseManager.CreateInstance();
+
+            sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR, 640, 480, 30);
+
+            // Enable hand tracking
+            sm.EnableHand();
+
+            // Get a hand instance here (or inside the AcquireFrame/ReleaseFrame loop) for querying features
+            PXCMHandModule hand = sm.QueryHand();
+            MessageBox.Show("start");
+
+            // Initialize the pipeline
+            sm.Init();
+
+            // Stream data
+            while (sm.AcquireFrame(true) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
+            {
+                // retrieve hand tracking results if ready
+                PXCMHandModule hand2 = sm.QueryHand();
+                if (hand2 != null)
+                {
+                    //MessageBox.Show("lepas");
+                }
+
+                // resume next frame processing
+                sm.ReleaseFrame();
+            }
+
+            // Clean up
+            sm.Dispose();
         }
 
         //static byte[] GetBytes(string str)
