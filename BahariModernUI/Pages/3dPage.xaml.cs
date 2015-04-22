@@ -249,6 +249,7 @@ namespace BahariModernUI.Pages
                 _handConfig = handManager.CreateActiveConfiguration();
                 _handConfig.EnableGesture("thumb_up");
                 _handConfig.EnableGesture("thumb_down");
+                _handConfig.EnableGesture("spreadfingers");
                 _handConfig.EnableAllAlerts();
                 _handConfig.ApplyChanges();
 
@@ -268,11 +269,13 @@ namespace BahariModernUI.Pages
                 sm.Dispose();
 
                 threads.Clear();
+                Thread.Sleep(5);
             }
         }
 
         // thread
-        public void HandRecognition()
+        //delegate void HandRecognitionCallback();
+        private void HandRecognition()
         {
             
             
@@ -294,15 +297,52 @@ namespace BahariModernUI.Pages
                             handData.Update();
 
                             PXCMHandData.GestureData gestureData;
+                            PXCMHandData.IHand iHand = null;
+                            //PXCMImage himage;
+                            //iHand.QuerySegmentationImage(out himage);
+
                             if (handData.IsGestureFired("thumb_down", out gestureData))
                             {
                                 MessageBox.Show("bad");
+                                //MessageBox.Show(gestureData.ToString());
                                 //Dispatcher.Invoke(ThumbDown);
                             }
                             else if (handData.IsGestureFired("thumb_up", out gestureData))
                             {
                                 MessageBox.Show("good");
                                 //Dispatcher.Invoke(ThumbUp);
+                            }
+                            else if (handData.IsGestureFired("spreadfingers", out gestureData))
+                            {
+                                //MessageBox.Show("open");
+                                //Dispatcher.Invoke(ThumbUp);
+                                //PXCMPointF32 image = iHand.QueryMassCenterImage();
+                                //MessageBox.Show(image.x.ToString());
+
+                                if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_RIGHT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
+                                {
+                                    //	Position broadcasting
+                                    //PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
+                                    //MessageBox.Show(handPosition.x.ToString());
+                                    //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
+                                    Application.Current.Dispatcher.Invoke(new Action(() => {
+                                        Right_RepeatButton(this, null);
+                                    }));
+                                }
+
+                                if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_LEFT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
+                                {
+                                    //	Position broadcasting
+                                    //PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
+                                    //MessageBox.Show(handPosition.x.ToString());
+                                    //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
+                                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                                    {
+                                        Left_RepeatButton(this, null);
+                                    }));
+                                    //MessageBox.Show("left");
+                                }
+
                             }
                             handData.Dispose();
                         }
