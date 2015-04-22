@@ -322,23 +322,26 @@ namespace BahariModernUI.Pages
                                 if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_RIGHT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
                                 {
                                     //	Position broadcasting
-                                    //PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
+                                    PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
                                     //MessageBox.Show(handPosition.x.ToString());
                                     //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
-                                    Application.Current.Dispatcher.Invoke(new Action(() => {
+                                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                                    {
                                         Right_RepeatButton(this, null);
+                                        Console.WriteLine("Right" + handPosition.x.ToString() + " " + handPosition.y.ToString());
                                     }));
                                 }
 
                                 if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_LEFT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
                                 {
                                     //	Position broadcasting
-                                    //PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
+                                    PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
                                     //MessageBox.Show(handPosition.x.ToString());
                                     //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
                                     Application.Current.Dispatcher.Invoke(new Action(() =>
                                     {
                                         Left_RepeatButton(this, null);
+                                        Console.WriteLine("Left" + handPosition.x.ToString() + " " + handPosition.y.ToString());
                                     }));
                                     //MessageBox.Show("left");
                                 }
