@@ -34,7 +34,10 @@ namespace BahariModernUI.Pages
         byte[] stream;
         //bool lockedToggle = false;
 
-        Dictionary<string, Thread> threads = new Dictionary<string,Thread>();
+        private Dictionary<string, Thread> threads = new Dictionary<string,Thread>();
+        private PXCMSenseManager sm;
+        private PXCMHandConfiguration _handConfig;
+
             
         public MapPage()
         {
@@ -227,8 +230,29 @@ namespace BahariModernUI.Pages
             if (toggle.IsChecked == true)
             {
                 // enable realsense
+                // Create an instance of the SenseManager.
+                sm = PXCMSenseManager.CreateInstance();
 
-                Thread thread = new Thread(ada);
+                //sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR, 640, 480, 30);
+
+                // Enable hand tracking
+                sm.EnableHand();
+
+                // Get a hand instance here (or inside the AcquireFrame/ReleaseFrame loop) for querying features
+                PXCMHandModule hand = sm.QueryHand();
+                //MessageBox.Show("start");
+
+                // Initialize the pipeline
+                sm.Init();
+
+                var handManager = sm.QueryHand();
+                _handConfig = handManager.CreateActiveConfiguration();
+                _handConfig.EnableGesture("thumb_up");
+                _handConfig.EnableGesture("thumb_down");
+                _handConfig.EnableAllAlerts();
+                _handConfig.ApplyChanges();
+
+                Thread thread = new Thread(HandRecognition);
                 thread.Start();
                 threads.Add("realsense", thread);
                 Thread.Sleep(5);
@@ -237,27 +261,21 @@ namespace BahariModernUI.Pages
             {
                 Thread thread = threads["realsense"];
                 thread.Abort();
+
+                _handConfig.Dispose();
+
+                // Clean up
+                sm.Dispose();
+
                 threads.Clear();
             }
         }
 
-        public void ada()
+        // thread
+        public void HandRecognition()
         {
-            // Create an instance of the SenseManager.
-            PXCMSenseManager sm = PXCMSenseManager.CreateInstance();
-
-            sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR, 640, 480, 30);
-
-            // Enable hand tracking
-            sm.EnableHand();
-
-            // Get a hand instance here (or inside the AcquireFrame/ReleaseFrame loop) for querying features
-            PXCMHandModule hand = sm.QueryHand();
-            MessageBox.Show("start");
-
-            // Initialize the pipeline
-            sm.Init();
-
+            
+            
             // Stream data
             while (sm.AcquireFrame(true) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
             {
@@ -266,14 +284,38 @@ namespace BahariModernUI.Pages
                 if (hand2 != null)
                 {
                     //MessageBox.Show("lepas");
+                    //MessageBox.Show(hand2.ToString());
+                    try
+                    {
+                        var handQuery = sm.QueryHand();
+                        if (handQuery != null)
+                        {
+                            var handData = handQuery.CreateOutput(); // Get processing results
+                            handData.Update();
+
+                            PXCMHandData.GestureData gestureData;
+                            if (handData.IsGestureFired("thumb_down", out gestureData))
+                            {
+                                MessageBox.Show("bad");
+                                //Dispatcher.Invoke(ThumbDown);
+                            }
+                            else if (handData.IsGestureFired("thumb_up", out gestureData))
+                            {
+                                MessageBox.Show("good");
+                                //Dispatcher.Invoke(ThumbUp);
+                            }
+                            handData.Dispose();
+                        }
+                    }
+                    finally
+                    {
+                        sm.ReleaseFrame();
+                    }
                 }
 
-                // resume next frame processing
-                sm.ReleaseFrame();
+                //// resume next frame processing
+                //sm.ReleaseFrame();
             }
-
-            // Clean up
-            sm.Dispose();
         }
 
         //static byte[] GetBytes(string str)
