@@ -39,13 +39,13 @@ namespace BahariModernUI.Pages
         private PXCMHandConfiguration _handConfig;
 
         int status = 0;
-
             
         public MapPage()
         {
             InitializeComponent();
 
-            toggle.Content = "off";
+            toggle.Content = "on";
+            toggle.ToolTip = "You must have intel realsense camera to used this feature.";
             toggle.IsChecked = false;
             
             // if realsense not detected
@@ -133,6 +133,7 @@ namespace BahariModernUI.Pages
         private void myView_MouseDown(object sender, MouseButtonEventArgs e)
         {
             //text.Text = myView.CurrentPosition.ToString();
+            Console.WriteLine(myView.CurrentPosition.ToString());
         }
 
         private void txtUserEntry_KeyDown(object sender, KeyEventArgs e)
@@ -218,14 +219,20 @@ namespace BahariModernUI.Pages
 
         private void ToggleClick(object sender, RoutedEventArgs e)
         {
-            if (toggle.Content.Equals("on"))
-            {
-                toggle.Content = "off";
-                toggle.IsChecked = false;
-            }
-            else if (toggle.Content.Equals("off"))
+            if (toggle.Content.Equals("off"))
             {
                 toggle.Content = "on";
+                toggle.ToolTip = "You must have intel realsense camera to used this feature.";
+                right.IsEnabled = true;
+                left.IsEnabled = true;
+                toggle.IsChecked = false;
+            }
+            else if (toggle.Content.Equals("on"))
+            {
+                toggle.Content = "off";
+                toggle.ToolTip = "Turn off this feature.";
+                right.IsEnabled = false;
+                left.IsEnabled = false;
                 toggle.IsChecked = true;
             }
 
@@ -329,6 +336,7 @@ namespace BahariModernUI.Pages
                             {
                                 //MessageBox.Show("good");
                                 //Dispatcher.Invoke(ThumbUp);
+                                Console.WriteLine("good");
                             }
                             else if (handData.IsGestureFired("spreadfingers", out gestureData))
                             {
@@ -427,8 +435,13 @@ namespace BahariModernUI.Pages
                     }));
 
                 }
-                Thread.Sleep(50);
+                Thread.Sleep(40);
             }
+        }
+
+        private void myView_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            Console.WriteLine(myView.CurrentPosition.ToString());
         }
 
         //static byte[] GetBytes(string str)
