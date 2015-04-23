@@ -38,6 +38,8 @@ namespace BahariModernUI.Pages
         private PXCMSenseManager sm;
         private PXCMHandConfiguration _handConfig;
 
+        int status = 0;
+
             
         public MapPage()
         {
@@ -250,12 +252,18 @@ namespace BahariModernUI.Pages
                 _handConfig.EnableGesture("thumb_up");
                 _handConfig.EnableGesture("thumb_down");
                 _handConfig.EnableGesture("spreadfingers");
+                _handConfig.EnableGesture("v_sign");
                 _handConfig.EnableAllAlerts();
                 _handConfig.ApplyChanges();
 
                 Thread thread = new Thread(HandRecognition);
                 thread.Start();
                 threads.Add("realsense", thread);
+
+                Thread thread2 = new Thread(do_Rotate);
+                thread2.Start();
+                threads.Add("rotate", thread2);
+
                 Thread.Sleep(5);
             }
             else
@@ -268,7 +276,11 @@ namespace BahariModernUI.Pages
                 // Clean up
                 sm.Dispose();
 
+                Thread thread2 = threads["rotate"];
+                thread2.Abort();
+
                 threads.Clear();
+                status = 0;
                 Thread.Sleep(5);
             }
         }
@@ -282,10 +294,14 @@ namespace BahariModernUI.Pages
             // Stream data
             while (sm.AcquireFrame(true) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
             {
+                //Console.WriteLine("test");
+
                 // retrieve hand tracking results if ready
                 PXCMHandModule hand2 = sm.QueryHand();
                 if (hand2 != null)
                 {
+                    //Console.WriteLine("test");
+                    
                     //MessageBox.Show("lepas");
                     //MessageBox.Show(hand2.ToString());
                     try
@@ -295,6 +311,7 @@ namespace BahariModernUI.Pages
                         {
                             var handData = handQuery.CreateOutput(); // Get processing results
                             handData.Update();
+                            //Console.WriteLine("test");
 
                             PXCMHandData.GestureData gestureData;
                             PXCMHandData.IHand iHand = null;
@@ -303,13 +320,14 @@ namespace BahariModernUI.Pages
 
                             if (handData.IsGestureFired("thumb_down", out gestureData))
                             {
-                                MessageBox.Show("bad");
+                                //MessageBox.Show("bad");
                                 //MessageBox.Show(gestureData.ToString());
                                 //Dispatcher.Invoke(ThumbDown);
+                                Console.WriteLine("bad");
                             }
                             else if (handData.IsGestureFired("thumb_up", out gestureData))
                             {
-                                MessageBox.Show("good");
+                                //MessageBox.Show("good");
                                 //Dispatcher.Invoke(ThumbUp);
                             }
                             else if (handData.IsGestureFired("spreadfingers", out gestureData))
@@ -327,9 +345,10 @@ namespace BahariModernUI.Pages
                                     //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
                                     Application.Current.Dispatcher.Invoke(new Action(() =>
                                     {
-                                        Right_RepeatButton(this, null);
-                                        Console.WriteLine("Right" + handPosition.x.ToString() + " " + handPosition.y.ToString());
+                                        //Right_RepeatButton(this, null);
+                                        status = 2;
                                     }));
+                                    //Console.WriteLine("Right" + handPosition.x.ToString() + " " + handPosition.y.ToString());
                                 }
 
                                 if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_LEFT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
@@ -340,13 +359,32 @@ namespace BahariModernUI.Pages
                                     //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
                                     Application.Current.Dispatcher.Invoke(new Action(() =>
                                     {
-                                        Left_RepeatButton(this, null);
-                                        Console.WriteLine("Left" + handPosition.x.ToString() + " " + handPosition.y.ToString());
+                                        //Left_RepeatButton(this, null);
+                                        status = 1;
                                     }));
+                                    //Console.WriteLine("Left" + handPosition.x.ToString() + " " + handPosition.y.ToString());
                                     //MessageBox.Show("left");
                                 }
 
                             }
+                            else if (handData.IsGestureFired("v_sign", out gestureData))
+                            {
+                                //if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_RIGHT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
+                                //{
+                                //    Console.WriteLine("wave");
+                                //}
+                                Application.Current.Dispatcher.Invoke(new Action(() =>
+                                {
+                                    status = 0;
+                                }));
+                            }
+                            //else
+                            //{
+                            //    Application.Current.Dispatcher.Invoke(new Action(() =>
+                            //    {
+                            //        //status = 0;
+                            //    }));
+                            //}
                             handData.Dispose();
                         }
                     }
@@ -358,6 +396,38 @@ namespace BahariModernUI.Pages
 
                 //// resume next frame processing
                 //sm.ReleaseFrame();
+            }
+        }
+
+        private void do_Rotate()
+        {
+            int st=0;
+            while (true)
+            {
+                Application.Current.Dispatcher.Invoke(new Action(() =>
+                {
+                    st = status;
+                }));
+
+                if (st == 1)
+                {
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        ax3d.Angle += 1;
+                        ax3d.Angle %= 360;
+                    }));
+
+                }
+                else if (st == 2)
+                {
+                    Application.Current.Dispatcher.Invoke(new Action(() =>
+                    {
+                        ax3d.Angle -= 1;
+                        ax3d.Angle %= 360;
+                    }));
+
+                }
+                Thread.Sleep(50);
             }
         }
 
