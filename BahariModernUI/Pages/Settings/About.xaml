@@ -7,14 +7,13 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <ScrollViewer>
-            <StackPanel MinWidth="200">
+            <StackPanel MinWidth="200" x:Name="satu">
                 <TextBlock Text="ABOUT" Style="{StaticResource Heading2}" />
                 <Image Source="/Assets/logo terangi bahari about.png" Width="250" HorizontalAlignment="Left"/>
                 <TextBlock x:Name="about" Margin="0,0,0,8" TextWrapping="Wrap" />
                 <TextBlock Text="POWERED BY" Style="{StaticResource Heading2}"/>
                 <TextBlock x:Name="poweredBy" Margin="0,0,0,8" TextWrapping="Wrap" />
                 <TextBlock Text="LICENSE" Style="{StaticResource Heading2}"/>
-                <TextBlock x:Name="license" Margin="0,0,0,8" TextWrapping="Wrap" />
             </StackPanel>
         </ScrollViewer>
     </Grid>
