@@ -5,7 +5,7 @@ PKMKC
 RANCANG BANGUN APLIKASI TERANGI BAHARI DENGAN INTEL® REALSENSE™ TECHNOLOGY SEBAGAI SOLUSI EDUKASI KEKAYAAN BAHARI INDONESIA
 
 #MIT License
-Copyright (c) 2015 TERANGI BAHARI
+Copyright (c) Terangi Bahari
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
