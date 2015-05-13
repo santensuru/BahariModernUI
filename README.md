@@ -30,5 +30,8 @@ in BahariModernUI (project) --[right click]-> Properties -> Build Events
 at Post-build event command line: insert ->
 if "$(Platform)" == "x86" ( copy /y "$(RSSDK_DIR)\bin\win32\libpxccpp2c.dll" "$(TargetDir)" ) else ( copy /y "$(RSSDK_DIR)\bin\x64\libpxccpp2c.dll" "$(TargetDir)" )
 
+# Compile
+With new parameter inside code, now you can ignore above this section (How to Compile it)
+
 # Dependencies
 You must have been installed Intel RealSense SDK, plus .Net 4.5
