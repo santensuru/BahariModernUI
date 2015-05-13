@@ -180,6 +180,9 @@
     <Compile Include="Pages\Appendix\Reef.xaml.cs">
       <DependentUpon>Reef.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Settings\TermAndCondition.xaml.cs">
+      <DependentUpon>TermAndCondition.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TextInputToVisibilityConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -363,6 +366,10 @@
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Pages\Settings\TermAndCondition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

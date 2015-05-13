@@ -26,20 +26,34 @@ namespace BahariModernUI.Pages.Settings
 
             this.about.Text = "Terangi Bahari is an application for educating people about Indonesian water habitat.";
             this.poweredBy.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite\nwww.ausarabexplore.info";
+
+            Run run1 = new Run("Term And Condition ...");
+
+            Hyperlink link1 = new Hyperlink(run1);
+            link1.NavigateUri = new Uri("https://github.com/santensuru/BahariModernUI");
+            termAndCondition.Inlines.Add(link1);
+
+            link1.RequestNavigate += (sender, e) =>
+            {
+                //System.Diagnostics.Process.Start(e.Uri.ToString());
+
+                var _mainWindow = (MainWindow)Application.Current.MainWindow;
+                
+                TermAndCondition newdialoge = new TermAndCondition();
+                newdialoge.Owner = _mainWindow;
+                newdialoge.ShowDialog();
+            };
             
-            System.Windows.Controls.TextBlock text = new TextBlock();
             Run run = new Run("MIT License");
 
             Hyperlink link = new Hyperlink(run);
             link.NavigateUri = new Uri("https://github.com/santensuru/BahariModernUI/blob/master/README.md#mit-license");
-            text.Inlines.Add(link);
+            license.Inlines.Add(link);
 
             link.RequestNavigate += (sender, e) =>
             {
                 System.Diagnostics.Process.Start(e.Uri.ToString());
             };
-
-            satu.Children.Add(text);
         }
     }
 }
