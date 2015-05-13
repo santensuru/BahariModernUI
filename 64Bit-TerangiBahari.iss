@@ -74,7 +74,7 @@ end;
 
 [Setup]
 AppName=Terangi Bahari
-AppVersion=0.9
+AppVersion=0.9001
 DefaultDirName={pf}\Terangi Bahari
 DefaultGroupName=Terangi Bahari
 UninstallDisplayIcon={app}\MyProg.exe
