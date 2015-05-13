@@ -94,8 +94,10 @@ ArchitecturesInstallIn64BitMode=x64
 Source: "C:\Users\08-Lapislazuli_2\Source\Repos\BahariModernUI\BahariModernUI\bin\Debug\*"; DestDir: "{app}";
 Source: "C:\Users\08-Lapislazuli_2\Source\Repos\BahariModernUI\BahariModernUI\bin\Debug\x86\*"; DestDir: "{app}\x86";
 Source: "C:\Users\08-Lapislazuli_2\Source\Repos\BahariModernUI\BahariModernUI\bin\Debug\x64\*"; DestDir: "{app}\x64";
-DestName: "{app}\bahari.s3db"; Permissions: everyone-modify
+; Source: "C:\Users\08-Lapislazuli_2\Source\Repos\BahariModernUI\BahariModernUI\bin\Debug\bahari.s3db"; DestDir: "{app}"; Permissions: everyone-modify
 
 [Icons]
 Name: "{group}\Terangi bahari"; Filename: "{app}\BahariModernUI.exe"
 
+[Dirs]
+Name: "{app}\"; Permissions: everyone-modify
