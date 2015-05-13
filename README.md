@@ -24,3 +24,11 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+# How to Compile it
+in BahariModernUI (project) --[right click]-> Properties -> Build Events
+at Post-build event command line:
+insert -> if "$(Platform)" == "x86" ( copy /y "$(RSSDK_DIR)\bin\win32\libpxccpp2c.dll" "$(TargetDir)" ) else ( copy /y "$(RSSDK_DIR)\bin\x64\libpxccpp2c.dll" "$(TargetDir)" )
+
+# Dependencies
+You must have been installed Intel RealSense SDK, plus .Net 4.5
