@@ -171,8 +171,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Pages\Appendix\ConservationArea.xaml.cs">
+      <DependentUpon>ConservationArea.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Appendix\DetailKawasan.xaml.cs">
       <DependentUpon>DetailKawasan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Appendix\Reef.xaml.cs">
+      <DependentUpon>Reef.xaml</DependentUpon>
     </Compile>
     <Compile Include="TextInputToVisibilityConverter.cs" />
     <Page Include="MainWindow.xaml">
@@ -187,6 +193,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Appendix\ConservationArea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Appendix\Detail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Appendix\DetailKawasan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Appendix\Reef.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -13,6 +13,8 @@
                 <!-- TODO: set @Source -->
                 <mui:Link DisplayName="Fresh Water" Source="/Pages/Appendix/FreshWater.xaml" />
                 <mui:Link DisplayName="Sea Water" Source="/Pages/Appendix/SeaWater.xaml" />
+                <mui:Link DisplayName="Reef" Source="/Pages/Appendix/Reef.xaml" />
+                <mui:Link DisplayName="Conservation Area" Source="/Pages/Appendix/ConservationArea.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>
