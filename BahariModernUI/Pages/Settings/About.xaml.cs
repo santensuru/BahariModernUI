@@ -25,6 +25,7 @@ namespace BahariModernUI.Pages.Settings
             InitializeComponent();
 
             this.about.Text = "Terangi Bahari is an application for educating people about Indonesian water habitat.";
+            this.joinVentureWith.Text = "Direktorat Jendral Kelautan, Pesisir dan Pulau-pulau Kecil - Kementerian Kelautan dan Perikanan\nYayasan Terumbu Karang Indonesia";
             this.poweredBy.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite\nwww.ausarabexplore.info";
 
             Run run1 = new Run("Term And Condition ...");

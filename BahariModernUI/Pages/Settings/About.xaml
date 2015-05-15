@@ -11,6 +11,8 @@
                 <TextBlock Text="ABOUT" Style="{StaticResource Heading2}" />
                 <Image Source="/Assets/logo terangi bahari about.png" Width="250" HorizontalAlignment="Left"/>
                 <TextBlock x:Name="about" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock Text="JOIN VENTURE WITH" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="joinVentureWith" Margin="0,0,0,8" TextWrapping="Wrap" />
                 <TextBlock Text="POWERED BY" Style="{StaticResource Heading2}"/>
                 <TextBlock x:Name="poweredBy" Margin="0,0,0,8" TextWrapping="Wrap" />
                 <TextBlock Text="TERM AND CONDITION" Style="{StaticResource Heading2}"/>
