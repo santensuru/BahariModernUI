@@ -33,6 +33,12 @@ namespace BahariModernUI.Pages
         {
             InitializeComponent();
 
+            fresh.Content = BahariModernUI.Resources.StringResources.Fresh;
+            sea.Content = BahariModernUI.Resources.StringResources.Sea;
+            sea.IsSelected = true;
+            reef.Content = BahariModernUI.Resources.StringResources.Reef;
+            conservation.Content = BahariModernUI.Resources.StringResources.Conservation;
+
             try
             {
                 SQLiteDatabase db = new SQLiteDatabase();
@@ -144,7 +150,7 @@ namespace BahariModernUI.Pages
             var _mainWindow = (MainWindow)Application.Current.MainWindow;
 
             ContentControl selectedText = dropDown.SelectedItem as ContentControl;
-            if (selectedText.Content.ToString() != "Kawasan Konservasi")
+            if (selectedText.Uid.ToString() != "Kawasan Konservasi")
             {
                 Detail newdialoge = new Detail(text);
                 newdialoge.Owner = _mainWindow;
@@ -181,7 +187,7 @@ namespace BahariModernUI.Pages
 
                 String query = "SELECT COUNT(*) AS TOT ";
                 query += "FROM PERSEBARAN ";
-                query += "WHERE JENIS LIKE '%" + selectedText.Content.ToString() + "%';";
+                query += "WHERE JENIS LIKE '%" + selectedText.Uid.ToString() + "%';";
                 biota = db.GetDataTable(query);
                 foreach (DataRow r in biota.Rows)
                 {
@@ -192,7 +198,7 @@ namespace BahariModernUI.Pages
 
                 query = "SELECT * ";
                 query += "FROM PERSEBARAN ";
-                query += "WHERE JENIS LIKE '%" + selectedText.Content.ToString() + "%';";
+                query += "WHERE JENIS LIKE '%" + selectedText.Uid.ToString() + "%';";
 
                 biota = db.GetDataTable(query);
 

@@ -10,30 +10,30 @@
         Loaded="ModernWindow_Loaded">
 
     <mui:ModernWindow.MenuLinkGroups>
-        <mui:LinkGroup DisplayName="home">
+        <mui:LinkGroup x:Name="main">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="map" Source="/Pages/Home.xaml" />
-                <mui:Link DisplayName="3d experience" Source="/Pages/3dPage.xaml" />
-                <mui:Link DisplayName="appendix" Source="/Pages/AppendixPage.xaml" />
-                <mui:Link DisplayName="favorite" Source="/Pages/FavoritePage.xaml" />
-                <mui:Link DisplayName="game" Source="/Pages/GamePage.xaml" />
+                <mui:Link x:Name="map" Source="/Pages/Home.xaml" />
+                <mui:Link x:Name="experience" Source="/Pages/3dPage.xaml" />
+                <mui:Link x:Name="appendix" Source="/Pages/AppendixPage.xaml" />
+                <mui:Link x:Name="favorite" Source="/Pages/FavoritePage.xaml" />
+                <mui:Link x:Name="game" Source="/Pages/GamePage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="settings" GroupKey="settings">
+        <mui:LinkGroup x:Name="settings" GroupKey="settings">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="software" Source="/Pages/SettingsPage.xaml" />
+                <mui:Link x:Name="software" Source="/Pages/SettingsPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
-        <mui:LinkGroup DisplayName="personality" GroupKey="settings">
+        <mui:LinkGroup x:Name="personality" GroupKey="settings">
             <mui:LinkGroup.Links>
-                <mui:Link DisplayName="personality" Source="/Pages/PersonalityPage.xaml" />
+                <mui:Link x:Name="personality2" Source="/Pages/PersonalityPage.xaml" />
             </mui:LinkGroup.Links>
         </mui:LinkGroup>
     </mui:ModernWindow.MenuLinkGroups>
     
     <mui:ModernWindow.TitleLinks>
-        <mui:Link DisplayName="home" Source="/Pages/Home.xaml" />
-        <mui:Link DisplayName="settings" Source="/Pages/SettingsPage.xaml" />
-        <mui:Link DisplayName="personality" Source="/Pages/PersonalityPage.xaml" />
+        <mui:Link x:Name="main1" Source="/Pages/Home.xaml" />
+        <mui:Link x:Name="settings1" Source="/Pages/SettingsPage.xaml" />
+        <mui:Link x:Name="personality1" Source="/Pages/PersonalityPage.xaml" />
     </mui:ModernWindow.TitleLinks>
 </mui:ModernWindow>

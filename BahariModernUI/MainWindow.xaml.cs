@@ -4,6 +4,7 @@ using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,6 +30,25 @@ namespace BahariModernUI
         public MainWindow()
         {
             InitializeComponent();
+
+            // load localization and globalization
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
+
+            main.DisplayName = BahariModernUI.Resources.StringResources.Home;
+            main1.DisplayName = BahariModernUI.Resources.StringResources.Home;
+            map.DisplayName = BahariModernUI.Resources.StringResources.Map;
+            experience.DisplayName = BahariModernUI.Resources.StringResources.Experience;
+            appendix.DisplayName = BahariModernUI.Resources.StringResources.Appendix;
+            favorite.DisplayName = BahariModernUI.Resources.StringResources.Favorite;
+            game.DisplayName = BahariModernUI.Resources.StringResources.Game;
+            settings.DisplayName = BahariModernUI.Resources.StringResources.Settings;
+            settings1.DisplayName = BahariModernUI.Resources.StringResources.Settings;
+            software.DisplayName = BahariModernUI.Resources.StringResources.Software;
+            personality.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            personality1.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            personality2.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+
             app.LoginName = "";
             app.LoginUser = "";
 
@@ -127,5 +147,6 @@ namespace BahariModernUI
             this.Top = (System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height - this.Height) / 2;
             //this.Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;
         }
+
     }
 }

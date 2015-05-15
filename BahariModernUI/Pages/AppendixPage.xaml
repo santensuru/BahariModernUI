@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid Style="{StaticResource ContentRoot}">
         <!-- TODO: set @SelectedSource -->
-        <mui:ModernTab Layout="List" SelectedSource="/Pages/Appendix/FreshWater.xaml" >
+        <mui:ModernTab Layout="List" SelectedSource="/Pages/Appendix/SeaWater.xaml" >
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
                 <mui:Link DisplayName="Fresh Water" Source="/Pages/Appendix/FreshWater.xaml" />

@@ -15,10 +15,10 @@
             
         </m:Map>
         <ComboBox x:Name="dropDown" SelectionChanged="ComboBox_SelectionChanged" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <ComboBoxItem Content="Biota Air Tawar" />
-            <ComboBoxItem Content="Biota Laut" IsSelected="True" />
-            <ComboBoxItem Content="Terumbu Karang" />
-            <ComboBoxItem Content="Kawasan Konservasi" />
+            <ComboBoxItem x:Name="fresh" Uid="Biota Air Tawar" />
+            <ComboBoxItem x:Name="sea" Uid="Biota Laut" />
+            <ComboBoxItem x:Name="reef" Uid="Terumbu Karang" />
+            <ComboBoxItem x:Name="conservation" Uid="Kawasan Konservasi" />
         </ComboBox>
 
         <!--<StackPanel HorizontalAlignment="Left">

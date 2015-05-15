@@ -44,8 +44,12 @@ namespace BahariModernUI.Pages
         {
             InitializeComponent();
 
-            toggle.Content = "on";
-            toggle.ToolTip = "You must have intel realsense camera to used this feature.";
+            search.Text = BahariModernUI.Resources.StringResources.Search;
+            left.ToolTip = BahariModernUI.Resources.StringResources.Left;
+            right.ToolTip = BahariModernUI.Resources.StringResources.Right;
+
+            toggle.Content = BahariModernUI.Resources.StringResources.On;
+            toggle.ToolTip = BahariModernUI.Resources.StringResources.OnLabel;
             toggle.IsChecked = false;
             
             // if realsense not detected
@@ -219,18 +223,18 @@ namespace BahariModernUI.Pages
 
         private void ToggleClick(object sender, RoutedEventArgs e)
         {
-            if (toggle.Content.Equals("off"))
+            if (toggle.Content.Equals(BahariModernUI.Resources.StringResources.Off))
             {
-                toggle.Content = "on";
-                toggle.ToolTip = "You must have intel realsense camera to used this feature.";
+                toggle.Content = BahariModernUI.Resources.StringResources.On;
+                toggle.ToolTip = BahariModernUI.Resources.StringResources.OnLabel;
                 right.IsEnabled = true;
                 left.IsEnabled = true;
                 toggle.IsChecked = false;
             }
-            else if (toggle.Content.Equals("on"))
+            else if (toggle.Content.Equals(BahariModernUI.Resources.StringResources.On))
             {
-                toggle.Content = "off";
-                toggle.ToolTip = "Turn off this feature.";
+                toggle.Content = BahariModernUI.Resources.StringResources.Off;
+                toggle.ToolTip = BahariModernUI.Resources.StringResources.OffLabel;
                 right.IsEnabled = false;
                 left.IsEnabled = false;
                 toggle.IsChecked = true;
@@ -280,9 +284,9 @@ namespace BahariModernUI.Pages
                 {
                     // error handling when SDK and Cameraa don't exist
                     Console.WriteLine(ex);
-                    ModernDialog.ShowMessage("No Intel Realsense Camera detected", "WARNING!", MessageBoxButton.OK);
-                    toggle.Content = "on";
-                    toggle.ToolTip = "You must have intel realsense camera to used this feature.";
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.IntelWarning, BahariModernUI.Resources.StringResources.Warning, MessageBoxButton.OK);
+                    toggle.Content = BahariModernUI.Resources.StringResources.On;
+                    toggle.ToolTip = BahariModernUI.Resources.StringResources.OnLabel;
                     right.IsEnabled = true;
                     left.IsEnabled = true;
                     toggle.IsChecked = false;

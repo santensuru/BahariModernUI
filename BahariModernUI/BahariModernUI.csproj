@@ -183,6 +183,16 @@
     <Compile Include="Pages\Settings\TermAndCondition.xaml.cs">
       <DependentUpon>TermAndCondition.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\StringResources.id-ID.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResources.id-ID.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\StringResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StringResources.resx</DependentUpon>
+    </Compile>
     <Compile Include="TextInputToVisibilityConverter.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -398,6 +408,14 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\StringResources.id-ID.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.id-ID.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\StringResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <Resource Include="Pages\Game\fishy.swf" />
     <EmbeddedResource Include="Pages\Game\FishyFlashGame.htm" />
     <SplashScreen Include="Assets\logo terangi bahari 2.png" />

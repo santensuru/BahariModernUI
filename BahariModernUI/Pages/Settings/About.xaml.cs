@@ -59,7 +59,7 @@ namespace BahariModernUI.Pages.Settings
             Run run2 = new Run("Developer Terangi Bahari");
 
             Hyperlink link2 = new Hyperlink(run2);
-            link2.NavigateUri = new Uri("mailto:djuned.ong@gmail.com");
+            link2.NavigateUri = new Uri("mailto:djuned.ong@gmail.com?subject=Terangi%20Bahari%20user%20feedback");
             feedback.Inlines.Add(link2);
 
             link2.RequestNavigate += (sender, e) =>

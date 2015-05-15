@@ -89,7 +89,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Background="{StaticResource brushWatermarkBackground}" Style="{StaticResource EntryFieldStyle}" >
-                    <TextBlock Margin="5,2" Text="Search..." Foreground="{StaticResource brushWatermarkForeground}"
+                    <TextBlock Margin="5,2" x:Name="search" Foreground="{StaticResource brushWatermarkForeground}"
                        Visibility="{Binding ElementName=txtUserEntry, Path=Text.IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}" />
                     <TextBox Name="txtUserEntry" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"
                        KeyDown="txtUserEntry_KeyDown"/>
@@ -159,10 +159,10 @@
                     <ColumnDefinition Width="100"/>-->
                 </Grid.ColumnDefinitions>
                 <!--<TextBlock x:Name="text" Text="Tes" FontSize="30" Foreground="White" TextAlignment="Center"/>-->
-                <RepeatButton x:Name="left" Grid.Column="0" Click="Left_RepeatButton" ToolTip="Rotate Left">&lt;&lt;</RepeatButton>
+                <RepeatButton x:Name="left" Grid.Column="0" Click="Left_RepeatButton">&lt;&lt;</RepeatButton>
                 <!--<Button Grid.Column="1" Click="Left_Button" ToolTip="Single Click Left">&lt;</Button>
                 <Button Grid.Column="2" Click="Right_Button" ToolTip="Single Click Right">&gt;</Button>-->
-                <RepeatButton x:Name="right" Grid.Column="1" Click="Right_RepeatButton" ToolTip="Rotate Right">&gt;&gt;</RepeatButton>
+                <RepeatButton x:Name="right" Grid.Column="1" Click="Right_RepeatButton">&gt;&gt;</RepeatButton>
             </Grid>
 
             <ToggleButton x:Name="toggle" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"
