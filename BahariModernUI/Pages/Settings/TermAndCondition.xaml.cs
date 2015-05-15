@@ -31,7 +31,7 @@ namespace BahariModernUI.Pages.Settings
             tac.Text += "Thank You\r\n";
 
             // define the dialog buttons
-            this.Buttons = new Button[] { this.OkButton, this.CancelButton };
+            this.Buttons = new Button[] { this.OkButton };
         }
     }
 }

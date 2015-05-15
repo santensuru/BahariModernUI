@@ -278,7 +278,7 @@ namespace BahariModernUI.Pages
                 }
                 catch (Exception ex)
                 {
-                    // error handling if camera and sdk don't exist
+                    // error handling when SDK and Cameraa don't exist
                     Console.WriteLine(ex);
                     ModernDialog.ShowMessage("No Intel Realsense Camera detected", "WARNING!", MessageBoxButton.OK);
                     toggle.Content = "on";
@@ -288,7 +288,6 @@ namespace BahariModernUI.Pages
                     toggle.IsChecked = false;
                     return;
                 }
-
             }
             else
             {

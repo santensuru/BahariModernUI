@@ -55,6 +55,17 @@ namespace BahariModernUI.Pages.Settings
             {
                 System.Diagnostics.Process.Start(e.Uri.ToString());
             };
+
+            Run run2 = new Run("Developer Terangi Bahari");
+
+            Hyperlink link2 = new Hyperlink(run2);
+            link2.NavigateUri = new Uri("mailto:djuned.ong@gmail.com");
+            feedback.Inlines.Add(link2);
+
+            link2.RequestNavigate += (sender, e) =>
+            {
+                System.Diagnostics.Process.Start(e.Uri.ToString());
+            };
         }
     }
 }
