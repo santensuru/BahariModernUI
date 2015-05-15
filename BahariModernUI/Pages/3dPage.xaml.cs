@@ -239,39 +239,56 @@ namespace BahariModernUI.Pages
             if (toggle.IsChecked == true)
             {
                 // enable realsense
-                // Create an instance of the SenseManager.
-                sm = PXCMSenseManager.CreateInstance();
+                try
+                {
+                    // Create an instance of the SenseManager.
+                    sm = PXCMSenseManager.CreateInstance();
+                
+                    //sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR, 640, 480, 30);
 
-                //sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR, 640, 480, 30);
+                    // Enable hand tracking
+                    sm.EnableHand();
 
-                // Enable hand tracking
-                sm.EnableHand();
+                    // Get a hand instance here (or inside the AcquireFrame/ReleaseFrame loop) for querying features
+                    PXCMHandModule hand = sm.QueryHand();
+                    //MessageBox.Show("start");
 
-                // Get a hand instance here (or inside the AcquireFrame/ReleaseFrame loop) for querying features
-                PXCMHandModule hand = sm.QueryHand();
-                //MessageBox.Show("start");
+                    // Initialize the pipeline
+                    sm.Init();
 
-                // Initialize the pipeline
-                sm.Init();
+                    var handManager = sm.QueryHand();
+                    _handConfig = handManager.CreateActiveConfiguration();
+                    _handConfig.EnableGesture("thumb_up");
+                    _handConfig.EnableGesture("thumb_down");
+                    _handConfig.EnableGesture("spreadfingers");
+                    _handConfig.EnableGesture("v_sign");
+                    _handConfig.EnableAllAlerts();
+                    _handConfig.ApplyChanges();
 
-                var handManager = sm.QueryHand();
-                _handConfig = handManager.CreateActiveConfiguration();
-                _handConfig.EnableGesture("thumb_up");
-                _handConfig.EnableGesture("thumb_down");
-                _handConfig.EnableGesture("spreadfingers");
-                _handConfig.EnableGesture("v_sign");
-                _handConfig.EnableAllAlerts();
-                _handConfig.ApplyChanges();
+                    Thread thread = new Thread(HandRecognition);
+                    thread.Start();
+                    threads.Add("realsense", thread);
 
-                Thread thread = new Thread(HandRecognition);
-                thread.Start();
-                threads.Add("realsense", thread);
+                    Thread thread2 = new Thread(do_Rotate);
+                    thread2.Start();
+                    threads.Add("rotate", thread2);
 
-                Thread thread2 = new Thread(do_Rotate);
-                thread2.Start();
-                threads.Add("rotate", thread2);
+                    Thread.Sleep(5);
 
-                Thread.Sleep(5);
+                }
+                catch (Exception ex)
+                {
+                    // error handling if camera and sdk don't exist
+                    Console.WriteLine(ex);
+                    ModernDialog.ShowMessage("No Intel Realsense Camera detected", "WARNING!", MessageBoxButton.OK);
+                    toggle.Content = "on";
+                    toggle.ToolTip = "You must have intel realsense camera to used this feature.";
+                    right.IsEnabled = true;
+                    left.IsEnabled = true;
+                    toggle.IsChecked = false;
+                    return;
+                }
+
             }
             else
             {
