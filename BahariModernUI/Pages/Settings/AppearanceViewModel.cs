@@ -4,6 +4,7 @@ using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,9 @@ namespace BahariModernUI.Pages.Settings
     {
         private const string FontSmall = "small";
         private const string FontLarge = "large";
+
+        private const string English = "english";
+        private const string Bahasa = "bahasa";
 
         // 9 accent colors from metro design principles
         /*private Color[] accentColors = new Color[]{
@@ -62,6 +66,7 @@ namespace BahariModernUI.Pages.Settings
         private LinkCollection themes = new LinkCollection();
         private Link selectedTheme;
         private string selectedFontSize;
+        private string selectedLanguage;
 
         public AppearanceViewModel()
         {
@@ -70,6 +75,11 @@ namespace BahariModernUI.Pages.Settings
             this.themes.Add(new Link { DisplayName = "light", Source = AppearanceManager.LightThemeSource });
 
             this.SelectedFontSize = AppearanceManager.Current.FontSize == FontSize.Large ? FontLarge : FontSmall;
+
+            //MessageBox.Show(System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
+
+            //this.SelectedLanguage = System.Threading.Thread.CurrentThread.CurrentCulture.ToString() == "en-US" ? English : Bahasa;
+            this.SelectedLanguage = System.Threading.Thread.CurrentThread.CurrentUICulture.ToString() == "en-US" ? English : Bahasa;
             SyncThemeAndColor();
 
             AppearanceManager.Current.PropertyChanged += OnAppearanceManagerPropertyChanged;
@@ -135,6 +145,11 @@ namespace BahariModernUI.Pages.Settings
             get { return new string[] { FontSmall, FontLarge }; }
         }
 
+        public string[] Languages
+        {
+            get { return new string[] { English, Bahasa }; }
+        }
+
         public Color[] AccentColors
         {
             get { return this.accentColors; }
@@ -167,6 +182,26 @@ namespace BahariModernUI.Pages.Settings
                     OnPropertyChanged("SelectedFontSize");
 
                     AppearanceManager.Current.FontSize = value == FontLarge ? FontSize.Large : FontSize.Small;
+                }
+            }
+        }
+
+        public string SelectedLanguage
+        {
+            get { return this.selectedLanguage; }
+            set
+            {
+                if (this.selectedLanguage != value)
+                {
+                    this.selectedLanguage = value;
+                    OnPropertyChanged("SelectedLanguage");
+
+                    //System.Threading.Thread.CurrentThread.CurrentCulture = value == English ? new CultureInfo("en-US") : new CultureInfo("id-ID");
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = value == English ? new CultureInfo("en-US") : new CultureInfo("id-ID");
+                    //CultureInfo.DefaultThreadCurrentCulture = System.Threading.Thread.CurrentThread.CurrentCulture;
+                    
+                    //MessageBox.Show(System.Threading.Thread.CurrentThread.CurrentUICulture.ToString());
+
                 }
             }
         }

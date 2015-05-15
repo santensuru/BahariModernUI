@@ -32,22 +32,22 @@ namespace BahariModernUI
             InitializeComponent();
 
             // load localization and globalization
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
 
-            main.DisplayName = BahariModernUI.Resources.StringResources.Home;
-            main1.DisplayName = BahariModernUI.Resources.StringResources.Home;
-            map.DisplayName = BahariModernUI.Resources.StringResources.Map;
-            experience.DisplayName = BahariModernUI.Resources.StringResources.Experience;
-            appendix.DisplayName = BahariModernUI.Resources.StringResources.Appendix;
-            favorite.DisplayName = BahariModernUI.Resources.StringResources.Favorite;
-            game.DisplayName = BahariModernUI.Resources.StringResources.Game;
-            settings.DisplayName = BahariModernUI.Resources.StringResources.Settings;
-            settings1.DisplayName = BahariModernUI.Resources.StringResources.Settings;
-            software.DisplayName = BahariModernUI.Resources.StringResources.Software;
-            personality.DisplayName = BahariModernUI.Resources.StringResources.Personality;
-            personality1.DisplayName = BahariModernUI.Resources.StringResources.Personality;
-            personality2.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            //main.DisplayName = BahariModernUI.Resources.StringResources.Home;
+            //main1.DisplayName = BahariModernUI.Resources.StringResources.Home;
+            //map.DisplayName = BahariModernUI.Resources.StringResources.Map;
+            //experience.DisplayName = BahariModernUI.Resources.StringResources.Experience;
+            //appendix.DisplayName = BahariModernUI.Resources.StringResources.Appendix;
+            //favorite.DisplayName = BahariModernUI.Resources.StringResources.Favorite;
+            //game.DisplayName = BahariModernUI.Resources.StringResources.Game;
+            //settings.DisplayName = BahariModernUI.Resources.StringResources.Settings;
+            //settings1.DisplayName = BahariModernUI.Resources.StringResources.Settings;
+            //software.DisplayName = BahariModernUI.Resources.StringResources.Software;
+            //personality.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            //personality1.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            //personality2.DisplayName = BahariModernUI.Resources.StringResources.Personality;
 
             app.LoginName = "";
             app.LoginUser = "";
@@ -57,6 +57,7 @@ namespace BahariModernUI
             String font = "";
             String login = "";
             String name = "";
+            String language = "";
             try
             {
                 SQLiteDatabase db = new SQLiteDatabase();
@@ -76,6 +77,7 @@ namespace BahariModernUI
                     theme = r["THEME"].ToString();
                     font = r["FONT"].ToString();
                     login = r["LOGIN"].ToString();
+                    language = r["LANGUAGE"].ToString();
                 }
             }
             catch (Exception fail)
@@ -85,7 +87,7 @@ namespace BahariModernUI
                 MessageBox.Show(error);
             }
 
-            if (color != "" && theme != "" && font != "")
+            if (color != "" && theme != "" && font != "" && language != "")
             {
                 byte[] argb = new byte[4];
                     
@@ -98,6 +100,11 @@ namespace BahariModernUI
 
                 if (font == "small")
                     AppearanceManager.Current.FontSize = FirstFloor.ModernUI.Presentation.FontSize.Small;
+
+                if (language == "english")
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                else
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
             }
 
             if (login != "")
@@ -131,6 +138,20 @@ namespace BahariModernUI
 
                 //MessageBox.Show(name);
             }
+
+            main.DisplayName = BahariModernUI.Resources.StringResources.Home;
+            main1.DisplayName = BahariModernUI.Resources.StringResources.Home;
+            map.DisplayName = BahariModernUI.Resources.StringResources.Map;
+            experience.DisplayName = BahariModernUI.Resources.StringResources.Experience;
+            appendix.DisplayName = BahariModernUI.Resources.StringResources.Appendix;
+            favorite.DisplayName = BahariModernUI.Resources.StringResources.Favorite;
+            game.DisplayName = BahariModernUI.Resources.StringResources.Game;
+            settings.DisplayName = BahariModernUI.Resources.StringResources.Settings;
+            settings1.DisplayName = BahariModernUI.Resources.StringResources.Settings;
+            software.DisplayName = BahariModernUI.Resources.StringResources.Software;
+            personality.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            personality1.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            personality2.DisplayName = BahariModernUI.Resources.StringResources.Personality;
         }
 
         static byte[] StringToByteArray(string hex)

@@ -37,13 +37,17 @@
                     <Grid.RowDefinitions>
                         <RowDefinition />
                         <RowDefinition />
+                        <RowDefinition />
                     </Grid.RowDefinitions>
 
-                    <TextBlock Text="Theme:" VerticalAlignment="Center" Margin="0,0,16,4" />
-                    <ComboBox Grid.Column="1" x:Name="theme" ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme, Mode=TwoWay}" DisplayMemberPath="DisplayName" VerticalAlignment="Center" Margin="0,0,0,4" />
+                    <TextBlock x:Name="theme" VerticalAlignment="Center" Margin="0,0,16,4" />
+                    <ComboBox Grid.Column="1" x:Name="theme1" ItemsSource="{Binding Themes}" SelectedItem="{Binding SelectedTheme, Mode=TwoWay}" DisplayMemberPath="DisplayName" VerticalAlignment="Center" Margin="0,0,0,4" />
 
-                    <TextBlock Grid.Row="1" Text="Font size:" VerticalAlignment="Center" Margin="0,0,16,0" />
-                    <ComboBox Grid.Row="1" x:Name="font" Grid.Column="1" ItemsSource="{Binding FontSizes}" SelectedItem="{Binding SelectedFontSize, Mode=TwoWay}" VerticalAlignment="Center" />
+                    <TextBlock Grid.Row="1" x:Name="font" VerticalAlignment="Center" Margin="0,0,16,0" />
+                    <ComboBox Grid.Row="1" x:Name="font1" Grid.Column="1" ItemsSource="{Binding FontSizes}" SelectedItem="{Binding SelectedFontSize, Mode=TwoWay}" VerticalAlignment="Center" Margin="0,0,0,4" />
+
+                    <TextBlock Grid.Row="2" x:Name="language" VerticalAlignment="Center" Margin="0,0,16,0" />
+                    <ComboBox Grid.Row="2" x:Name="language1" Grid.Column="1" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" VerticalAlignment="Center" />
                 </Grid>
                 <Button Click="Button_Click" Margin="0,8,0,0">Save</Button>
             </StackPanel>

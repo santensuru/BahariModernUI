@@ -133,6 +133,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Font size.
+        /// </summary>
+        public static string Font {
+            get {
+                return ResourceManager.GetString("Font", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fresh Water.
         /// </summary>
         public static string Fresh {
@@ -174,6 +183,33 @@ namespace BahariModernUI.Resources {
         public static string Join {
             get {
                 return ResourceManager.GetString("Join", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed :( , Please try again..
+        /// </summary>
+        public static string LanguageFail {
+            get {
+                return ResourceManager.GetString("LanguageFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Saved :), To affected the language changed, you must restart this app..
+        /// </summary>
+        public static string LanguageSave {
+            get {
+                return ResourceManager.GetString("LanguageSave", resourceCulture);
             }
         }
         
@@ -327,6 +363,15 @@ namespace BahariModernUI.Resources {
         public static string Term {
             get {
                 return ResourceManager.GetString("Term", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Theme.
+        /// </summary>
+        public static string Theme {
+            get {
+                return ResourceManager.GetString("Theme", resourceCulture);
             }
         }
         

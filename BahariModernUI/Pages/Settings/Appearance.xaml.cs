@@ -28,6 +28,9 @@ namespace BahariModernUI.Pages.Settings
             InitializeComponent();
 
             appearance.Text = BahariModernUI.Resources.StringResources.Appearance.ToUpper();
+            theme.Text = BahariModernUI.Resources.StringResources.Theme;
+            font.Text = BahariModernUI.Resources.StringResources.Font;
+            language.Text = BahariModernUI.Resources.StringResources.Language;
 
             // create and assign the appearance view model
             this.DataContext = new AppearanceViewModel();
@@ -39,11 +42,12 @@ namespace BahariModernUI.Pages.Settings
 
             Dictionary<String, String> data = new Dictionary<String, String>();
 
-            var a = theme.SelectedItem as Link;
+            var a = theme1.SelectedItem as Link;
 
             data.Add("THEME", a.DisplayName.ToString());
             data.Add("COLOR", brush.SelectedItem.ToString());
-            data.Add("FONT", font.SelectedItem.ToString());
+            data.Add("FONT", font1.SelectedItem.ToString());
+            data.Add("LANGUAGE", language1.SelectedItem.ToString());
 
             //ModernDialog.ShowMessage(data.ElementAt(0).Value + " " + data.ElementAt(1).Value + " " + data.ElementAt(2).Value, "Themes", MessageBoxButton.OK);
 
@@ -52,11 +56,11 @@ namespace BahariModernUI.Pages.Settings
             {
                 if (db.Update("SETTING", data, condition) == true)
                 {
-                    ModernDialog.ShowMessage("Saved :) .", "Themes", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.LanguageSave, BahariModernUI.Resources.StringResources.Theme, MessageBoxButton.OK);
                 }
                 else
                 {
-                    ModernDialog.ShowMessage("Failed :( , Please try again.", "Themes", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.LanguageFail, BahariModernUI.Resources.StringResources.Theme, MessageBoxButton.OK);
                 }
             }
             catch (Exception crap)

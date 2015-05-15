@@ -141,6 +141,9 @@
   <data name="Feedback" xml:space="preserve">
     <value>umpan balik</value>
   </data>
+  <data name="Font" xml:space="preserve">
+    <value>Ukuran font</value>
+  </data>
   <data name="Fresh" xml:space="preserve">
     <value>Biota Air Tawar</value>
   </data>
@@ -155,6 +158,15 @@
   </data>
   <data name="Join" xml:space="preserve">
     <value>bekerjasama dengan</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Bahasa</value>
+  </data>
+  <data name="LanguageFail" xml:space="preserve">
+    <value>Gagal :( , Coba ulangi lagi.</value>
+  </data>
+  <data name="LanguageSave" xml:space="preserve">
+    <value>Tersimpan :), Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>Putar Kiri</value>
@@ -206,6 +218,9 @@
   </data>
   <data name="Term" xml:space="preserve">
     <value>syarat dan ketentuan</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Tema</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Perhatian!</value>
