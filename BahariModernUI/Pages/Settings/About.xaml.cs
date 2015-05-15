@@ -24,15 +24,19 @@ namespace BahariModernUI.Pages.Settings
         {
             InitializeComponent();
 
-            this.about.Text = "Terangi Bahari is an application for educating people about Indonesian water habitat.";
-            this.joinVentureWith.Text = "Direktorat Jendral Kelautan, Pesisir dan Pulau-pulau Kecil - Kementerian Kelautan dan Perikanan\nYayasan Terumbu Karang Indonesia";
-            this.poweredBy.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite\nwww.ausarabexplore.info";
+            about.Text = BahariModernUI.Resources.StringResources.About.ToUpper();
+            about1.Text = BahariModernUI.Resources.StringResources.AboutText;
+            joinVentureWith.Text = BahariModernUI.Resources.StringResources.Join.ToUpper();
+            joinVentureWith1.Text = "Direktorat Jendral Kelautan, Pesisir dan Pulau-pulau Kecil - Kementerian Kelautan dan Perikanan\nYayasan Terumbu Karang Indonesia";
+            poweredBy.Text = BahariModernUI.Resources.StringResources.Powered.ToUpper();
+            poweredBy1.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite\nwww.ausarabexplore.info";
 
             Run run1 = new Run("Term And Condition ...");
 
             Hyperlink link1 = new Hyperlink(run1);
             link1.NavigateUri = new Uri("https://github.com/santensuru/BahariModernUI");
-            termAndCondition.Inlines.Add(link1);
+            termAndCondition.Text = BahariModernUI.Resources.StringResources.Term.ToUpper();
+            termAndCondition1.Inlines.Add(link1);
 
             link1.RequestNavigate += (sender, e) =>
             {
@@ -49,7 +53,8 @@ namespace BahariModernUI.Pages.Settings
 
             Hyperlink link = new Hyperlink(run);
             link.NavigateUri = new Uri("https://github.com/santensuru/BahariModernUI/blob/master/README.md#mit-license");
-            license.Inlines.Add(link);
+            license.Text = BahariModernUI.Resources.StringResources.License.ToUpper();
+            license1.Inlines.Add(link);
 
             link.RequestNavigate += (sender, e) =>
             {
@@ -60,7 +65,8 @@ namespace BahariModernUI.Pages.Settings
 
             Hyperlink link2 = new Hyperlink(run2);
             link2.NavigateUri = new Uri("mailto:djuned.ong@gmail.com?subject=Terangi%20Bahari%20user%20feedback");
-            feedback.Inlines.Add(link2);
+            feedback.Text = BahariModernUI.Resources.StringResources.Feedback.ToUpper();
+            feedback1.Inlines.Add(link2);
 
             link2.RequestNavigate += (sender, e) =>
             {

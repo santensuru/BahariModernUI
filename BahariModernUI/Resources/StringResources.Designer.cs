@@ -70,6 +70,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Terangi Bahari is an application for educating people about Indonesian water habitat..
+        /// </summary>
+        public static string AboutText {
+            get {
+                return ResourceManager.GetString("AboutText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to appearance.
         /// </summary>
         public static string Appearance {
@@ -115,6 +124,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to feedback.
+        /// </summary>
+        public static string Feedback {
+            get {
+                return ResourceManager.GetString("Feedback", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fresh Water.
         /// </summary>
         public static string Fresh {
@@ -151,11 +169,29 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to join venture with.
+        /// </summary>
+        public static string Join {
+            get {
+                return ResourceManager.GetString("Join", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rotate Left.
         /// </summary>
         public static string Left {
             get {
                 return ResourceManager.GetString("Left", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to license.
+        /// </summary>
+        public static string License {
+            get {
+                return ResourceManager.GetString("License", resourceCulture);
             }
         }
         
@@ -205,11 +241,20 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to personality.
+        ///   Looks up a localized string similar to profile.
         /// </summary>
         public static string Personality {
             get {
                 return ResourceManager.GetString("Personality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to powered by.
+        /// </summary>
+        public static string Powered {
+            get {
+                return ResourceManager.GetString("Powered", resourceCulture);
             }
         }
         
@@ -273,6 +318,15 @@ namespace BahariModernUI.Resources {
         public static string Software {
             get {
                 return ResourceManager.GetString("Software", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to term and condition.
+        /// </summary>
+        public static string Term {
+            get {
+                return ResourceManager.GetString("Term", resourceCulture);
             }
         }
         

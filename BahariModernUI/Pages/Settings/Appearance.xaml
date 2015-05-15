@@ -8,7 +8,7 @@
     <Grid>
         <ScrollViewer>
             <StackPanel x:Name="Panel" MinWidth="150">
-                <TextBlock Text="APPEARANCE" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                <TextBlock x:Name="appearance" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
 
                 <ListBox x:Name="brush" ItemsSource="{Binding AccentColors}"
                          SelectedItem="{Binding SelectedAccentColor, Mode=TwoWay}"

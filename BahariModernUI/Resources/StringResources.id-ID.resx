@@ -120,8 +120,11 @@
   <data name="About" xml:space="preserve">
     <value>tentang</value>
   </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Terangi Bahari adalah perangkat lunak untuk mengedukasi kalayak ramai mengenai kekayaan bahari Indonesia.</value>
+  </data>
   <data name="Appearance" xml:space="preserve">
-    <value>penampilan</value>
+    <value>tampilan</value>
   </data>
   <data name="Appendix" xml:space="preserve">
     <value>apendiks</value>
@@ -135,6 +138,9 @@
   <data name="Favorite" xml:space="preserve">
     <value>favorit</value>
   </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>umpan balik</value>
+  </data>
   <data name="Fresh" xml:space="preserve">
     <value>Biota Air Tawar</value>
   </data>
@@ -147,8 +153,14 @@
   <data name="IntelWarning" xml:space="preserve">
     <value>Tidak ada Kamera Intel Realsense yang terdeteksi</value>
   </data>
+  <data name="Join" xml:space="preserve">
+    <value>bekerjasama dengan</value>
+  </data>
   <data name="Left" xml:space="preserve">
     <value>Putar Kiri</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>lisensi</value>
   </data>
   <data name="Map" xml:space="preserve">
     <value>peta</value>
@@ -167,6 +179,9 @@
   </data>
   <data name="Personality" xml:space="preserve">
     <value>pengguna</value>
+  </data>
+  <data name="Powered" xml:space="preserve">
+    <value>didukung oleh</value>
   </data>
   <data name="Reef" xml:space="preserve">
     <value>Terumbu Karang</value>
@@ -188,6 +203,9 @@
   </data>
   <data name="Software" xml:space="preserve">
     <value>perangkat lunak</value>
+  </data>
+  <data name="Term" xml:space="preserve">
+    <value>syarat dan ketentuan</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Perhatian!</value>

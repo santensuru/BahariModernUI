@@ -8,19 +8,19 @@
     <Grid>
         <ScrollViewer>
             <StackPanel MinWidth="200" x:Name="satu">
-                <TextBlock Text="ABOUT" Style="{StaticResource Heading2}" />
+                <TextBlock x:Name="about" Style="{StaticResource Heading2}" />
                 <Image Source="/Assets/logo terangi bahari about.png" Width="250" HorizontalAlignment="Left"/>
-                <TextBlock x:Name="about" Margin="0,0,0,8" TextWrapping="Wrap" />
-                <TextBlock Text="JOIN VENTURE WITH" Style="{StaticResource Heading2}"/>
-                <TextBlock x:Name="joinVentureWith" Margin="0,0,0,8" TextWrapping="Wrap" />
-                <TextBlock Text="POWERED BY" Style="{StaticResource Heading2}"/>
-                <TextBlock x:Name="poweredBy" Margin="0,0,0,8" TextWrapping="Wrap" />
-                <TextBlock Text="TERM AND CONDITION" Style="{StaticResource Heading2}"/>
-                <TextBlock x:Name="termAndCondition" Margin="0,0,0,8" TextWrapping="Wrap" />
-                <TextBlock Text="LICENSE" Style="{StaticResource Heading2}"/>
-                <TextBlock x:Name="license" Margin="0,0,0,8" TextWrapping="Wrap" />
-                <TextBlock Text="FEEDBACK" Style="{StaticResource Heading2}"/>
-                <TextBlock x:Name="feedback" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock x:Name="about1" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock x:Name="joinVentureWith" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="joinVentureWith1" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock x:Name="poweredBy" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="poweredBy1" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock x:Name="termAndCondition" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="termAndCondition1" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock x:Name="license" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="license1" Margin="0,0,0,8" TextWrapping="Wrap" />
+                <TextBlock x:Name="feedback" Style="{StaticResource Heading2}"/>
+                <TextBlock x:Name="feedback1" Margin="0,0,0,8" TextWrapping="Wrap" />
             </StackPanel>
         </ScrollViewer>
     </Grid>

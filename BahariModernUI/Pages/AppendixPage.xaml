@@ -11,10 +11,10 @@
         <mui:ModernTab Layout="List" SelectedSource="/Pages/Appendix/SeaWater.xaml" >
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="Fresh Water" Source="/Pages/Appendix/FreshWater.xaml" />
-                <mui:Link DisplayName="Sea Water" Source="/Pages/Appendix/SeaWater.xaml" />
-                <mui:Link DisplayName="Reef" Source="/Pages/Appendix/Reef.xaml" />
-                <mui:Link DisplayName="Conservation Area" Source="/Pages/Appendix/ConservationArea.xaml" />
+                <mui:Link x:Name="fresh"  Source="/Pages/Appendix/FreshWater.xaml" />
+                <mui:Link x:Name="sea" Source="/Pages/Appendix/SeaWater.xaml" />
+                <mui:Link x:Name="reef" Source="/Pages/Appendix/Reef.xaml" />
+                <mui:Link x:Name="conservation" Source="/Pages/Appendix/ConservationArea.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

@@ -23,6 +23,9 @@ namespace BahariModernUI.Pages
         public PersonalityPage()
         {
             InitializeComponent();
+
+            personality.DisplayName = BahariModernUI.Resources.StringResources.Personality;
+            score.DisplayName = BahariModernUI.Resources.StringResources.Score;
         }
     }
 }

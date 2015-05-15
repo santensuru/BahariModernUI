@@ -32,8 +32,8 @@ namespace BahariModernUI
             InitializeComponent();
 
             // load localization and globalization
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+            //System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
 
             main.DisplayName = BahariModernUI.Resources.StringResources.Home;
             main1.DisplayName = BahariModernUI.Resources.StringResources.Home;

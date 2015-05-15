@@ -23,6 +23,9 @@ namespace BahariModernUI.Pages
         public SettingsPage()
         {
             InitializeComponent();
+
+            appearance.DisplayName = BahariModernUI.Resources.StringResources.Appearance;
+            about.DisplayName = BahariModernUI.Resources.StringResources.About;
         }
     }
 }

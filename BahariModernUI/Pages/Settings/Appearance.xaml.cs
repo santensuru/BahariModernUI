@@ -27,6 +27,8 @@ namespace BahariModernUI.Pages.Settings
         {
             InitializeComponent();
 
+            appearance.Text = BahariModernUI.Resources.StringResources.Appearance.ToUpper();
+
             // create and assign the appearance view model
             this.DataContext = new AppearanceViewModel();
         }

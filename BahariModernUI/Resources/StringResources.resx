@@ -120,6 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>about</value>
   </data>
+  <data name="AboutText" xml:space="preserve">
+    <value>Terangi Bahari is an application for educating people about Indonesian water habitat.</value>
+  </data>
   <data name="Appearance" xml:space="preserve">
     <value>appearance</value>
   </data>
@@ -135,6 +138,9 @@
   <data name="Favorite" xml:space="preserve">
     <value>favorite</value>
   </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>feedback</value>
+  </data>
   <data name="Fresh" xml:space="preserve">
     <value>Fresh Water</value>
   </data>
@@ -147,8 +153,14 @@
   <data name="IntelWarning" xml:space="preserve">
     <value>No Intel Realsense Camera detected</value>
   </data>
+  <data name="Join" xml:space="preserve">
+    <value>join venture with</value>
+  </data>
   <data name="Left" xml:space="preserve">
     <value>Rotate Left</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>license</value>
   </data>
   <data name="Map" xml:space="preserve">
     <value>map</value>
@@ -166,7 +178,10 @@
     <value>You must have intel realsense camera to used this feature.</value>
   </data>
   <data name="Personality" xml:space="preserve">
-    <value>personality</value>
+    <value>profile</value>
+  </data>
+  <data name="Powered" xml:space="preserve">
+    <value>powered by</value>
   </data>
   <data name="Reef" xml:space="preserve">
     <value>Coral Reef</value>
@@ -188,6 +203,9 @@
   </data>
   <data name="Software" xml:space="preserve">
     <value>software</value>
+  </data>
+  <data name="Term" xml:space="preserve">
+    <value>term and condition</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning!</value>

@@ -11,8 +11,8 @@
         <mui:ModernTab Layout="List" x:Name="layout" SelectedSource="/Pages/Personality/Landing.xaml" >
             <mui:ModernTab.Links>
                 <!-- TODO: set @Source -->
-                <mui:Link DisplayName="Personality" Source="/Pages/Personality/Landing.xaml" />
-                <mui:Link DisplayName="Score" Source="/Pages/Personality/Score.xaml" />
+                <mui:Link x:Name="personality" Source="/Pages/Personality/Landing.xaml" />
+                <mui:Link x:Name="score" Source="/Pages/Personality/Score.xaml" />
             </mui:ModernTab.Links>
         </mui:ModernTab>
     </Grid>

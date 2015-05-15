@@ -23,6 +23,11 @@ namespace BahariModernUI.Pages
         public AppendixPage()
         {
             InitializeComponent();
+
+            fresh.DisplayName = BahariModernUI.Resources.StringResources.Fresh;
+            sea.DisplayName = BahariModernUI.Resources.StringResources.Sea;
+            reef.DisplayName = BahariModernUI.Resources.StringResources.Reef;
+            conservation.DisplayName = BahariModernUI.Resources.StringResources.Conservation;
         }
     }
 }
