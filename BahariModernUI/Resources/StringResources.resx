@@ -129,14 +129,25 @@
   <data name="Appendix" xml:space="preserve">
     <value>appendix</value>
   </data>
+  <data name="Bahasa" xml:space="preserve">
+    <value>bahasa</value>
+  </data>
   <data name="Conservation" xml:space="preserve">
     <value>Conservation Area</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>dark</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>english</value>
   </data>
   <data name="Experience" xml:space="preserve">
     <value>3d experience</value>
   </data>
   <data name="Fail" xml:space="preserve">
-    <value>Failed :(</value>
+    <value>Failed :(
+
+Please try again.</value>
   </data>
   <data name="Favorite" xml:space="preserve">
     <value>favorite</value>
@@ -168,19 +179,20 @@
   <data name="Language" xml:space="preserve">
     <value>Language</value>
   </data>
-  <data name="LanguageFail" xml:space="preserve">
-    <value>Failed :( ,
-Please try again.</value>
+  <data name="LanguageText" xml:space="preserve">
+    <value>To affected the language changed, you must restart this app.</value>
   </data>
-  <data name="LanguageSave" xml:space="preserve">
-    <value>Saved :),
-To affected the language changed, you must restart this app.</value>
+  <data name="Large" xml:space="preserve">
+    <value>large</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>Rotate Left</value>
   </data>
   <data name="License" xml:space="preserve">
     <value>license</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>light</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
@@ -251,11 +263,14 @@ To affected the language changed, you must restart this app.</value>
   <data name="Settings" xml:space="preserve">
     <value>settings</value>
   </data>
+  <data name="Small" xml:space="preserve">
+    <value>small</value>
+  </data>
   <data name="Software" xml:space="preserve">
     <value>software</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>Succes :)</value>
+    <value>Success :)</value>
   </data>
   <data name="Term" xml:space="preserve">
     <value>Term and Condition</value>

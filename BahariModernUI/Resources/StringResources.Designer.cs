@@ -97,11 +97,38 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to bahasa.
+        /// </summary>
+        public static string Bahasa {
+            get {
+                return ResourceManager.GetString("Bahasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conservation Area.
         /// </summary>
         public static string Conservation {
             get {
                 return ResourceManager.GetString("Conservation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to dark.
+        /// </summary>
+        public static string Dark {
+            get {
+                return ResourceManager.GetString("Dark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to english.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
             }
         }
         
@@ -115,7 +142,9 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed :(.
+        ///   Looks up a localized string similar to Failed :(
+        ///
+        ///Please try again..
         /// </summary>
         public static string Fail {
             get {
@@ -214,22 +243,20 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed :( ,
-        ///Please try again..
+        ///   Looks up a localized string similar to To affected the language changed, you must restart this app..
         /// </summary>
-        public static string LanguageFail {
+        public static string LanguageText {
             get {
-                return ResourceManager.GetString("LanguageFail", resourceCulture);
+                return ResourceManager.GetString("LanguageText", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saved :),
-        ///To affected the language changed, you must restart this app..
+        ///   Looks up a localized string similar to large.
         /// </summary>
-        public static string LanguageSave {
+        public static string Large {
             get {
-                return ResourceManager.GetString("LanguageSave", resourceCulture);
+                return ResourceManager.GetString("Large", resourceCulture);
             }
         }
         
@@ -248,6 +275,15 @@ namespace BahariModernUI.Resources {
         public static string License {
             get {
                 return ResourceManager.GetString("License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to light.
+        /// </summary>
+        public static string Light {
+            get {
+                return ResourceManager.GetString("Light", resourceCulture);
             }
         }
         
@@ -459,6 +495,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to small.
+        /// </summary>
+        public static string Small {
+            get {
+                return ResourceManager.GetString("Small", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to software.
         /// </summary>
         public static string Software {
@@ -468,7 +513,7 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Succes :).
+        ///   Looks up a localized string similar to Success :).
         /// </summary>
         public static string Success {
             get {

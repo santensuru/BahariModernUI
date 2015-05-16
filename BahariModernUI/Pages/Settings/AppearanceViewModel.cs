@@ -19,11 +19,11 @@ namespace BahariModernUI.Pages.Settings
     public class AppearanceViewModel
         : NotifyPropertyChanged
     {
-        private const string FontSmall = "small";
-        private const string FontLarge = "large";
+        private string FontSmall = BahariModernUI.Resources.StringResources.Small;
+        private string FontLarge = BahariModernUI.Resources.StringResources.Large;
 
-        private const string English = "english";
-        private const string Bahasa = "bahasa";
+        private string English = "english";
+        private string Bahasa = "bahasa";
 
         // 9 accent colors from metro design principles
         /*private Color[] accentColors = new Color[]{
@@ -71,8 +71,8 @@ namespace BahariModernUI.Pages.Settings
         public AppearanceViewModel()
         {
             // add the default themes
-            this.themes.Add(new Link { DisplayName = "dark", Source = AppearanceManager.DarkThemeSource });
-            this.themes.Add(new Link { DisplayName = "light", Source = AppearanceManager.LightThemeSource });
+            this.themes.Add(new Link { DisplayName = BahariModernUI.Resources.StringResources.Dark, Source = AppearanceManager.DarkThemeSource });
+            this.themes.Add(new Link { DisplayName = BahariModernUI.Resources.StringResources.Light, Source = AppearanceManager.LightThemeSource });
 
             this.SelectedFontSize = AppearanceManager.Current.FontSize == FontSize.Large ? FontLarge : FontSmall;
 

@@ -58,6 +58,7 @@ namespace BahariModernUI
             String login = "";
             String name = "";
             String language = "";
+            String langFirst = "";
             try
             {
                 SQLiteDatabase db = new SQLiteDatabase();
@@ -78,6 +79,7 @@ namespace BahariModernUI
                     font = r["FONT"].ToString();
                     login = r["LOGIN"].ToString();
                     language = r["LANGUAGE"].ToString();
+                    langFirst = r["LANGFIRST"].ToString();
                 }
             }
             catch (Exception fail)
@@ -95,16 +97,21 @@ namespace BahariModernUI
 
                 AppearanceManager.Current.AccentColor = Color.FromRgb(argb[1], argb[2], argb[3]);
 
-                if (theme == "dark")
+                if (langFirst == "bahasa")
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
+                else
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US"); 
+                
+                if (theme == BahariModernUI.Resources.StringResources.Dark)
                     AppearanceManager.Current.ThemeSource = AppearanceManager.DarkThemeSource;
 
-                if (font == "small")
+                if (font == BahariModernUI.Resources.StringResources.Small)
                     AppearanceManager.Current.FontSize = FirstFloor.ModernUI.Presentation.FontSize.Small;
 
                 if (language == "bahasa")
                     System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
                 else
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US"); 
             }
 
             if (login != "")

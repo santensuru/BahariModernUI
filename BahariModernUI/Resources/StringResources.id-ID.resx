@@ -129,14 +129,25 @@
   <data name="Appendix" xml:space="preserve">
     <value>lampiran</value>
   </data>
+  <data name="Bahasa" xml:space="preserve">
+    <value>indonesia</value>
+  </data>
   <data name="Conservation" xml:space="preserve">
     <value>Kawasan Konservasi</value>
+  </data>
+  <data name="Dark" xml:space="preserve">
+    <value>gelap</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>inggris</value>
   </data>
   <data name="Experience" xml:space="preserve">
     <value>pengalaman 3d</value>
   </data>
   <data name="Fail" xml:space="preserve">
-    <value>Gagal :(</value>
+    <value>Gagal :(
+
+Coba ulangi lagi.</value>
   </data>
   <data name="Favorite" xml:space="preserve">
     <value>favorit</value>
@@ -168,19 +179,20 @@
   <data name="Language" xml:space="preserve">
     <value>Bahasa</value>
   </data>
-  <data name="LanguageFail" xml:space="preserve">
-    <value>Gagal :( ,
-Coba ulangi lagi.</value>
+  <data name="LanguageText" xml:space="preserve">
+    <value>Nyalakan kembali perangkat lunak ini, agar bahasa yang digunakan berubah.</value>
   </data>
-  <data name="LanguageSave" xml:space="preserve">
-    <value>Tersimpan :),
-Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</value>
+  <data name="Large" xml:space="preserve">
+    <value>besar</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>Putar Kiri</value>
   </data>
   <data name="License" xml:space="preserve">
     <value>lisensi</value>
+  </data>
+  <data name="Light" xml:space="preserve">
+    <value>terang</value>
   </data>
   <data name="Login" xml:space="preserve">
     <value>Masuk</value>
@@ -250,6 +262,9 @@ Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</
   </data>
   <data name="Settings" xml:space="preserve">
     <value>pengaturan</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>kecil</value>
   </data>
   <data name="Software" xml:space="preserve">
     <value>perangkat lunak</value>

@@ -3,6 +3,7 @@ using FirstFloor.ModernUI.Presentation;
 using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,23 @@ namespace BahariModernUI.Pages.Settings
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string langFirst = "";
+            
             SQLiteDatabase db = new SQLiteDatabase();
+            DataTable biota;
+
+            String query = "SELECT LANGUAGE ";
+            query += "FROM SETTING;";
+
+            biota = db.GetDataTable(query);
+
+            //ModernDialog.ShowMessage(query, "", MessageBoxButton.OK);
+
+            // Or looped through for some other reason
+            foreach (DataRow r in biota.Rows)
+            {
+                langFirst = r["LANGUAGE"].ToString();
+            }
 
             Dictionary<String, String> data = new Dictionary<String, String>();
 
@@ -48,6 +65,7 @@ namespace BahariModernUI.Pages.Settings
             data.Add("COLOR", brush.SelectedItem.ToString());
             data.Add("FONT", font1.SelectedItem.ToString());
             data.Add("LANGUAGE", language1.SelectedItem.ToString());
+            data.Add("LANGFIRST", langFirst);
 
             //ModernDialog.ShowMessage(data.ElementAt(0).Value + " " + data.ElementAt(1).Value + " " + data.ElementAt(2).Value, "Themes", MessageBoxButton.OK);
 
@@ -63,7 +81,7 @@ namespace BahariModernUI.Pages.Settings
                     var dlg = new ModernDialog
                     {
                         Title = BahariModernUI.Resources.StringResources.Theme,
-                        Content = BahariModernUI.Resources.StringResources.LanguageSave
+                        Content = BahariModernUI.Resources.StringResources.Success + "\r\n\r\n" + BahariModernUI.Resources.StringResources.LanguageText
                     };
                     dlg.Buttons = new Button[] { dlg.OkButton };
                     dlg.ShowDialog();
@@ -89,7 +107,7 @@ namespace BahariModernUI.Pages.Settings
                 }
                 else
                 {
-                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.LanguageFail, BahariModernUI.Resources.StringResources.Theme, MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Fail, BahariModernUI.Resources.StringResources.Theme, MessageBoxButton.OK);
                 }
             }
             catch (Exception crap)
