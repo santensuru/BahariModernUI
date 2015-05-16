@@ -31,7 +31,7 @@ namespace BahariModernUI.Pages.Settings
             poweredBy.Text = BahariModernUI.Resources.StringResources.Powered.ToUpper();
             poweredBy1.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite\nwww.ausarabexplore.info";
 
-            Run run1 = new Run("Term And Condition ...");
+            Run run1 = new Run(BahariModernUI.Resources.StringResources.Term + " ...");
 
             Hyperlink link1 = new Hyperlink(run1);
             link1.NavigateUri = new Uri("https://github.com/santensuru/BahariModernUI");

@@ -196,7 +196,8 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed :( , Please try again..
+        ///   Looks up a localized string similar to Failed :( ,
+        ///Please try again..
         /// </summary>
         public static string LanguageFail {
             get {
@@ -205,7 +206,8 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Saved :), To affected the language changed, you must restart this app..
+        ///   Looks up a localized string similar to Saved :),
+        ///To affected the language changed, you must restart this app..
         /// </summary>
         public static string LanguageSave {
             get {
@@ -358,11 +360,25 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to term and condition.
+        ///   Looks up a localized string similar to Term and Condition.
         /// </summary>
         public static string Term {
             get {
                 return ResourceManager.GetString("Term", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When You use this Software, You can copy it to other PC(s) without fee.
+        ///You also can distributed it to other people, but you cannot comercial it.
+        ///Before You copying to other, please send email to djuned.ong@gmail.com,
+        ///for confirmation only.
+        ///
+        ///Thank You.
+        /// </summary>
+        public static string TermText {
+            get {
+                return ResourceManager.GetString("TermText", resourceCulture);
             }
         }
         

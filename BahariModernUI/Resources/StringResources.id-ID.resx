@@ -163,10 +163,12 @@
     <value>Bahasa</value>
   </data>
   <data name="LanguageFail" xml:space="preserve">
-    <value>Gagal :( , Coba ulangi lagi.</value>
+    <value>Gagal :( ,
+Coba ulangi lagi.</value>
   </data>
   <data name="LanguageSave" xml:space="preserve">
-    <value>Tersimpan :), Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</value>
+    <value>Tersimpan :),
+Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>Putar Kiri</value>
@@ -217,7 +219,16 @@
     <value>perangkat lunak</value>
   </data>
   <data name="Term" xml:space="preserve">
-    <value>syarat dan ketentuan</value>
+    <value>Syarat dan Ketentuan</value>
+  </data>
+  <data name="TermText" xml:space="preserve">
+    <value>Ketika Anda menggunakan perangkat lunak ini, Anda dapat mengkopi ke komputer lain tanpa biaya.
+Anda juga dapat memberikannya ke pengguna lain, tetapi Anda tidak dapat menarik biaya.
+Sebelum Anda mengkopikan ke pengguna lain, mohon mengirim email ke djuned.ong@gmail.com,
+untuk konfirmasi.
+
+
+Terima Kasih</value>
   </data>
   <data name="Theme" xml:space="preserve">
     <value>Tema</value>

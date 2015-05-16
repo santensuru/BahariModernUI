@@ -163,10 +163,12 @@
     <value>Language</value>
   </data>
   <data name="LanguageFail" xml:space="preserve">
-    <value>Failed :( , Please try again.</value>
+    <value>Failed :( ,
+Please try again.</value>
   </data>
   <data name="LanguageSave" xml:space="preserve">
-    <value>Saved :), To affected the language changed, you must restart this app.</value>
+    <value>Saved :),
+To affected the language changed, you must restart this app.</value>
   </data>
   <data name="Left" xml:space="preserve">
     <value>Rotate Left</value>
@@ -217,7 +219,15 @@
     <value>software</value>
   </data>
   <data name="Term" xml:space="preserve">
-    <value>term and condition</value>
+    <value>Term and Condition</value>
+  </data>
+  <data name="TermText" xml:space="preserve">
+    <value>When You use this Software, You can copy it to other PC(s) without fee.
+You also can distributed it to other people, but you cannot comercial it.
+Before You copying to other, please send email to djuned.ong@gmail.com,
+for confirmation only.
+
+Thank You</value>
   </data>
   <data name="Theme" xml:space="preserve">
     <value>Theme</value>

@@ -6,7 +6,7 @@
                   xmlns:mui="http://firstfloorsoftware.com/ModernUI"
                   mc:Ignorable="d" 
                   d:DesignHeight="300" d:DesignWidth="300"
-                  Title="Term And Condition">
+                  x:Name="term">
 
     <!-- Note: ModernDialog buttons are defined in the constructor of the code behind class -->
 

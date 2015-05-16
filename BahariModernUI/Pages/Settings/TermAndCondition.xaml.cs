@@ -25,10 +25,8 @@ namespace BahariModernUI.Pages.Settings
         {
             InitializeComponent();
 
-            tac.Text = "When You use this Software, You can copy it to other PC(s) without fee.\r\n";
-            tac.Text += "You also can distributed it to other people, but you cannot comercial it.\r\n";
-            tac.Text += "Before You copying to other, please send email to djuned.ong@gmail.com,\r\n for confirmation only.\r\n\r\n";
-            tac.Text += "Thank You\r\n";
+            term.Title = BahariModernUI.Resources.StringResources.Term;
+            tac.Text = BahariModernUI.Resources.StringResources.TermText;
 
             // define the dialog buttons
             this.Buttons = new Button[] { this.OkButton };
