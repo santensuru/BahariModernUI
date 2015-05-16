@@ -101,10 +101,10 @@ namespace BahariModernUI
                 if (font == "small")
                     AppearanceManager.Current.FontSize = FirstFloor.ModernUI.Presentation.FontSize.Small;
 
-                if (language == "english")
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-                else
+                if (language == "bahasa")
                     System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
+                else
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
             }
 
             if (login != "")

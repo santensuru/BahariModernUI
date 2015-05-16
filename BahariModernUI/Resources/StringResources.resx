@@ -135,6 +135,9 @@
   <data name="Experience" xml:space="preserve">
     <value>3d experience</value>
   </data>
+  <data name="Fail" xml:space="preserve">
+    <value>Failed :(</value>
+  </data>
   <data name="Favorite" xml:space="preserve">
     <value>favorite</value>
   </data>
@@ -176,6 +179,21 @@ To affected the language changed, you must restart this app.</value>
   <data name="License" xml:space="preserve">
     <value>license</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LoginConfirm" xml:space="preserve">
+    <value>Missing your name or password</value>
+  </data>
+  <data name="LoginConfirmText" xml:space="preserve">
+    <value>Please fill the blank username or password.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="LogoutText" xml:space="preserve">
+    <value>Are you sure to logout?</value>
+  </data>
   <data name="Map" xml:space="preserve">
     <value>map</value>
   </data>
@@ -191,6 +209,9 @@ To affected the language changed, you must restart this app.</value>
   <data name="OnLabel" xml:space="preserve">
     <value>You must have intel realsense camera to used this feature.</value>
   </data>
+  <data name="Or" xml:space="preserve">
+    <value>or</value>
+  </data>
   <data name="Personality" xml:space="preserve">
     <value>profile</value>
   </data>
@@ -199,6 +220,12 @@ To affected the language changed, you must restart this app.</value>
   </data>
   <data name="Reef" xml:space="preserve">
     <value>Coral Reef</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Registration</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Rotate Right</value>
@@ -217,6 +244,9 @@ To affected the language changed, you must restart this app.</value>
   </data>
   <data name="Software" xml:space="preserve">
     <value>software</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Succes :)</value>
   </data>
   <data name="Term" xml:space="preserve">
     <value>Term and Condition</value>

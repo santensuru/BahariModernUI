@@ -27,6 +27,15 @@ namespace BahariModernUI.Pages.Personality
         public Landing()
         {
             InitializeComponent();
+
+            login1.Text = BahariModernUI.Resources.StringResources.Login.ToUpper();
+            login2.Content = BahariModernUI.Resources.StringResources.Login;
+            register.Text = BahariModernUI.Resources.StringResources.RegisterTitle.ToUpper();
+            register1.Content = BahariModernUI.Resources.StringResources.Register;
+            logout1.Text = BahariModernUI.Resources.StringResources.Logout.ToUpper();
+            logout2.Text = BahariModernUI.Resources.StringResources.LogoutText;
+            logout3.Content = BahariModernUI.Resources.StringResources.Logout;
+            or.Text = BahariModernUI.Resources.StringResources.Or.ToUpper();
         }
 
         private void Load(object sender, RoutedEventArgs e)
@@ -77,7 +86,7 @@ namespace BahariModernUI.Pages.Personality
         {
             if (this.user.Text == "" || this.password.Password == "")
             {
-                ModernDialog.ShowMessage("Please fill the blank username or password.", "Missing your name or password", MessageBoxButton.OK);
+                ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.LoginConfirmText, BahariModernUI.Resources.StringResources.LoginConfirm, MessageBoxButton.OK);
 
             }
             else
@@ -86,7 +95,7 @@ namespace BahariModernUI.Pages.Personality
                 {
                     SQLiteDatabase db = new SQLiteDatabase();
                     DataTable users;
-                    String query = "SELECT NAME \"Name\", PASSWORD \"Password\" ";
+                    String query = "SELECT NAME, PASSWORD ";
                     query += "FROM USER ";
                     query += "WHERE USERNAME = '" + this.user.Text.ToString() + "';";
 
@@ -100,16 +109,16 @@ namespace BahariModernUI.Pages.Personality
                     // Or looped through for some other reason
                     foreach (DataRow r in users.Rows)
                     {
-                        password = r["Password"].ToString();
+                        password = r["PASSWORD"].ToString();
                         //ModernDialog.ShowMessage(password, "", MessageBoxButton.OK);
-                        name = r["Name"].ToString();
+                        name = r["NAME"].ToString();
                     }
 
                     if (password == this.password.Password)
                     {
                         app.LoginName = name;
                         app.LoginUser = this.user.Text;
-                        ModernDialog.ShowMessage("Login.", "Login", MessageBoxButton.OK);
+                        ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Success, BahariModernUI.Resources.StringResources.Login, MessageBoxButton.OK);
                         this.user.Text = "";
                         this.password.Password = "";
                         this.login.Visibility = System.Windows.Visibility.Hidden;
@@ -120,7 +129,7 @@ namespace BahariModernUI.Pages.Personality
                     }
                     else
                     {
-                        ModernDialog.ShowMessage("Not Login.", "Login", MessageBoxButton.OK);
+                        ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Fail, BahariModernUI.Resources.StringResources.Login, MessageBoxButton.OK);
                     }
 
                 }
@@ -137,7 +146,7 @@ namespace BahariModernUI.Pages.Personality
         {
             if (this.regname.Text == "" || this.reguser.Text == "" || this.regpassword.Password == "")
             {
-                ModernDialog.ShowMessage("Please fill the blank name, username or password.", "Missing your name or password", MessageBoxButton.OK);
+                ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.LoginConfirmText, BahariModernUI.Resources.StringResources.LoginConfirm, MessageBoxButton.OK);
 
             }
             else
@@ -153,7 +162,7 @@ namespace BahariModernUI.Pages.Personality
                     {
                         app.LoginName = this.regname.Text;
                         app.LoginUser = this.reguser.Text;
-                        ModernDialog.ShowMessage("Success :) . Auto login.", "Registration", MessageBoxButton.OK);
+                        ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Success, BahariModernUI.Resources.StringResources.RegisterTitle, MessageBoxButton.OK);
                         this.login.Visibility = System.Windows.Visibility.Hidden;
                         this.logout.Visibility = System.Windows.Visibility.Visible;
                         logindata(app.LoginUser);
@@ -161,7 +170,7 @@ namespace BahariModernUI.Pages.Personality
                     }
                     else
                     {
-                        ModernDialog.ShowMessage("Failed :( , Please try again.", "Registration", MessageBoxButton.OK);
+                        ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Fail, BahariModernUI.Resources.StringResources.RegisterTitle, MessageBoxButton.OK);
                     }
                 }
                 catch (Exception crap)
@@ -181,7 +190,7 @@ namespace BahariModernUI.Pages.Personality
 
             logindata("");
 
-            ModernDialog.ShowMessage("Logout.", "Logout", MessageBoxButton.OK);
+            ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Success, BahariModernUI.Resources.StringResources.Logout, MessageBoxButton.OK);
 
             this.login.Visibility = System.Windows.Visibility.Visible;
             this.logout.Visibility = System.Windows.Visibility.Hidden;

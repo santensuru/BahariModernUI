@@ -135,6 +135,9 @@
   <data name="Experience" xml:space="preserve">
     <value>pengalaman 3d</value>
   </data>
+  <data name="Fail" xml:space="preserve">
+    <value>Gagal :(</value>
+  </data>
   <data name="Favorite" xml:space="preserve">
     <value>favorit</value>
   </data>
@@ -176,6 +179,21 @@ Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</
   <data name="License" xml:space="preserve">
     <value>lisensi</value>
   </data>
+  <data name="Login" xml:space="preserve">
+    <value>Masuk</value>
+  </data>
+  <data name="LoginConfirm" xml:space="preserve">
+    <value>Nama atau password Anda tidak ditemukan</value>
+  </data>
+  <data name="LoginConfirmText" xml:space="preserve">
+    <value>Tolong isi kolom nama maupun password.</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Keluar</value>
+  </data>
+  <data name="LogoutText" xml:space="preserve">
+    <value>Apakah Anda yakin ingin keluar?</value>
+  </data>
   <data name="Map" xml:space="preserve">
     <value>peta</value>
   </data>
@@ -191,6 +209,9 @@ Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</
   <data name="OnLabel" xml:space="preserve">
     <value>Untuk menggunakan fitur ini Anda harus mempunyai kamera intel realsense.</value>
   </data>
+  <data name="Or" xml:space="preserve">
+    <value>atau</value>
+  </data>
   <data name="Personality" xml:space="preserve">
     <value>pengguna</value>
   </data>
@@ -199,6 +220,12 @@ Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</
   </data>
   <data name="Reef" xml:space="preserve">
     <value>Terumbu Karang</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Daftar</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Pendaftaran</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Putar Kanan</value>
@@ -217,6 +244,9 @@ Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</
   </data>
   <data name="Software" xml:space="preserve">
     <value>perangkat lunak</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Berhasil :)</value>
   </data>
   <data name="Term" xml:space="preserve">
     <value>Syarat dan Ketentuan</value>
