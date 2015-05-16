@@ -250,39 +250,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Personality\Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Personality\Logout.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Personality\Score.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\RegisterPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Register\Login.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Register\Logout.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Register\People.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Register\Register.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Register\Your.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -323,32 +295,11 @@
     <Compile Include="Pages\Personality\Landing.xaml.cs">
       <DependentUpon>Landing.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Personality\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Personality\Logout.xaml.cs">
-      <DependentUpon>Logout.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Personality\Score.xaml.cs">
       <DependentUpon>Score.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Register\Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Register\Logout.xaml.cs">
-      <DependentUpon>Logout.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Register\People.xaml.cs">
-      <DependentUpon>People.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Register\Register.xaml.cs">
-      <DependentUpon>Register.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Register\Your.xaml.cs">
-      <DependentUpon>Your.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Settings\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
@@ -416,35 +367,18 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="Pages\Game\fishy.swf" />
     <EmbeddedResource Include="Pages\Game\FishyFlashGame.htm" />
     <SplashScreen Include="Assets\logo terangi bahari 2.png" />
     <Content Include="Assets\logo terangi bahari 2.ico" />
     <Resource Include="Assets\logo terangi bahari about.png" />
     <Content Include="logo terangi bahari 2.ico" />
-    <Content Include="Pages\Game\anchor_drop.swf" />
-    <Content Include="Pages\Game\ballast.swf" />
-    <Content Include="Pages\Game\chemical_pollution.swf" />
-    <Content Include="Pages\Game\crown_of_thorns.swf" />
-    <Content Include="Pages\Game\destructive_fishing.swf" />
-    <Content Include="Pages\Game\diver_bad.swf" />
-    <Content Include="Pages\Game\diver_good.swf" />
-    <Content Include="Pages\Game\fishgame_lowquality.swf" />
-    <Content Include="Pages\Game\global_warming.swf" />
-    <Content Include="Pages\Game\line_fishing.swf" />
-    <Content Include="Pages\Game\nutrients.swf" />
-    <Content Include="Pages\Game\nutrients2.swf" />
-    <Content Include="Pages\Game\over_fishing.swf" />
-    <Content Include="Pages\Game\protected_marine.swf" />
-    <Content Include="Pages\Game\sailing.swf" />
-    <Content Include="Pages\Game\sediment.swf" />
-    <Content Include="Pages\Game\swimming.swf" />
     <Content Include="sharpdx_direct3d11_effects_x64.dll" />
     <Content Include="sharpdx_direct3d11_effects_x86.dll" />
-    <Resource Include="Assets\digital-ocean.ico" />
-    <None Include="Assets\digital-ocean.png" />
     <Resource Include="Assets\Ocean-Underwater-Wallpaper-Widescreen-03.jpg" />
     <Content Include="digital-ocean.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\Register\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.96.0\build\net45\System.Data.SQLite.Core.targets')" />
