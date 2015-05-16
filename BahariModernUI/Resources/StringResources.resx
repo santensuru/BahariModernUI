@@ -227,6 +227,9 @@ To affected the language changed, you must restart this app.</value>
   <data name="RegisterTitle" xml:space="preserve">
     <value>Registration</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Are You sure to restart this app?</value>
+  </data>
   <data name="Right" xml:space="preserve">
     <value>Rotate Right</value>
   </data>

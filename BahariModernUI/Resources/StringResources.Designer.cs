@@ -387,6 +387,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are You sure to restart this app?.
+        /// </summary>
+        public static string Restart {
+            get {
+                return ResourceManager.GetString("Restart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Rotate Right.
         /// </summary>
         public static string Right {

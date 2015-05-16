@@ -56,7 +56,36 @@ namespace BahariModernUI.Pages.Settings
             {
                 if (db.Update("SETTING", data, condition) == true)
                 {
-                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.LanguageSave, BahariModernUI.Resources.StringResources.Theme, MessageBoxButton.OK);
+                    //ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.LanguageSave, BahariModernUI.Resources.StringResources.Theme, MessageBoxButton.OK);
+                    //System.Windows.Forms.Application.Restart();
+                    //System.Windows.Application.Current.Shutdown();
+
+                    var dlg = new ModernDialog
+                    {
+                        Title = BahariModernUI.Resources.StringResources.Theme,
+                        Content = BahariModernUI.Resources.StringResources.LanguageSave
+                    };
+                    dlg.Buttons = new Button[] { dlg.OkButton };
+                    dlg.ShowDialog();
+
+                    var dlgInside = new ModernDialog
+                    {
+                        Title = BahariModernUI.Resources.StringResources.Warning,
+                        Content = BahariModernUI.Resources.StringResources.Restart
+                    };
+                    dlgInside.Buttons = new Button[] { dlgInside.YesButton, dlgInside.NoButton };
+                    dlgInside.ShowDialog();
+
+                    //MessageBox.Show(dlgInside.DialogResult.HasValue ? dlgInside.DialogResult.ToString() : "<null>");
+                    //MessageBox.Show(dlgInside.MessageBoxResult.ToString());
+
+                    Boolean temp = dlgInside.DialogResult.HasValue ? dlgInside.DialogResult.GetValueOrDefault() : false;
+
+                    if (temp == true)
+                    {
+                        System.Windows.Forms.Application.Restart();
+                        System.Windows.Application.Current.Shutdown();
+                    }
                 }
                 else
                 {

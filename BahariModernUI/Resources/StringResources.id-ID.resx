@@ -227,6 +227,9 @@ Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</
   <data name="RegisterTitle" xml:space="preserve">
     <value>Pendaftaran</value>
   </data>
+  <data name="Restart" xml:space="preserve">
+    <value>Apakah Anda yakin ingin menyalakan kembali perangkat lunak ini?</value>
+  </data>
   <data name="Right" xml:space="preserve">
     <value>Putar Kanan</value>
   </data>
