@@ -129,17 +129,11 @@
   <data name="Appendix" xml:space="preserve">
     <value>appendix</value>
   </data>
-  <data name="Bahasa" xml:space="preserve">
-    <value>bahasa</value>
-  </data>
   <data name="Conservation" xml:space="preserve">
     <value>Conservation Area</value>
   </data>
   <data name="Dark" xml:space="preserve">
     <value>dark</value>
-  </data>
-  <data name="English" xml:space="preserve">
-    <value>english</value>
   </data>
   <data name="Experience" xml:space="preserve">
     <value>3d experience</value>

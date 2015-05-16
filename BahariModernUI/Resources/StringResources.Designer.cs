@@ -97,15 +97,6 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to bahasa.
-        /// </summary>
-        public static string Bahasa {
-            get {
-                return ResourceManager.GetString("Bahasa", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Conservation Area.
         /// </summary>
         public static string Conservation {
@@ -120,15 +111,6 @@ namespace BahariModernUI.Resources {
         public static string Dark {
             get {
                 return ResourceManager.GetString("Dark", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to english.
-        /// </summary>
-        public static string English {
-            get {
-                return ResourceManager.GetString("English", resourceCulture);
             }
         }
         

@@ -129,17 +129,11 @@
   <data name="Appendix" xml:space="preserve">
     <value>lampiran</value>
   </data>
-  <data name="Bahasa" xml:space="preserve">
-    <value>indonesia</value>
-  </data>
   <data name="Conservation" xml:space="preserve">
     <value>Kawasan Konservasi</value>
   </data>
   <data name="Dark" xml:space="preserve">
     <value>gelap</value>
-  </data>
-  <data name="English" xml:space="preserve">
-    <value>inggris</value>
   </data>
   <data name="Experience" xml:space="preserve">
     <value>pengalaman 3d</value>
