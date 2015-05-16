@@ -150,6 +150,9 @@
   <data name="Fresh" xml:space="preserve">
     <value>Fresh Water</value>
   </data>
+  <data name="Full" xml:space="preserve">
+    <value>Full Name</value>
+  </data>
   <data name="Game" xml:space="preserve">
     <value>game</value>
   </data>
@@ -196,6 +199,9 @@ To affected the language changed, you must restart this app.</value>
   </data>
   <data name="Map" xml:space="preserve">
     <value>map</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>name</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>off</value>

@@ -21,7 +21,7 @@
                     <TextBlock x:Name="or" Margin="0,8,0,8" TextAlignment="Center" />
 
                     <TextBlock x:Name="register" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-                    <TextBlock Text="Full Name : " />
+                    <TextBlock x:Name="full" />
                     <TextBox Name="regname" />
                     <TextBlock Text="User Name : " />
                     <TextBox Name="reguser" />

@@ -150,6 +150,9 @@
   <data name="Fresh" xml:space="preserve">
     <value>Biota Air Tawar</value>
   </data>
+  <data name="Full" xml:space="preserve">
+    <value>Nama Lengkap</value>
+  </data>
   <data name="Game" xml:space="preserve">
     <value>permainan</value>
   </data>
@@ -196,6 +199,9 @@ Nyalakan kembali perangkat lunak ini, agar bahasa berubah sesuai yang dipilih.</
   </data>
   <data name="Map" xml:space="preserve">
     <value>peta</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>nama</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>mati</value>

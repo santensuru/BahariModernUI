@@ -25,6 +25,9 @@ namespace BahariModernUI.Pages.Personality
         public Score()
         {
             InitializeComponent();
+
+            name.Text = BahariModernUI.Resources.StringResources.Name.ToUpper();
+            score.Text = BahariModernUI.Resources.StringResources.Score.ToUpper();
         }
 
         private void Load(object sender, RoutedEventArgs e)

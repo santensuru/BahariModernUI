@@ -36,6 +36,7 @@ namespace BahariModernUI.Pages.Personality
             logout2.Text = BahariModernUI.Resources.StringResources.LogoutText;
             logout3.Content = BahariModernUI.Resources.StringResources.Logout;
             or.Text = BahariModernUI.Resources.StringResources.Or.ToUpper();
+            full.Text = BahariModernUI.Resources.StringResources.Full + " : ";
         }
 
         private void Load(object sender, RoutedEventArgs e)

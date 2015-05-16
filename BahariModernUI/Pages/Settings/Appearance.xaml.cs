@@ -28,9 +28,9 @@ namespace BahariModernUI.Pages.Settings
             InitializeComponent();
 
             appearance.Text = BahariModernUI.Resources.StringResources.Appearance.ToUpper();
-            theme.Text = BahariModernUI.Resources.StringResources.Theme;
-            font.Text = BahariModernUI.Resources.StringResources.Font;
-            language.Text = BahariModernUI.Resources.StringResources.Language;
+            theme.Text = BahariModernUI.Resources.StringResources.Theme + " : ";
+            font.Text = BahariModernUI.Resources.StringResources.Font + " : ";
+            language.Text = BahariModernUI.Resources.StringResources.Language + " : ";
 
             // create and assign the appearance view model
             this.DataContext = new AppearanceViewModel();
