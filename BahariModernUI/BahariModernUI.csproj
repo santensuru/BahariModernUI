@@ -374,7 +374,6 @@
     <Content Include="sharpdx_direct3d11_effects_x64.dll" />
     <Content Include="sharpdx_direct3d11_effects_x86.dll" />
     <Resource Include="Assets\Ocean-Underwater-Wallpaper-Widescreen-03.jpg" />
-    <Content Include="digital-ocean.ico" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages\Game\" />
