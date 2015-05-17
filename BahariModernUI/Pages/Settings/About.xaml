@@ -9,7 +9,7 @@
         <ScrollViewer>
             <StackPanel MinWidth="200" x:Name="satu">
                 <TextBlock x:Name="about" Style="{StaticResource Heading2}" />
-                <Image Source="/Assets/logo terangi bahari about.png" Width="250" HorizontalAlignment="Left"/>
+                <Image Source="/Assets/logo terangi bahari about.png" Width="248" HorizontalAlignment="Left"/>
                 <TextBlock x:Name="about1" Margin="0,0,0,8" TextWrapping="Wrap" />
                 <TextBlock x:Name="joinVentureWith" Style="{StaticResource Heading2}"/>
                 <TextBlock x:Name="joinVentureWith1" Margin="0,0,0,8" TextWrapping="Wrap" />
