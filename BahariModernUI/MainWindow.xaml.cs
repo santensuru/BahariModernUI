@@ -97,6 +97,8 @@ namespace BahariModernUI
 
                 AppearanceManager.Current.AccentColor = Color.FromRgb(argb[1], argb[2], argb[3]);
 
+                //MessageBox.Show(langFirst);
+
                 if (langFirst == "bahasa")
                     System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo("id-ID");
                 else
