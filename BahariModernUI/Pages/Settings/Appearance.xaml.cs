@@ -32,6 +32,7 @@ namespace BahariModernUI.Pages.Settings
             theme.Text = BahariModernUI.Resources.StringResources.Theme + " : ";
             font.Text = BahariModernUI.Resources.StringResources.Font + " : ";
             language.Text = BahariModernUI.Resources.StringResources.Language + " : ";
+            save.Content = BahariModernUI.Resources.StringResources.Save;
 
             // create and assign the appearance view model
             this.DataContext = new AppearanceViewModel();
@@ -91,6 +92,9 @@ namespace BahariModernUI.Pages.Settings
                         Title = BahariModernUI.Resources.StringResources.Warning,
                         Content = BahariModernUI.Resources.StringResources.Restart
                     };
+                    dlgInside.YesButton.Content = BahariModernUI.Resources.StringResources.Yes;
+                    dlgInside.NoButton.Content = BahariModernUI.Resources.StringResources.No;
+
                     dlgInside.Buttons = new Button[] { dlgInside.YesButton, dlgInside.NoButton };
                     dlgInside.ShowDialog();
 

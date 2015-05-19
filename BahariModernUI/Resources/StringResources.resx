@@ -146,6 +146,12 @@ Please try again.</value>
   <data name="Favorite" xml:space="preserve">
     <value>favorite</value>
   </data>
+  <data name="FavoriteAdd" xml:space="preserve">
+    <value>Add to favorite</value>
+  </data>
+  <data name="FavoriteRemove" xml:space="preserve">
+    <value>Remove from favorite</value>
+  </data>
   <data name="Feedback" xml:space="preserve">
     <value>feedback</value>
   </data>
@@ -189,7 +195,7 @@ Please try again.</value>
     <value>light</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>login</value>
   </data>
   <data name="LoginConfirm" xml:space="preserve">
     <value>Missing your name or password</value>
@@ -198,7 +204,7 @@ Please try again.</value>
     <value>Please fill the blank username or password.</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Logout</value>
+    <value>logout</value>
   </data>
   <data name="LogoutText" xml:space="preserve">
     <value>Are you sure to logout?</value>
@@ -208,6 +214,9 @@ Please try again.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>name</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>no</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>off</value>
@@ -234,7 +243,7 @@ Please try again.</value>
     <value>Coral Reef</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Register</value>
+    <value>register</value>
   </data>
   <data name="RegisterTitle" xml:space="preserve">
     <value>Registration</value>
@@ -244,6 +253,9 @@ Please try again.</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Rotate Right</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>save</value>
   </data>
   <data name="Score" xml:space="preserve">
     <value>score</value>
@@ -262,6 +274,9 @@ Please try again.</value>
   </data>
   <data name="Software" xml:space="preserve">
     <value>software</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
   </data>
   <data name="Success" xml:space="preserve">
     <value>Success :)</value>
@@ -282,5 +297,8 @@ Thank You</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning!</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>yes</value>
   </data>
 </root>

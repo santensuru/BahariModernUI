@@ -144,6 +144,24 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add to favorite.
+        /// </summary>
+        public static string FavoriteAdd {
+            get {
+                return ResourceManager.GetString("FavoriteAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove from favorite.
+        /// </summary>
+        public static string FavoriteRemove {
+            get {
+                return ResourceManager.GetString("FavoriteRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to feedback.
         /// </summary>
         public static string Feedback {
@@ -270,7 +288,7 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to login.
         /// </summary>
         public static string Login {
             get {
@@ -297,7 +315,7 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logout.
+        ///   Looks up a localized string similar to logout.
         /// </summary>
         public static string Logout {
             get {
@@ -329,6 +347,15 @@ namespace BahariModernUI.Resources {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to no.
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
             }
         }
         
@@ -405,7 +432,7 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Register.
+        ///   Looks up a localized string similar to register.
         /// </summary>
         public static string Register {
             get {
@@ -437,6 +464,15 @@ namespace BahariModernUI.Resources {
         public static string Right {
             get {
                 return ResourceManager.GetString("Right", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to save.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
             }
         }
         
@@ -495,6 +531,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string String1 {
+            get {
+                return ResourceManager.GetString("String1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Success :).
         /// </summary>
         public static string Success {
@@ -541,6 +586,15 @@ namespace BahariModernUI.Resources {
         public static string Warning {
             get {
                 return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yes.
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

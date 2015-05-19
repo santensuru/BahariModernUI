@@ -49,7 +49,7 @@
                     <TextBlock Grid.Row="2" x:Name="language" VerticalAlignment="Center" Margin="0,0,16,0" />
                     <ComboBox Grid.Row="2" x:Name="language1" Grid.Column="1" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage, Mode=OneWay}" VerticalAlignment="Center" />
                 </Grid>
-                <Button Click="Button_Click" Margin="0,8,0,0">Save</Button>
+                <Button Click="Button_Click" Margin="0,8,0,0" x:Name="save"></Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>

@@ -36,6 +36,9 @@ namespace BahariModernUI.Pages.Appendix
         {
             InitializeComponent();
 
+            plus.ToolTip = BahariModernUI.Resources.StringResources.FavoriteAdd;
+            minus.ToolTip = BahariModernUI.Resources.StringResources.FavoriteRemove;
+
             // define the dialog buttons
             this.Buttons = new Button[] { this.OkButton };
 
@@ -128,11 +131,11 @@ namespace BahariModernUI.Pages.Appendix
             {
                 if (db.Update("BIOTA", data, condition) == true)
                 {
-                    ModernDialog.ShowMessage("Set as favorite succesfully.", "Favorite", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Success + "\r\n\r\n" + BahariModernUI.Resources.StringResources.FavoriteAdd, BahariModernUI.Resources.StringResources.Favorite, MessageBoxButton.OK);
                 }
                 else
                 {
-                    ModernDialog.ShowMessage("Set as favorite failed.", "Favorite", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Fail + "\r\n\r\n" + BahariModernUI.Resources.StringResources.FavoriteAdd, BahariModernUI.Resources.StringResources.Favorite, MessageBoxButton.OK);
                 }
             }
             catch (Exception crap)
@@ -155,11 +158,11 @@ namespace BahariModernUI.Pages.Appendix
             {
                 if (db.Update("BIOTA", data, condition) == true)
                 {
-                    ModernDialog.ShowMessage("Remove from favorite succesfully.", "Favorite", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Success + "\r\n\r\n" + BahariModernUI.Resources.StringResources.FavoriteRemove, BahariModernUI.Resources.StringResources.Favorite, MessageBoxButton.OK);
                 }
                 else
                 {
-                    ModernDialog.ShowMessage("Remove from favorite failed.", "Favorite", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.Fail + "\r\n\r\n" + BahariModernUI.Resources.StringResources.FavoriteRemove, BahariModernUI.Resources.StringResources.Favorite, MessageBoxButton.OK);
                 }
             }
             catch (Exception crap)

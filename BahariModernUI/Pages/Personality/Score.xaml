@@ -12,7 +12,7 @@
             <StackPanel MinWidth="200">
                 <StackPanel Margin="0,0,0,15" Orientation="Horizontal" VerticalAlignment="Top">
                     <TextBlock x:Name="name" Style="{StaticResource Heading2}" Margin="0,0,0,8" Width="200" />
-                    <TextBlock x:Name="score" Style="{StaticResource Heading2}" Margin="0,0,0,8" Width="48" />
+                    <TextBlock x:Name="score" Style="{StaticResource Heading2}" Margin="0,0,0,8" Width="48" TextAlignment="Right" />
                 </StackPanel>
                 <ListBox x:Name="tStack">
                     <ListBox.ItemTemplate>

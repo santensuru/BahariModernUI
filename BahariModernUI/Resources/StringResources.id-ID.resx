@@ -146,6 +146,12 @@ Coba ulangi lagi.</value>
   <data name="Favorite" xml:space="preserve">
     <value>favorit</value>
   </data>
+  <data name="FavoriteAdd" xml:space="preserve">
+    <value>Tambahkan ke favorit</value>
+  </data>
+  <data name="FavoriteRemove" xml:space="preserve">
+    <value>Hapus dari favorit</value>
+  </data>
   <data name="Feedback" xml:space="preserve">
     <value>umpan balik</value>
   </data>
@@ -189,7 +195,7 @@ Coba ulangi lagi.</value>
     <value>terang</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Masuk</value>
+    <value>masuk</value>
   </data>
   <data name="LoginConfirm" xml:space="preserve">
     <value>Nama atau password Anda tidak ditemukan</value>
@@ -198,7 +204,7 @@ Coba ulangi lagi.</value>
     <value>Tolong isi kolom nama maupun password.</value>
   </data>
   <data name="Logout" xml:space="preserve">
-    <value>Keluar</value>
+    <value>keluar</value>
   </data>
   <data name="LogoutText" xml:space="preserve">
     <value>Apakah Anda yakin ingin keluar?</value>
@@ -208,6 +214,9 @@ Coba ulangi lagi.</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>nama</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>tidak</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>mati</value>
@@ -234,7 +243,7 @@ Coba ulangi lagi.</value>
     <value>Terumbu Karang</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Daftar</value>
+    <value>daftar</value>
   </data>
   <data name="RegisterTitle" xml:space="preserve">
     <value>Pendaftaran</value>
@@ -244,6 +253,9 @@ Coba ulangi lagi.</value>
   </data>
   <data name="Right" xml:space="preserve">
     <value>Putar Kanan</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>simpan</value>
   </data>
   <data name="Score" xml:space="preserve">
     <value>skor</value>
@@ -283,5 +295,8 @@ Terima Kasih</value>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Perhatian!</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>ya</value>
   </data>
 </root>
