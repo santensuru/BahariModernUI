@@ -368,6 +368,8 @@
       <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <SplashScreen Include="Assets\logo terangi bahari 2.png" />
+    <Resource Include="Assets\FavoriteAdd.png" />
+    <Resource Include="Assets\FavoriteRemove.png" />
     <Content Include="Assets\logo terangi bahari 2.ico" />
     <Resource Include="Assets\logo terangi bahari about.png" />
     <Content Include="logo terangi bahari 2.ico" />
