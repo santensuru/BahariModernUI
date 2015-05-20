@@ -74,7 +74,7 @@ end;
 
 [Setup]
 AppName=Terangi Bahari
-AppVersion=0.9004
+AppVersion=0.9005
 DefaultDirName={pf}\Terangi Bahari
 DefaultGroupName=Terangi Bahari
 UninstallDisplayIcon={app}\MyProg.exe
@@ -96,7 +96,8 @@ Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\Baha
 Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\BahariModernUI\bin\Debug\id-ID\*"; DestDir: "{app}\id-ID";
 
 [Icons]
-Name: "{group}\Terangi bahari"; Filename: "{app}\BahariModernUI.exe"
+Name: "{group}\Terangi bahari"; Filename: "{app}\BahariModernUI.exe"; WorkingDir: "{app}"
+Name: "{group}\Uninstall Terangi Bahari"; Filename: "{uninstallexe}"
 
 [Dirs]
 Name: "{app}\"; Permissions: everyone-modify
