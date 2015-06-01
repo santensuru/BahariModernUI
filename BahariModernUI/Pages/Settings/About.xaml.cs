@@ -48,17 +48,23 @@ namespace BahariModernUI.Pages.Settings
                 newdialoge.Owner = _mainWindow;
                 newdialoge.ShowDialog();
             };
-            
-            Run run = new Run("MIT License");
+
+            Run run = new Run(BahariModernUI.Resources.StringResources.License + " ...");
 
             Hyperlink link = new Hyperlink(run);
-            link.NavigateUri = new Uri("https://github.com/santensuru/BahariModernUI/blob/master/README.md#mit-license");
+            link.NavigateUri = new Uri("https://github.com/santensuru/BahariModernUI");
             license.Text = BahariModernUI.Resources.StringResources.License.ToUpper();
             license1.Inlines.Add(link);
 
             link.RequestNavigate += (sender, e) =>
             {
-                System.Diagnostics.Process.Start(e.Uri.ToString());
+                //System.Diagnostics.Process.Start(e.Uri.ToString());
+
+                var _mainWindow = (MainWindow)Application.Current.MainWindow;
+
+                License newdialoge = new License();
+                newdialoge.Owner = _mainWindow;
+                newdialoge.ShowDialog();
             };
 
             Run run2 = new Run("Developer Terangi Bahari");

@@ -10,6 +10,6 @@
 
     <!-- Note: ModernDialog buttons are defined in the constructor of the code behind class -->
 
-    <TextBlock x:Name="tac" />
+    <TextBlock x:Name="tac" TextWrapping="WrapWithOverflow" />
     
 </mui:ModernDialog>

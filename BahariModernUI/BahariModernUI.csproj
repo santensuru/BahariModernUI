@@ -180,6 +180,9 @@
     <Compile Include="Pages\Appendix\Reef.xaml.cs">
       <DependentUpon>Reef.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Settings\License.xaml.cs">
+      <DependentUpon>License.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Settings\TermAndCondition.xaml.cs">
       <DependentUpon>TermAndCondition.xaml</DependentUpon>
     </Compile>
@@ -327,6 +330,10 @@
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Page Include="Pages\Settings\License.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Settings\TermAndCondition.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
