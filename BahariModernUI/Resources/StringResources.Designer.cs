@@ -360,6 +360,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to not found..
+        /// </summary>
+        public static string NotFound {
+            get {
+                return ResourceManager.GetString("NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to off.
         /// </summary>
         public static string Off {

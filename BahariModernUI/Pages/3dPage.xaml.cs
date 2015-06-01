@@ -174,7 +174,7 @@ namespace BahariModernUI.Pages
 
                 if (stream == null)
                 {
-                    ModernDialog.ShowMessage(txtUserEntry.Text.ToString() + " not found.", "3D Experience", MessageBoxButton.OK);
+                    ModernDialog.ShowMessage(txtUserEntry.Text.ToString() + " " + BahariModernUI.Resources.StringResources.NotFound, BahariModernUI.Resources.StringResources.Experience, MessageBoxButton.OK);
                 }
                 else
                 {

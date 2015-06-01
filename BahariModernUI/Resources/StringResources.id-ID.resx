@@ -218,6 +218,9 @@ Coba ulangi lagi.</value>
   <data name="No" xml:space="preserve">
     <value>tidak</value>
   </data>
+  <data name="NotFound" xml:space="preserve">
+    <value>tidak ditemukan.</value>
+  </data>
   <data name="Off" xml:space="preserve">
     <value>mati</value>
   </data>
