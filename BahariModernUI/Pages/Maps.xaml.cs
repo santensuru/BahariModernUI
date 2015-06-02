@@ -37,6 +37,7 @@ namespace BahariModernUI.Pages
 
             fresh.ToolTip = BahariModernUI.Resources.StringResources.Fresh;
             sea.ToolTip = BahariModernUI.Resources.StringResources.Sea;
+            //sea.IsEnabled = false;
             reef.ToolTip = BahariModernUI.Resources.StringResources.Reef;
             conservation.ToolTip = BahariModernUI.Resources.StringResources.Conservation;
 
@@ -91,24 +92,48 @@ namespace BahariModernUI.Pages
         private void Fresh_Button(object sender, RoutedEventArgs e)
         {
             selected = "Biota Air Tawar";
+
+            //fresh.IsEnabled = false;
+            //sea.IsEnabled = true;
+            //reef.IsEnabled = true;
+            //conservation.IsEnabled = true;
+
             Reload();
         }
 
         private void Sea_Button(object sender, RoutedEventArgs e)
         {
             selected = "Biota Laut";
+
+            //fresh.IsEnabled = true;
+            //sea.IsEnabled = false;
+            //reef.IsEnabled = true;
+            //conservation.IsEnabled = true;
+
             Reload();
         }
 
         private void Reef_Button(object sender, RoutedEventArgs e)
         {
             selected = "Terumbu Karang";
+
+            //fresh.IsEnabled = true;
+            //sea.IsEnabled = true;
+            //reef.IsEnabled = false;
+            //conservation.IsEnabled = true;
+
             Reload();
         }
 
         private void Conservation_Button(object sender, RoutedEventArgs e)
         {
             selected = "Kawasan Konservasi";
+
+            //fresh.IsEnabled = true;
+            //sea.IsEnabled = true;
+            //reef.IsEnabled = true;
+            //conservation.IsEnabled = false;
+
             Reload();
         }
 
