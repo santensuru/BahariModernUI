@@ -9,6 +9,7 @@
     <Grid Style="{StaticResource ContentRoot}">
         <ScrollViewer>
             <StackPanel MinWidth="200">
+                <!--<ListBox x:Name="tStack" SelectionChanged="MainListBox_SelectionChanged" >-->
                 <ListBox x:Name="tStack" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
