@@ -180,6 +180,9 @@
     <Compile Include="Pages\Appendix\Reef.xaml.cs">
       <DependentUpon>Reef.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Maps.xaml.cs">
+      <DependentUpon>Maps.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Settings\License.xaml.cs">
       <DependentUpon>License.xaml</DependentUpon>
     </Compile>
@@ -242,6 +245,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\GamePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Maps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
