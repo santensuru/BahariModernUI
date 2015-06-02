@@ -26,8 +26,6 @@ namespace BahariModernUI.Pages.Appendix
         public FreshWater()
         {
             InitializeComponent();
-
-
             try
             {
                 SQLiteDatabase db = new SQLiteDatabase();
@@ -57,17 +55,6 @@ namespace BahariModernUI.Pages.Appendix
             }
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-
-
-        //    var _mainWindow = (MainWindow)Application.Current.MainWindow;
-
-        //    Detail newdialoge = new Detail("Param");
-        //    newdialoge.Owner = _mainWindow;
-        //    newdialoge.ShowDialog();
-        //}
-
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var _mainWindow = (MainWindow)Application.Current.MainWindow;
@@ -79,5 +66,16 @@ namespace BahariModernUI.Pages.Appendix
             newdialoge.Owner = _mainWindow;
             newdialoge.ShowDialog();
         }
+
+        //private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    var _mainWindow = (MainWindow)Application.Current.MainWindow;
+
+        //    string biota = (tStack.SelectedItem as BiotaModel).Nama.ToString();
+
+        //    Detail newdialoge = new Detail(biota);
+        //    newdialoge.Owner = _mainWindow;
+        //    newdialoge.ShowDialog();
+        //}
     }
 }

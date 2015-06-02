@@ -16,7 +16,7 @@
         </ScrollViewer>-->
         <ScrollViewer>
             <StackPanel MinWidth="200">
-                <ListBox x:Name="tStack">
+                <ListBox x:Name="tStack" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,15" Orientation="Horizontal" VerticalAlignment="Top">

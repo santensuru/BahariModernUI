@@ -64,5 +64,16 @@ namespace BahariModernUI.Pages.Appendix
             newdialoge.Owner = _mainWindow;
             newdialoge.ShowDialog();
         }
+
+        //private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        //{
+        //    var _mainWindow = (MainWindow)Application.Current.MainWindow;
+
+        //    string biota = (tStack.SelectedItem as BiotaModel).Nama.ToString();
+
+        //    DetailKawasan newdialoge = new DetailKawasan(biota);
+        //    newdialoge.Owner = _mainWindow;
+        //    newdialoge.ShowDialog();
+        //}
     }
 }
