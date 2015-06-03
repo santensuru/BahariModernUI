@@ -230,6 +230,23 @@ namespace BahariModernUI.Pages
         private void Load(object sender, RoutedEventArgs e)
         {
             active = StringToByteArray(AppearanceManager.Current.AccentColor.ToString().Replace("#", ""));
+
+            if (selected == "Biota Air Tawar")
+            {
+                fresh.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            }
+            else if (selected == "Biota Laut")
+            {
+                sea.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            }
+            else if (selected == "Terumbu Karang")
+            {
+                reef.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            }
+            else if (selected == "Kawasan Konservasi")
+            {
+                conservation.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            }
         }
 
         static byte[] StringToByteArray(string hex)
