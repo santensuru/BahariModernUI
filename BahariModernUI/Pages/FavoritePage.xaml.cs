@@ -87,13 +87,12 @@ namespace BahariModernUI.Pages
                 if (count == -1)
                 {
                     count = _biota.LongCount();
-                    tStack.ItemsSource = _biota;
                 }
                 else if (count != _biota.LongCount())
                 {
                     tStack.ItemsSource = null;
-                    tStack.ItemsSource = _biota;
                 }
+                tStack.ItemsSource = _biota;
 
                 //if (_biota.LongCount() > 0)
                 //    tStack.ItemsSource = _biota;
