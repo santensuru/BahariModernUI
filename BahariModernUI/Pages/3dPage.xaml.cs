@@ -193,8 +193,8 @@ namespace BahariModernUI.Pages
                 else
                     toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera on.png"));
 
-                tuna1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.biota air laut.png"));
-                salmon1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.biota air laut.png"));
+                tuna1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.tuna.png"));
+                salmon1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.salmon.png"));
             }
             else
             {
@@ -206,8 +206,8 @@ namespace BahariModernUI.Pages
                 else
                     toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera on.png"));
 
-                tuna1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/biota air laut.png"));
-                salmon1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/biota air laut.png"));
+                tuna1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/tuna.png"));
+                salmon1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/salmon.png"));
             }
 
             active = StringToByteArray(AppearanceManager.Current.AccentColor.ToString().Replace("#", ""));

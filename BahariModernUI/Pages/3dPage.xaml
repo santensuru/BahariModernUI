@@ -114,14 +114,14 @@
 
         <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50"/>
-                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" x:Name="tuna" Click="Tuna_Button">
-                <Image x:Name="tuna1" Width="48px" Margin="-15,0,-15,-1" />
+                <Image x:Name="tuna1" Width="98px" Margin="-15,-30,-15,-30" />
             </Button>
             <Button Grid.Column="1" x:Name="salmon" Click="Salmon_Button">
-                <Image x:Name="salmon1" Width="48px" Margin="-15,0,-15,-1" />
+                <Image x:Name="salmon1" Width="98px" Margin="-15,-30,-15,-30" />
             </Button>
         </Grid>
 

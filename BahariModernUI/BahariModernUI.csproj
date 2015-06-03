@@ -390,6 +390,8 @@
     <Resource Include="Assets\camera on.png" />
     <Resource Include="Assets\dark.camera off.png" />
     <Resource Include="Assets\dark.camera on.png" />
+    <Resource Include="Assets\dark.salmon.png" />
+    <Resource Include="Assets\dark.tuna.png" />
     <Content Include="Assets\logo terangi bahari 2.ico" />
     <Resource Include="Assets\logo terangi bahari about.png" />
     <Resource Include="Assets\rotate left.png" />
@@ -397,6 +399,8 @@
     <Resource Include="Assets\terumbu karang.png" />
     <Resource Include="Assets\unfavorite.png" />
     <SplashScreen Include="Assets\preload.1.png" />
+    <Resource Include="Assets\salmon.png" />
+    <Resource Include="Assets\tuna.png" />
     <Content Include="logo terangi bahari 2.ico" />
     <Content Include="sharpdx_direct3d11_effects_x64.dll" />
     <Content Include="sharpdx_direct3d11_effects_x86.dll" />
