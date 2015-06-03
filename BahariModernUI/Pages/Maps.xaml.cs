@@ -48,6 +48,8 @@ namespace BahariModernUI.Pages
             conservation.ToolTip = BahariModernUI.Resources.StringResources.Conservation;
             //ModernDialog.ShowMessage(Colors.Aquamarine.ToString(), "", MessageBoxButton.OK);
 
+            state.Content = BahariModernUI.Resources.StringResources.Sea;
+
             Reload();
         }
 
@@ -99,6 +101,7 @@ namespace BahariModernUI.Pages
         private void Fresh_Button(object sender, RoutedEventArgs e)
         {
             selected = "Biota Air Tawar";
+            state.Content = BahariModernUI.Resources.StringResources.Fresh;
 
             fresh.IsEnabled = false;
             //fresh.Opacity = 0.75;
@@ -120,6 +123,7 @@ namespace BahariModernUI.Pages
         private void Sea_Button(object sender, RoutedEventArgs e)
         {
             selected = "Biota Laut";
+            state.Content = BahariModernUI.Resources.StringResources.Sea;
 
             fresh.IsEnabled = true;
             //fresh.Opacity = 1;
@@ -141,6 +145,7 @@ namespace BahariModernUI.Pages
         private void Reef_Button(object sender, RoutedEventArgs e)
         {
             selected = "Terumbu Karang";
+            state.Content = BahariModernUI.Resources.StringResources.Reef;
 
             fresh.IsEnabled = true;
             //fresh.Opacity = 1;
@@ -162,6 +167,7 @@ namespace BahariModernUI.Pages
         private void Conservation_Button(object sender, RoutedEventArgs e)
         {
             selected = "Kawasan Konservasi";
+            state.Content = BahariModernUI.Resources.StringResources.Conservation;
 
             fresh.IsEnabled = true;
             //fresh.Opacity = 1;
