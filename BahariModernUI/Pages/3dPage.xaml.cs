@@ -40,14 +40,21 @@ namespace BahariModernUI.Pages
 
         int status = 0;
         String toggleContent;
+        String fishActive = "Tuna";
+        byte[] active = new byte[4];
             
         public MapPage()
         {
             InitializeComponent();
 
-            search.Text = BahariModernUI.Resources.StringResources.Search;
+            //search.Text = BahariModernUI.Resources.StringResources.Search;
             left.ToolTip = BahariModernUI.Resources.StringResources.Left;
             right.ToolTip = BahariModernUI.Resources.StringResources.Right;
+
+            tuna.IsEnabled = false;
+            tuna.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            tuna.ToolTip = "Tuna";
+            salmon.ToolTip = "Salmon";
 
             toggleContent = BahariModernUI.Resources.StringResources.On;
             if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
@@ -68,101 +75,49 @@ namespace BahariModernUI.Pages
             // --> handled with try catch
 
             myView.Camera = new System.Windows.Media.Media3D.OrthographicCamera { Position = new Point3D(0, -10000, 0), LookDirection = new Vector3D(0, -1000, 0), UpDirection = new Vector3D(0, 0, 1000) };
-            myView.ShowFrameRate = true;
+            //myView.ShowFrameRate = true;
             myView.IsRotationEnabled = false;
             myView.IsMoveEnabled = false;
-
-            try
-            {
-                SQLiteDatabase db = new SQLiteDatabase();
-                DataTable biota;
-
-                String query = "SELECT * ";
-                query += "FROM OBJEK ";
-                query += "WHERE NAMA LIKE '%Tuna%';";
-
-                biota = db.GetDataTable(query);
-
-                //ModernDialog.ShowMessage(query, "", MessageBoxButton.OK);
-
-                // Or looped through for some other reason
-                foreach (DataRow r in biota.Rows)
-                {
-                    stream = new byte[((byte[])r["DATA"]).Length];
-                    stream = ((byte[])r["DATA"]);
-                    //ModernDialog.ShowMessage(stream.ToString(), "", MessageBoxButton.OK);
-                }
-            }
-            catch (Exception fail)
-            {
-                String error = "The following error has occurred:\n\n";
-                error += fail.Message.ToString() + "\n\n";
-                MessageBox.Show(error);
-            }
-
-            Stream streams = new MemoryStream(stream);
-            HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
-            System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
-
-            // Display the model
-            foo.Content = MyModel;
 
             ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 3), 180); // 0bj -> 0 2 0
             RotateTransform3D myRotateTransform = new RotateTransform3D(ax3d);
 
+            Reload();
+
             foo.Transform = myRotateTransform;
-
-
         }
 
-        private void txtUserEntry_KeyDown(object sender, KeyEventArgs e)
+        //private void txtUserEntry_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Key == Key.Return)
+        //    {
+        //        //ModernDialog.ShowMessage(txtUserEntry.Text.ToString(), "", MessageBoxButton.OK);
+        //        stream = null;
+
+        //        fishActive = txtUserEntry.Text.ToString();
+        //        Reload();
+
+        //    }
+        //}
+
+        private void Tuna_Button(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.Return)
-            {
-                //ModernDialog.ShowMessage(txtUserEntry.Text.ToString(), "", MessageBoxButton.OK);
-                stream = null;
+            fishActive = "Tuna";
+            tuna.IsEnabled = false;
+            tuna.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            salmon.IsEnabled = true;
+            salmon.ClearValue(Button.BackgroundProperty);
+            Reload();
+        }
 
-                try
-                {
-                    SQLiteDatabase db = new SQLiteDatabase();
-                    DataTable biota;
-
-                    String query = "SELECT * ";
-                    query += "FROM OBJEK ";
-                    query += "WHERE NAMA LIKE '%" + txtUserEntry.Text.ToString() + "%';";
-
-                    biota = db.GetDataTable(query);
-
-                    // Or looped through for some other reason
-                    foreach (DataRow r in biota.Rows)
-                    {
-                        stream = new byte[((byte[])r["DATA"]).Length];
-                        stream = ((byte[])r["DATA"]);
-                    }
-                }
-                catch (Exception fail)
-                {
-                    String error = "The following error has occurred:\n\n";
-                    error += fail.Message.ToString() + "\n\n";
-                    MessageBox.Show(error);
-                }
-
-                if (stream == null)
-                {
-                    ModernDialog.ShowMessage(txtUserEntry.Text.ToString() + " " + BahariModernUI.Resources.StringResources.NotFound, BahariModernUI.Resources.StringResources.Experience, MessageBoxButton.OK);
-                }
-                else
-                {
-
-                    Stream streams = new MemoryStream(stream);
-                    HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
-                    System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
-
-                    // Display the model
-                    foo.Content = MyModel;
-                }
-
-            }
+        private void Salmon_Button(object sender, RoutedEventArgs e)
+        {
+            fishActive = "Salmon";
+            salmon.IsEnabled = false;
+            salmon.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            tuna.IsEnabled = true;
+            tuna.ClearValue(Button.BackgroundProperty);
+            Reload();
         }
 
         private void Left_RepeatButton(object sender, RoutedEventArgs e)
@@ -175,6 +130,53 @@ namespace BahariModernUI.Pages
         {
             ax3d.Angle -= 10;
             ax3d.Angle %= 360;
+        }
+
+        private void Reload()
+        {
+            try
+            {
+                SQLiteDatabase db = new SQLiteDatabase();
+                DataTable biota;
+
+                String query = "SELECT * ";
+                query += "FROM OBJEK ";
+                query += "WHERE NAMA LIKE '%" + fishActive + "%';";
+
+                biota = db.GetDataTable(query);
+
+                // Or looped through for some other reason
+                foreach (DataRow r in biota.Rows)
+                {
+                    stream = new byte[((byte[])r["DATA"]).Length];
+                    stream = ((byte[])r["DATA"]);
+
+                    state.Content = r["NAMA"];
+                }
+            }
+            catch (Exception fail)
+            {
+                String error = "The following error has occurred:\n\n";
+                error += fail.Message.ToString() + "\n\n";
+                MessageBox.Show(error);
+            }
+
+            if (stream == null)
+            {
+                ModernDialog.ShowMessage(fishActive + " " + BahariModernUI.Resources.StringResources.NotFound, BahariModernUI.Resources.StringResources.Experience, MessageBoxButton.OK);
+            }
+            else
+            {
+                Stream streams = new MemoryStream(stream);
+                HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
+                System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
+
+                // Display the model
+                foo.Content = MyModel;
+            }
+
+            ax3d.Angle = 180;
+            myView.ZoomExtents();
         }
 
         private void Load(object sender, RoutedEventArgs e)
@@ -190,6 +192,9 @@ namespace BahariModernUI.Pages
                     toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera off.png"));
                 else
                     toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera on.png"));
+
+                tuna1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.biota air laut.png"));
+                salmon1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.biota air laut.png"));
             }
             else
             {
@@ -200,6 +205,19 @@ namespace BahariModernUI.Pages
                     toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera off.png"));
                 else
                     toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera on.png"));
+
+                tuna1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/biota air laut.png"));
+                salmon1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/biota air laut.png"));
+            }
+
+            active = StringToByteArray(AppearanceManager.Current.AccentColor.ToString().Replace("#", ""));
+            if (fishActive == "Tuna")
+            {
+                tuna.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            }
+            else if (fishActive == "Salmon")
+            {
+                salmon.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
             }
         }
 
@@ -417,6 +435,14 @@ namespace BahariModernUI.Pages
                 }
                 Thread.Sleep(40);
             }
+        }
+
+        static byte[] StringToByteArray(string hex)
+        {
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
         }
     }
 }

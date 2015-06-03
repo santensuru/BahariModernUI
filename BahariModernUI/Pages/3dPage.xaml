@@ -10,7 +10,7 @@
              xmlns:local="clr-namespace:BahariModernUI"
              Loaded="Load">
 
-    <UserControl.Resources>
+    <!--<UserControl.Resources>
 
         <SolidColorBrush x:Key="brushWatermarkBackground" Color="White" />
         <SolidColorBrush x:Key="brushWatermarkForeground" Color="LightSteelBlue" />
@@ -25,7 +25,7 @@
             <Setter Property="Margin" Value="20,0" />
         </Style>
 
-    </UserControl.Resources>
+    </UserControl.Resources>-->
 
     <Grid Margin="17,27,17,17">
         <Grid.Background>
@@ -55,12 +55,12 @@
         </Rectangle>
 
         <Grid x:Name="layout">
-            <Grid.RowDefinitions>
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="480*"/>
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions>-->
 
-            <Grid Background="LightBlue">
+            <!--<Grid Background="LightBlue">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25" />
@@ -72,9 +72,11 @@
                     <TextBox Name="txtUserEntry" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"
                        KeyDown="txtUserEntry_KeyDown"/>
                 </Grid>
-            </Grid>
-            
-            <Grid Grid.Row="1" HorizontalAlignment="center" Margin="0,0,0,0" VerticalAlignment="center" 
+            </Grid>-->
+
+            <!--Grid.Row="1"-->
+
+            <Grid HorizontalAlignment="center" Margin="0,0,0,0" VerticalAlignment="center" 
                   Height="{Binding ActualHeight, ElementName=layout}"
                   Width="{Binding ActualWidth, ElementName=layout}">
                 <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True" CameraMode="FixedPosition">
@@ -89,10 +91,10 @@
 
 
             </Grid>
-            <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50">
+            <Grid Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="50">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="50"/>
                 </Grid.ColumnDefinitions>
                 <RepeatButton x:Name="left" Grid.Column="0" Click="Left_RepeatButton">
                     <!--&lt;&lt;-->
@@ -110,6 +112,29 @@
             </ToggleButton>
         </Grid>
 
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="50">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" x:Name="tuna" Click="Tuna_Button">
+                <Image x:Name="tuna1" Width="48px" Margin="-15,0,-15,-1" />
+            </Button>
+            <Button Grid.Column="1" x:Name="salmon" Click="Salmon_Button">
+                <Image x:Name="salmon1" Width="48px" Margin="-15,0,-15,-1" />
+            </Button>
+        </Grid>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,55" IsHitTestVisible="False">
+            <Label Height="33" Name="state" FontSize="24" Foreground="White"
+            RenderTransformOrigin="0.5, 0.5">
+                <Label.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="0.5" Opacity="1" 
+                      Color="Yellow"/>
+                </Label.Effect>
+            </Label>
+        </Grid>
+        
     </Grid>
 </UserControl>
 
