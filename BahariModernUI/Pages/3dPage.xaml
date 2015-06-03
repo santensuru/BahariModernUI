@@ -159,10 +159,16 @@
                     <ColumnDefinition Width="100"/>-->
                 </Grid.ColumnDefinitions>
                 <!--<TextBlock x:Name="text" Text="Tes" FontSize="30" Foreground="White" TextAlignment="Center"/>-->
-                <RepeatButton x:Name="left" Grid.Column="0" Click="Left_RepeatButton">&lt;&lt;</RepeatButton>
+                <RepeatButton x:Name="left" Grid.Column="0" Click="Left_RepeatButton">
+                    <!--&lt;&lt;-->
+                    <Image Source="/Assets/rotate left.png" Width="48px" Margin="-15,0,-15,-1" />
+                </RepeatButton>
                 <!--<Button Grid.Column="1" Click="Left_Button" ToolTip="Single Click Left">&lt;</Button>
                 <Button Grid.Column="2" Click="Right_Button" ToolTip="Single Click Right">&gt;</Button>-->
-                <RepeatButton x:Name="right" Grid.Column="1" Click="Right_RepeatButton">&gt;&gt;</RepeatButton>
+                <RepeatButton x:Name="right" Grid.Column="1" Click="Right_RepeatButton">
+                    <!--&gt;&gt;-->
+                    <Image Source="/Assets/rotate right.png" Width="48px" Margin="-15,0,-15,-1" />
+                </RepeatButton>
             </Grid>
 
             <ToggleButton x:Name="toggle" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"

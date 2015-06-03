@@ -1,5 +1,6 @@
 ﻿using BahariModernUI.Model;
 using BahariModernUI.Pages.Appendix;
+using FirstFloor.ModernUI.Presentation;
 using FirstFloor.ModernUI.Windows.Controls;
 using Microsoft.Maps.MapControl.WPF;
 using System;
@@ -30,16 +31,22 @@ namespace BahariModernUI.Pages
         static int tot;
 
         String selected = "Biota Laut";
+        byte[] active = new byte[4];
         
         public Maps()
         {
             InitializeComponent();
 
+            Load(this, null);
+
             fresh.ToolTip = BahariModernUI.Resources.StringResources.Fresh;
             sea.ToolTip = BahariModernUI.Resources.StringResources.Sea;
-            //sea.IsEnabled = false;
+            sea.IsEnabled = false;
+            //sea.Opacity = 0.75;
+            sea.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
             reef.ToolTip = BahariModernUI.Resources.StringResources.Reef;
             conservation.ToolTip = BahariModernUI.Resources.StringResources.Conservation;
+            //ModernDialog.ShowMessage(Colors.Aquamarine.ToString(), "", MessageBoxButton.OK);
 
             Reload();
         }
@@ -93,10 +100,19 @@ namespace BahariModernUI.Pages
         {
             selected = "Biota Air Tawar";
 
-            //fresh.IsEnabled = false;
-            //sea.IsEnabled = true;
-            //reef.IsEnabled = true;
-            //conservation.IsEnabled = true;
+            fresh.IsEnabled = false;
+            //fresh.Opacity = 0.75;
+            fresh.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            sea.IsEnabled = true;
+            //sea.Opacity = 1;
+            reef.IsEnabled = true;
+            //reef.Opacity = 1;
+            conservation.IsEnabled = true;
+            //conservation.Opacity = 1;
+
+            sea.ClearValue(Button.BackgroundProperty);
+            reef.ClearValue(Button.BackgroundProperty);
+            conservation.ClearValue(Button.BackgroundProperty);
 
             Reload();
         }
@@ -105,10 +121,19 @@ namespace BahariModernUI.Pages
         {
             selected = "Biota Laut";
 
-            //fresh.IsEnabled = true;
-            //sea.IsEnabled = false;
-            //reef.IsEnabled = true;
-            //conservation.IsEnabled = true;
+            fresh.IsEnabled = true;
+            //fresh.Opacity = 1;
+            sea.IsEnabled = false;
+            //sea.Opacity = 0.75;
+            sea.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            reef.IsEnabled = true;
+            //reef.Opacity = 1;
+            conservation.IsEnabled = true;
+            //conservation.Opacity = 1;
+
+            fresh.ClearValue(Button.BackgroundProperty);
+            reef.ClearValue(Button.BackgroundProperty);
+            conservation.ClearValue(Button.BackgroundProperty);
 
             Reload();
         }
@@ -117,10 +142,19 @@ namespace BahariModernUI.Pages
         {
             selected = "Terumbu Karang";
 
-            //fresh.IsEnabled = true;
-            //sea.IsEnabled = true;
-            //reef.IsEnabled = false;
-            //conservation.IsEnabled = true;
+            fresh.IsEnabled = true;
+            //fresh.Opacity = 1;
+            sea.IsEnabled = true;
+            //sea.Opacity = 1;
+            reef.IsEnabled = false;
+            //reef.Opacity = 0.75;
+            reef.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            conservation.IsEnabled = true;
+            //conservation.Opacity = 1;
+
+            fresh.ClearValue(Button.BackgroundProperty);
+            sea.ClearValue(Button.BackgroundProperty);
+            conservation.ClearValue(Button.BackgroundProperty);
 
             Reload();
         }
@@ -129,10 +163,19 @@ namespace BahariModernUI.Pages
         {
             selected = "Kawasan Konservasi";
 
-            //fresh.IsEnabled = true;
-            //sea.IsEnabled = true;
-            //reef.IsEnabled = true;
-            //conservation.IsEnabled = false;
+            fresh.IsEnabled = true;
+            //fresh.Opacity = 1;
+            sea.IsEnabled = true;
+            //sea.Opacity = 1;
+            reef.IsEnabled = true;
+            //reef.Opacity = 1;
+            conservation.IsEnabled = false;
+            //conservation.Opacity = 0.75;
+            conservation.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+
+            fresh.ClearValue(Button.BackgroundProperty);
+            sea.ClearValue(Button.BackgroundProperty);
+            reef.ClearValue(Button.BackgroundProperty);
 
             Reload();
         }
@@ -182,6 +225,19 @@ namespace BahariModernUI.Pages
                 error += fail.Message.ToString() + "\n\n";
                 MessageBox.Show(error);
             }
+        }
+
+        private void Load(object sender, RoutedEventArgs e)
+        {
+            active = StringToByteArray(AppearanceManager.Current.AccentColor.ToString().Replace("#", ""));
+        }
+
+        static byte[] StringToByteArray(string hex)
+        {
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
         }
     }
 }

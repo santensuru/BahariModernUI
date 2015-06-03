@@ -381,11 +381,20 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <SplashScreen Include="Assets\logo terangi bahari 2.png" />
-    <Resource Include="Assets\FavoriteAdd.png" />
-    <Resource Include="Assets\FavoriteRemove.png" />
+    <Content Include="Assets\logo terangi bahari 2.png" />
+    <Content Include="Assets\FavoriteAdd.png" />
+    <Content Include="Assets\FavoriteRemove.png" />
+    <Resource Include="Assets\biota air laut.png" />
+    <Resource Include="Assets\biota air tawar.png" />
+    <Resource Include="Assets\favorite.png" />
+    <Resource Include="Assets\kawasan observasi.png" />
     <Content Include="Assets\logo terangi bahari 2.ico" />
     <Resource Include="Assets\logo terangi bahari about.png" />
+    <SplashScreen Include="Assets\preload.png" />
+    <Resource Include="Assets\rotate left.png" />
+    <Resource Include="Assets\rotate right.png" />
+    <Resource Include="Assets\terumbu karang.png" />
+    <Resource Include="Assets\unfavorite.png" />
     <Content Include="logo terangi bahari 2.ico" />
     <Content Include="sharpdx_direct3d11_effects_x64.dll" />
     <Content Include="sharpdx_direct3d11_effects_x86.dll" />

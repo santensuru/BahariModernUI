@@ -19,10 +19,10 @@
                     </Grid.ColumnDefinitions>
                     <Image Grid.Column="0" Margin="25,0,-25,0" x:Name="image" Width="200" Height="200" Stretch="UniformToFill" />
                     <Button x:Name="plus" Click="Plus" Grid.Column="1" Width="49px" Height="49px" Margin="0,0,0,150">
-                        <Image Source="/Assets/FavoriteAdd.png" Width="48px" Margin="-15,0,-15,-1" />
+                        <Image Source="/Assets/favorite.png" Width="48px" Margin="-15,0,-15,-1" />
                     </Button>
                     <Button x:Name="minus" Click="Minus" Grid.Column="1" Width="49px" Height="49px" Margin="0,0,0,150">
-                        <Image Source="/Assets/FavoriteRemove.png" Width="48px" Margin="-15,0,-15,-1" />
+                        <Image Source="/Assets/unfavorite.png" Width="48px" Margin="-15,0,-15,-1" />
                     </Button>
                 </Grid>
                 
