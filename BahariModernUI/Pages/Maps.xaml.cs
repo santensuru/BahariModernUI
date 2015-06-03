@@ -32,10 +32,14 @@ namespace BahariModernUI.Pages
 
         String selected = "Biota Laut";
         byte[] active = new byte[4];
+
+        static Uri baseUri;
         
         public Maps()
         {
             InitializeComponent();
+
+            baseUri = BaseUriHelper.GetBaseUri(this);
 
             Load(this, null);
 
@@ -252,6 +256,21 @@ namespace BahariModernUI.Pages
             else if (selected == "Kawasan Konservasi")
             {
                 conservation.Background = new SolidColorBrush(Color.FromArgb(active[0], active[1], active[2], active[3]));
+            }
+
+            if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
+            {
+                fresh1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.biota air tawar.png"));
+                sea1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.biota air laut.png"));
+                reef1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.terumbu karang.png"));
+                conservation1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.kawasan observasi.png"));
+            }
+            else
+            {
+                fresh1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/biota air tawar.png"));
+                sea1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/biota air laut.png"));
+                reef1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/terumbu karang.png"));
+                conservation1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/kawasan observasi.png"));
             }
         }
 

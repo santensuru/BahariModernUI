@@ -1,4 +1,5 @@
 ﻿using BahariModernUI.Model;
+using FirstFloor.ModernUI.Presentation;
 using FirstFloor.ModernUI.Windows.Controls;
 using HelixToolkit.Wpf;
 using HelixToolkit.Wpf.SharpDX;
@@ -219,6 +220,17 @@ namespace BahariModernUI.Pages
         private void Load(object sender, RoutedEventArgs e)
         {
             ax3d.Angle = 180;
+
+            if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
+            {
+                left1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.rotate left.png"));
+                right1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.rotate right.png"));
+            }
+            else
+            {
+                left1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/rotate left.png"));
+                right1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/rotate right.png"));
+            }
         }
 
         private void ToggleClick(object sender, RoutedEventArgs e)

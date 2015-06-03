@@ -25,22 +25,22 @@
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" x:Name="fresh" Click="Fresh_Button">
-                <Image Source="/Assets/biota air tawar.png" Width="48px" Margin="-15,0,-15,-1" />
+                <Image x:Name="fresh1" Width="48px" Margin="-15,0,-15,-1" />
             </Button>
             <Button Grid.Column="1" x:Name="sea" Click="Sea_Button">
-                <Image Source="/Assets/biota air laut.png" Width="48px" Margin="-15,0,-15,-1" />
+                <Image x:Name="sea1" Width="48px" Margin="-15,0,-15,-1" />
             </Button>
             <Button Grid.Column="2" x:Name="reef" Click="Reef_Button">
-                <Image Source="/Assets/terumbu karang.png" Width="48px" Margin="-15,0,-15,-1" />
+                <Image x:Name="reef1" Width="48px" Margin="-15,0,-15,-1" />
             </Button>
             <Button Grid.Column="3" x:Name="conservation" Click="Conservation_Button">
-                <Image Source="/Assets/kawasan observasi.png" Width="48px" Margin="-15,0,-15,-1" />
+                <Image x:Name="conservation1" Width="48px" Margin="-15,0,-15,-1" />
             </Button>
         </Grid>
 
         <!--<TextBlock x:Name="state" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,55" FontSize="24px" Foreground="White" Background="Black" />-->
         <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,55" IsHitTestVisible="False">
-            <Label Height="30" Name="state" FontSize="24" Foreground="White"
+            <Label Height="33" Name="state" FontSize="24" Foreground="White"
             RenderTransformOrigin="0.5, 0.5">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="10" ShadowDepth="0.5" Opacity="1" 

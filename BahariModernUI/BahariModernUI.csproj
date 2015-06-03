@@ -381,6 +381,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>StringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Assets\dark.biota air laut.png" />
+    <Resource Include="Assets\dark.biota air tawar.png" />
+    <Resource Include="Assets\dark.favorite.png" />
+    <Resource Include="Assets\dark.kawasan observasi.png" />
+    <Resource Include="Assets\dark.rotate left.png" />
+    <Resource Include="Assets\dark.rotate right.png" />
+    <Resource Include="Assets\dark.terumbu karang.png" />
+    <Resource Include="Assets\dark.unfavorite.png" />
     <Content Include="Assets\logo terangi bahari 2.png" />
     <Content Include="Assets\FavoriteAdd.png" />
     <Content Include="Assets\FavoriteRemove.png" />

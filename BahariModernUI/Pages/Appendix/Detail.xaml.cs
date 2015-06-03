@@ -1,4 +1,5 @@
 ﻿using BahariModernUI.Model;
+using FirstFloor.ModernUI.Presentation;
 using FirstFloor.ModernUI.Windows.Controls;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,17 @@ namespace BahariModernUI.Pages.Appendix
 
             plus.ToolTip = BahariModernUI.Resources.StringResources.FavoriteAdd;
             minus.ToolTip = BahariModernUI.Resources.StringResources.FavoriteRemove;
+
+            if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
+            {
+                plus1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.favorite.png"));
+                minus1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.unfavorite.png"));
+            }
+            else
+            {
+                plus1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/favorite.png"));
+                minus1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/unfavorite.png"));
+            }
 
             // define the dialog buttons
             this.Buttons = new Button[] { this.OkButton };
