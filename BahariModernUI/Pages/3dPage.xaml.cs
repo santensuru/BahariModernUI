@@ -33,13 +33,13 @@ namespace BahariModernUI.Pages
 
         AxisAngleRotation3D ax3d;
         byte[] stream;
-        //bool lockedToggle = false;
 
         private Dictionary<string, Thread> threads = new Dictionary<string,Thread>();
         private PXCMSenseManager sm;
         private PXCMHandConfiguration _handConfig;
 
         int status = 0;
+        String toggleContent;
             
         public MapPage()
         {
@@ -49,13 +49,23 @@ namespace BahariModernUI.Pages
             left.ToolTip = BahariModernUI.Resources.StringResources.Left;
             right.ToolTip = BahariModernUI.Resources.StringResources.Right;
 
-            toggle.Content = BahariModernUI.Resources.StringResources.On;
+            toggleContent = BahariModernUI.Resources.StringResources.On;
+            if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
+            {
+                toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera on.png"));
+            }
+            else
+            {
+                toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera on.png"));
+            }
             toggle.ToolTip = BahariModernUI.Resources.StringResources.OnLabel;
             toggle.IsChecked = false;
             
             // if realsense not detected
             // lockedToggle = true;
             //toggle.IsEnabled = false;
+            
+            // --> handled with try catch
 
             myView.Camera = new System.Windows.Media.Media3D.OrthographicCamera { Position = new Point3D(0, -10000, 0), LookDirection = new Vector3D(0, -1000, 0), UpDirection = new Vector3D(0, 0, 1000) };
             myView.ShowFrameRate = true;
@@ -78,10 +88,6 @@ namespace BahariModernUI.Pages
                 // Or looped through for some other reason
                 foreach (DataRow r in biota.Rows)
                 {
-                    //string temp = r["DATA"].ToString();
-                    //stream = new byte[temp.Length * sizeof(char)];
-                    //stream = GetBytes(temp);
-                    
                     stream = new byte[((byte[])r["DATA"]).Length];
                     stream = ((byte[])r["DATA"]);
                     //ModernDialog.ShowMessage(stream.ToString(), "", MessageBoxButton.OK);
@@ -95,26 +101,7 @@ namespace BahariModernUI.Pages
             }
 
             Stream streams = new MemoryStream(stream);
-
-            //background.AlignmentX = AlignmentX.Right;
-
-            //var mi = new ModelImporter();
-            //System.Windows.Media.Media3D.Model3DGroup currentModel = mi.Load("C:\\Users\\user\\Downloads\\Compressed\\1\\Amago.max", null, true);
-
-            //// Display the model
-            //foo.Content = currentModel;
-
-            //HelixToolkit.Wpf.ObjReader CurrentHelixObjReader = new HelixToolkit.Wpf.ObjReader();
-
-            //Uri uri = new Uri("C:/Users/user/Downloads/Compressed/Tuna/Tuna/TUNA.obj", UriKind.Relative);
-            //Uri uri = new Uri("C:/Users/user/Downloads/Compressed/jelly fish series jelly fish one/jellyfish series jelly fish one improved.obj", UriKind.Relative);
-            //ModernDialog.ShowMessage(uri.ToString(), "", MessageBoxButton.OK);
-
-            //System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelixObjReader.Read(streams);
-
             HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
-            //Uri uri = new Uri("C:/Users/user/Downloads/Compressed/Tuna/Tuna/TUNA.3ds", UriKind.Relative);
-
             System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
 
             // Display the model
@@ -123,22 +110,9 @@ namespace BahariModernUI.Pages
             ax3d = new AxisAngleRotation3D(new Vector3D(0, 0, 3), 180); // 0bj -> 0 2 0
             RotateTransform3D myRotateTransform = new RotateTransform3D(ax3d);
 
-            //Vector3DAnimation vAnimation = new
-            //    Vector3DAnimation(new Vector3D(0, 0, -3),// new Vector3D(0, 3, 0),
-            //    new Duration(TimeSpan.FromMilliseconds(1000)));
-            //vAnimation.RepeatBehavior = RepeatBehavior.Forever;
-            //myRotateTransform.Rotation.BeginAnimation(AxisAngleRotation3D.AxisProperty,
-            //vAnimation);
-
             foo.Transform = myRotateTransform;
 
 
-        }
-
-        private void myView_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //text.Text = myView.CurrentPosition.ToString();
-            Console.WriteLine(myView.CurrentPosition.ToString());
         }
 
         private void txtUserEntry_KeyDown(object sender, KeyEventArgs e)
@@ -181,9 +155,7 @@ namespace BahariModernUI.Pages
                 {
 
                     Stream streams = new MemoryStream(stream);
-
                     HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
-
                     System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
 
                     // Display the model
@@ -192,18 +164,6 @@ namespace BahariModernUI.Pages
 
             }
         }
-
-        //private void Left_Button(object sender, RoutedEventArgs e)
-        //{
-        //    ax3d.Angle += 30;
-        //    ax3d.Angle %= 360;
-        //}
-
-        //private void Right_Button(object sender, RoutedEventArgs e)
-        //{
-        //    ax3d.Angle -= 30;
-        //    ax3d.Angle %= 360;
-        //}
 
         private void Left_RepeatButton(object sender, RoutedEventArgs e)
         {
@@ -225,27 +185,53 @@ namespace BahariModernUI.Pages
             {
                 left1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.rotate left.png"));
                 right1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.rotate right.png"));
+
+                if (toggleContent.Equals(BahariModernUI.Resources.StringResources.Off))
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera off.png"));
+                else
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera on.png"));
             }
             else
             {
                 left1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/rotate left.png"));
                 right1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/rotate right.png"));
+
+                if (toggleContent.Equals(BahariModernUI.Resources.StringResources.Off))
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera off.png"));
+                else
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera on.png"));
             }
         }
 
         private void ToggleClick(object sender, RoutedEventArgs e)
         {
-            if (toggle.Content.Equals(BahariModernUI.Resources.StringResources.Off))
+            if (toggleContent.Equals(BahariModernUI.Resources.StringResources.Off))
             {
-                toggle.Content = BahariModernUI.Resources.StringResources.On;
+                toggleContent = BahariModernUI.Resources.StringResources.On;
+                if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
+                {
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera on.png"));
+                }
+                else
+                {
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera on.png"));
+                }
                 toggle.ToolTip = BahariModernUI.Resources.StringResources.OnLabel;
                 right.IsEnabled = true;
                 left.IsEnabled = true;
                 toggle.IsChecked = false;
             }
-            else if (toggle.Content.Equals(BahariModernUI.Resources.StringResources.On))
+            else if (toggleContent.Equals(BahariModernUI.Resources.StringResources.On))
             {
-                toggle.Content = BahariModernUI.Resources.StringResources.Off;
+                toggleContent = BahariModernUI.Resources.StringResources.Off;
+                if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
+                {
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera off.png"));
+                }
+                else
+                {
+                    toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera off.png"));
+                }
                 toggle.ToolTip = BahariModernUI.Resources.StringResources.OffLabel;
                 right.IsEnabled = false;
                 left.IsEnabled = false;
@@ -259,15 +245,12 @@ namespace BahariModernUI.Pages
                 {
                     // Create an instance of the SenseManager.
                     sm = PXCMSenseManager.CreateInstance();
-                
-                    //sm.EnableStream(PXCMCapture.StreamType.STREAM_TYPE_COLOR, 640, 480, 30);
 
                     // Enable hand tracking
                     sm.EnableHand();
 
                     // Get a hand instance here (or inside the AcquireFrame/ReleaseFrame loop) for querying features
                     PXCMHandModule hand = sm.QueryHand();
-                    //MessageBox.Show("start");
 
                     // Initialize the pipeline
                     sm.Init();
@@ -297,7 +280,15 @@ namespace BahariModernUI.Pages
                     // error handling when SDK and Cameraa don't exist
                     Console.WriteLine(ex);
                     ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.IntelWarning, BahariModernUI.Resources.StringResources.Warning, MessageBoxButton.OK);
-                    toggle.Content = BahariModernUI.Resources.StringResources.On;
+                    toggleContent = BahariModernUI.Resources.StringResources.On;
+                    if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)
+                    {
+                        toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/dark.camera on.png"));
+                    }
+                    else
+                    {
+                        toggle1.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/camera on.png"));
+                    }
                     toggle.ToolTip = BahariModernUI.Resources.StringResources.OnLabel;
                     right.IsEnabled = true;
                     left.IsEnabled = true;
@@ -325,24 +316,15 @@ namespace BahariModernUI.Pages
         }
 
         // thread
-        //delegate void HandRecognitionCallback();
         private void HandRecognition()
         {
-            
-            
             // Stream data
             while (sm.AcquireFrame(true) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
             {
-                //Console.WriteLine("test");
-
                 // retrieve hand tracking results if ready
                 PXCMHandModule hand2 = sm.QueryHand();
                 if (hand2 != null)
                 {
-                    //Console.WriteLine("test");
-                    
-                    //MessageBox.Show("lepas");
-                    //MessageBox.Show(hand2.ToString());
                     try
                     {
                         var handQuery = sm.QueryHand();
@@ -350,92 +332,58 @@ namespace BahariModernUI.Pages
                         {
                             var handData = handQuery.CreateOutput(); // Get processing results
                             handData.Update();
-                            //Console.WriteLine("test");
 
                             PXCMHandData.GestureData gestureData;
                             PXCMHandData.IHand iHand = null;
-                            //PXCMImage himage;
-                            //iHand.QuerySegmentationImage(out himage);
 
-                            if (handData.IsGestureFired("thumb_down", out gestureData))
+                            //if (handData.IsGestureFired("thumb_down", out gestureData))
+                            //{
+                            //    Console.WriteLine("bad");
+                            //}
+                            //else if (handData.IsGestureFired("thumb_up", out gestureData))
+                            //{
+                            //    Console.WriteLine("good");
+                            //}
+                            //else
+                            if (handData.IsGestureFired("spreadfingers", out gestureData))
                             {
-                                //MessageBox.Show("bad");
-                                //MessageBox.Show(gestureData.ToString());
-                                //Dispatcher.Invoke(ThumbDown);
-                                Console.WriteLine("bad");
-                            }
-                            else if (handData.IsGestureFired("thumb_up", out gestureData))
-                            {
-                                //MessageBox.Show("good");
-                                //Dispatcher.Invoke(ThumbUp);
-                                Console.WriteLine("good");
-                            }
-                            else if (handData.IsGestureFired("spreadfingers", out gestureData))
-                            {
-                                //MessageBox.Show("open");
-                                //Dispatcher.Invoke(ThumbUp);
-                                //PXCMPointF32 image = iHand.QueryMassCenterImage();
-                                //MessageBox.Show(image.x.ToString());
-
                                 if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_RIGHT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
                                 {
                                     //	Position broadcasting
                                     PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
-                                    //MessageBox.Show(handPosition.x.ToString());
-                                    //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
                                     Application.Current.Dispatcher.Invoke(new Action(() =>
                                     {
-                                        //Right_RepeatButton(this, null);
                                         status = 2;
                                     }));
-                                    //Console.WriteLine("Right" + handPosition.x.ToString() + " " + handPosition.y.ToString());
                                 }
 
                                 if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_LEFT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
                                 {
                                     //	Position broadcasting
                                     PXCMPointF32 handPosition = iHand.QueryMassCenterImage();
-                                    //MessageBox.Show(handPosition.x.ToString());
-                                    //Vector3 handPositionFormatted = new Vector3(handPosition.x, handPosition.y, 0.0f);
                                     Application.Current.Dispatcher.Invoke(new Action(() =>
                                     {
-                                        //Left_RepeatButton(this, null);
                                         status = 1;
                                     }));
-                                    //Console.WriteLine("Left" + handPosition.x.ToString() + " " + handPosition.y.ToString());
-                                    //MessageBox.Show("left");
                                 }
 
                             }
                             else if (handData.IsGestureFired("v_sign", out gestureData))
                             {
-                                //if (handData.QueryHandData(PXCMHandData.AccessOrderType.ACCESS_ORDER_RIGHT_HANDS, 0, out iHand) >= pxcmStatus.PXCM_STATUS_NO_ERROR)
-                                //{
-                                //    Console.WriteLine("wave");
-                                //}
                                 Application.Current.Dispatcher.Invoke(new Action(() =>
                                 {
                                     status = 0;
                                 }));
                             }
-                            //else
-                            //{
-                            //    Application.Current.Dispatcher.Invoke(new Action(() =>
-                            //    {
-                            //        //status = 0;
-                            //    }));
-                            //}
                             handData.Dispose();
                         }
                     }
                     finally
                     {
+                        // resume next frame processing
                         sm.ReleaseFrame();
                     }
                 }
-
-                //// resume next frame processing
-                //sm.ReleaseFrame();
             }
         }
 
@@ -470,19 +418,5 @@ namespace BahariModernUI.Pages
                 Thread.Sleep(40);
             }
         }
-
-        private void myView_MouseWheel(object sender, MouseWheelEventArgs e)
-        {
-            Console.WriteLine(myView.CurrentPosition.ToString());
-        }
-
-        //static byte[] GetBytes(string str)
-        //{
-        //    byte[] bytes = new byte[str.Length * sizeof(char)];
-        //    System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
-        //    return bytes;
-        //}
-
-
     }
 }

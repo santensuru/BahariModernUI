@@ -25,25 +25,6 @@
             <Setter Property="Margin" Value="20,0" />
         </Style>
 
-        <!--<Style x:Key="OnOffToggleStyle" TargetType="ToggleButton">
-            <Setter Property="Content" Value="Off"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ToggleButton}">
-                        <Grid x:Name="toggle">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-            <Style.Triggers>
-                <Trigger Property="IsChecked" Value="True">
-                    <Setter Property="Content" Value="On">
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>-->
-
     </UserControl.Resources>
 
     <Grid Margin="17,27,17,17">
@@ -77,15 +58,12 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="480*"/>
-                <!--<RowDefinition Height="50"/>-->
             </Grid.RowDefinitions>
 
             <Grid Background="LightBlue">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="25" />
-                    <!--<RowDefinition Height="25" />
-                    <RowDefinition />-->
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0" Background="{StaticResource brushWatermarkBackground}" Style="{StaticResource EntryFieldStyle}" >
@@ -94,55 +72,15 @@
                     <TextBox Name="txtUserEntry" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}"
                        KeyDown="txtUserEntry_KeyDown"/>
                 </Grid>
-                <!--This prompt dissappears as you type...-->
-
-                <!--<Grid Grid.Row="1" Background="{StaticResource brushWatermarkBackground}" Style="{StaticResource EntryFieldStyle}" >
-                    <TextBlock Margin="5,2" Text="This dissappears as the control gets focus..." Foreground="{StaticResource brushWatermarkForeground}" >
-                        <TextBlock.Visibility>
-                            <MultiBinding Converter="{StaticResource TextInputToVisibilityConverter}">
-                                <Binding ElementName="txtUserEntry2" Path="Text.IsEmpty" />
-                                <Binding ElementName="txtUserEntry2" Path="IsFocused" />
-                            </MultiBinding>
-                        </TextBlock.Visibility>
-                    </TextBlock>
-                    <TextBox Name="txtUserEntry2" Background="Transparent" BorderBrush="{StaticResource brushWatermarkBorder}" />
-                </Grid>-->
-
             </Grid>
-
-
-            <!--<Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="200"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Text="Search" HorizontalAlignment="Right"></TextBlock>
-                <TextBox Grid.Column="1" x:Name="search" ></TextBox>
-            </Grid>-->
+            
             <Grid Grid.Row="1" HorizontalAlignment="center" Margin="0,0,0,0" VerticalAlignment="center" 
                   Height="{Binding ActualHeight, ElementName=layout}"
                   Width="{Binding ActualWidth, ElementName=layout}">
-                <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True" CameraMode="FixedPosition" MouseDown="myView_MouseDown" MouseWheel="myView_MouseWheel">
+                <HelixToolkit:HelixViewport3D x:Name="myView" ZoomExtentsWhenLoaded="True" CameraMode="FixedPosition">
                     <!-- Remember to add light to the scene -->
                     <HelixToolkit:SunLight/>
                     <ModelVisual3D x:Name="foo">
-                        <!--<ModelVisual3D.Transform>
-                            <Transform3DGroup >
-                                <Transform3DGroup.Children>
-                                    <RotateTransform3D x:Name="myHorizontalRTransform">
-                                        <RotateTransform3D.Rotation>
-                                            <AxisAngleRotation3D x:Name="myHorizontalRotation" Angle="0" Axis="0 1 0" />
-                                        </RotateTransform3D.Rotation>
-                                    </RotateTransform3D>
-                                    <RotateTransform3D x:Name="myVerticalRTransform">
-                                        <RotateTransform3D.Rotation>
-                                            <AxisAngleRotation3D x:Name="myVerticalRotation" Angle="0" Axis="1 0 0" />
-                                        </RotateTransform3D.Rotation>
-                                    </RotateTransform3D>
-                                    <TranslateTransform3D x:Name="myTranslateTransform" OffsetX="0" OffsetY="0" OffsetZ="0" />
-                                </Transform3DGroup.Children>
-                            </Transform3DGroup>
-                        </ModelVisual3D.Transform>-->
                     </ModelVisual3D>
 
                     <!-- You can also add elements here in the xaml -->
@@ -155,16 +93,11 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
                     <ColumnDefinition Width="100"/>
-                    <!--<ColumnDefinition Width="100"/>
-                    <ColumnDefinition Width="100"/>-->
                 </Grid.ColumnDefinitions>
-                <!--<TextBlock x:Name="text" Text="Tes" FontSize="30" Foreground="White" TextAlignment="Center"/>-->
                 <RepeatButton x:Name="left" Grid.Column="0" Click="Left_RepeatButton">
                     <!--&lt;&lt;-->
                     <Image x:Name="left1" Width="48px" Margin="-15,0,-15,-1" />
                 </RepeatButton>
-                <!--<Button Grid.Column="1" Click="Left_Button" ToolTip="Single Click Left">&lt;</Button>
-                <Button Grid.Column="2" Click="Right_Button" ToolTip="Single Click Right">&gt;</Button>-->
                 <RepeatButton x:Name="right" Grid.Column="1" Click="Right_RepeatButton">
                     <!--&gt;&gt;-->
                     <Image x:Name="right1" Width="48px" Margin="-15,0,-15,-1" />
@@ -172,27 +105,11 @@
             </Grid>
 
             <ToggleButton x:Name="toggle" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Bottom"
-                          Height="50" Width="100" Click="ToggleClick" ></ToggleButton>
-            <!--Style="{StaticResource OnOffToggleStyle}"-->
-
-            <!--<Grid Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Height="50">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
-                    <RowDefinition Height="100"/>
-                </Grid.RowDefinitions>
-                <RepeatButton Grid.Row="0" Click="U_RepeatButton" ToolTip="Rotate Left">U</RepeatButton>
-                <RepeatButton Grid.Row="1" Click="Down_RepeatButton" ToolTip="Rotate Right">D</RepeatButton>
-            </Grid>-->
+                          Height="50" Width="100" Click="ToggleClick" >
+                <Image x:Name="toggle1" Width="98px" Margin="-15,0,-15,-1" />
+            </ToggleButton>
         </Grid>
 
     </Grid>
-    <!--<Grid Style="{StaticResource ContentRoot}">
-        <ScrollViewer>
-            <StackPanel MinWidth="200">
-                <TextBlock Text="BASIC PAGE" Style="{StaticResource Heading2}" />
-                <TextBlock Text="Content goes here" />
-            </StackPanel>
-        </ScrollViewer>
-    </Grid>-->
 </UserControl>
 

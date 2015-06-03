@@ -386,6 +386,10 @@
     <Resource Include="Assets\biota air tawar.png" />
     <Resource Include="Assets\favorite.png" />
     <Resource Include="Assets\kawasan observasi.png" />
+    <Resource Include="Assets\camera off.png" />
+    <Resource Include="Assets\camera on.png" />
+    <Resource Include="Assets\dark.camera off.png" />
+    <Resource Include="Assets\dark.camera on.png" />
     <Content Include="Assets\logo terangi bahari 2.ico" />
     <Resource Include="Assets\logo terangi bahari about.png" />
     <Resource Include="Assets\rotate left.png" />
