@@ -257,8 +257,8 @@ namespace BahariModernUI.Pages
 
                     var handManager = sm.QueryHand();
                     _handConfig = handManager.CreateActiveConfiguration();
-                    _handConfig.EnableGesture("thumb_up");
-                    _handConfig.EnableGesture("thumb_down");
+                    //_handConfig.EnableGesture("thumb_up");
+                    //_handConfig.EnableGesture("thumb_down");
                     _handConfig.EnableGesture("spreadfingers");
                     _handConfig.EnableGesture("v_sign");
                     _handConfig.EnableAllAlerts();
