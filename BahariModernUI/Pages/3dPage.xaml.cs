@@ -32,7 +32,7 @@ namespace BahariModernUI.Pages
     {
 
         AxisAngleRotation3D ax3d;
-        byte[] stream;
+        String stream;
 
         private Dictionary<string, Thread> threads = new Dictionary<string,Thread>();
         private PXCMSenseManager sm;
@@ -148,8 +148,7 @@ namespace BahariModernUI.Pages
                 // Or looped through for some other reason
                 foreach (DataRow r in biota.Rows)
                 {
-                    stream = new byte[((byte[])r["DATA"]).Length];
-                    stream = ((byte[])r["DATA"]);
+                    stream = r["DATA"].ToString();
 
                     state.Content = r["NAMA"];
                 }
@@ -167,12 +166,17 @@ namespace BahariModernUI.Pages
             }
             else
             {
-                Stream streams = new MemoryStream(stream);
+                Uri uri = new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "3dAssets\\" + stream);
+                String streams = uri.OriginalString;
+
+                //MessageBox.Show(streams);
+
                 HelixToolkit.Wpf.StudioReader CurrentHelix3DSStudioReader = new HelixToolkit.Wpf.StudioReader();
                 System.Windows.Media.Media3D.Model3DGroup MyModel = CurrentHelix3DSStudioReader.Read(streams);
 
                 // Display the model
                 foo.Content = MyModel;
+
             }
 
             ax3d.Angle = 180;
