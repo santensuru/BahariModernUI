@@ -171,6 +171,15 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are You sure choose this theme?.
+        /// </summary>
+        public static string FirstBoot {
+            get {
+                return ResourceManager.GetString("FirstBoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Font size.
         /// </summary>
         public static string Font {
@@ -337,7 +346,7 @@ namespace BahariModernUI.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Are you sure to logout?.
+        ///   Looks up a localized string similar to Are You sure to logout?.
         /// </summary>
         public static string LogoutText {
             get {
@@ -549,15 +558,6 @@ namespace BahariModernUI.Resources {
         public static string Software {
             get {
                 return ResourceManager.GetString("Software", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
         

@@ -155,6 +155,9 @@ Please try again.</value>
   <data name="Feedback" xml:space="preserve">
     <value>feedback</value>
   </data>
+  <data name="FirstBoot" xml:space="preserve">
+    <value>Are You sure choose this theme?</value>
+  </data>
   <data name="Font" xml:space="preserve">
     <value>Font size</value>
   </data>
@@ -216,7 +219,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <value>logout</value>
   </data>
   <data name="LogoutText" xml:space="preserve">
-    <value>Are you sure to logout?</value>
+    <value>Are You sure to logout?</value>
   </data>
   <data name="Map" xml:space="preserve">
     <value>map</value>
@@ -286,9 +289,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
   </data>
   <data name="Software" xml:space="preserve">
     <value>software</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
   </data>
   <data name="Success" xml:space="preserve">
     <value>Success :)</value>

@@ -155,6 +155,9 @@ Coba ulangi lagi.</value>
   <data name="Feedback" xml:space="preserve">
     <value>umpan balik</value>
   </data>
+  <data name="FirstBoot" xml:space="preserve">
+    <value>Apakah tema yang Anda pilih sudah sesuai?</value>
+  </data>
   <data name="Font" xml:space="preserve">
     <value>Ukuran font</value>
   </data>
