@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -301,6 +302,7 @@ namespace BahariModernUI.Pages
                 {
                     // error handling when SDK and Cameraa don't exist
                     Console.WriteLine(ex);
+                    SystemSounds.Beep.Play();
                     ModernDialog.ShowMessage(BahariModernUI.Resources.StringResources.IntelWarning, BahariModernUI.Resources.StringResources.Warning, MessageBoxButton.OK);
                     toggleContent = BahariModernUI.Resources.StringResources.On;
                     if (AppearanceManager.Current.ThemeSource == AppearanceManager.DarkThemeSource)

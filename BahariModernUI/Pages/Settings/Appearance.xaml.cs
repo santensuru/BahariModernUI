@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -96,6 +97,7 @@ namespace BahariModernUI.Pages.Settings
                     dlgInside.NoButton.Content = BahariModernUI.Resources.StringResources.No;
 
                     dlgInside.Buttons = new Button[] { dlgInside.YesButton, dlgInside.NoButton };
+                    SystemSounds.Beep.Play();
                     dlgInside.ShowDialog();
 
                     //MessageBox.Show(dlgInside.DialogResult.HasValue ? dlgInside.DialogResult.ToString() : "<null>");
