@@ -74,7 +74,7 @@ end;
 
 [Setup]
 AppName=Terangi Bahari
-AppVersion=0.9010
+AppVersion=0.9011
 DefaultDirName={pf}\Terangi Bahari
 DefaultGroupName=Terangi Bahari
 UninstallDisplayIcon={app}\MyProg.exe
@@ -94,6 +94,8 @@ Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\Baha
 Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\BahariModernUI\bin\Debug\x86\*"; DestDir: "{app}\x86";
 Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\BahariModernUI\bin\Debug\x64\*"; DestDir: "{app}\x64";
 Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\BahariModernUI\bin\Debug\id-ID\*"; DestDir: "{app}\id-ID";
+Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\BahariModernUI\bin\Debug\3dAssets\Tuna\*"; DestDir: "{app}\3dAssets\Tuna";
+Source: "C:\Users\user\Documents\Visual Studio 2013\Projects\BahariModernUI\BahariModernUI\bin\Debug\3dAssets\Salmon\*"; DestDir: "{app}\3dAssets\Salmon";
 
 [Icons]
 Name: "{group}\Terangi bahari"; Filename: "{app}\BahariModernUI.exe"; WorkingDir: "{app}"
