@@ -160,5 +160,17 @@ namespace BahariModernUI
             //this.Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;
         }
 
+        private void ModernWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            try
+            {
+                System.Windows.Application.Current.Shutdown(); 
+                //this.Owner.Show();
+            } catch(Exception ex)
+            {
+                //nop
+            }
+        }
+
     }
 }

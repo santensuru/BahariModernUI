@@ -94,8 +94,12 @@ namespace BahariModernUI
 
                     if (temp == true)
                     {
-                        System.Windows.Forms.Application.Restart();
-                        System.Windows.Application.Current.Shutdown();
+                        //System.Windows.Forms.Application.Restart();
+                        //System.Windows.Application.Current.Shutdown();
+                        MainWindow mainView = new MainWindow();
+                        mainView.Owner = this;
+                        this.Hide();
+                        mainView.Show();
                     }
                 }
                 else
