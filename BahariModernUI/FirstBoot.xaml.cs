@@ -30,6 +30,8 @@ namespace BahariModernUI
         {
             InitializeComponent();
 
+            this.Title = "Terangi Bahari - " + BahariModernUI.Resources.StringResources.Settings;
+            appearance.Text = BahariModernUI.Resources.StringResources.Appearance.ToUpper();
             theme.Text = BahariModernUI.Resources.StringResources.Theme + " : ";
             font.Text = BahariModernUI.Resources.StringResources.Font + " : ";
             language.Text = BahariModernUI.Resources.StringResources.Language + " : ";

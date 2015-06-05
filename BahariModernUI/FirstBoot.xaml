@@ -6,13 +6,15 @@
                   xmlns:mui="http://firstfloorsoftware.com/ModernUI"
                   mc:Ignorable="d" 
                   d:DesignHeight="400" d:DesignWidth="500"
-                  Title="Appearance">
+                  Title="ModernDialog">
 
     <!-- Note: ModernDialog buttons are defined in the constructor of the code behind class -->
 
     <Grid Width="480">
         <ScrollViewer>
             <StackPanel x:Name="Panel" MinWidth="150">
+                <TextBlock x:Name="appearance" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
+                
                 <ListBox x:Name="brush" ItemsSource="{Binding AccentColors}"
                          SelectedItem="{Binding SelectedAccentColor, Mode=TwoWay}"
                          Margin="0,0,0,16">
