@@ -27,7 +27,7 @@ namespace BahariModernUI
                 SQLiteDatabase db = new SQLiteDatabase();
                 DataTable biota;
 
-                String query = "SELECT * ";
+                String query = "SELECT FIRSTBOOT ";
                 query += "FROM SETTING;";
 
                 biota = db.GetDataTable(query);

@@ -67,10 +67,11 @@ namespace BahariModernUI
             data.Add("COLOR", brush.SelectedItem.ToString());
             data.Add("FONT", font1.SelectedItem.ToString());
             data.Add("LANGUAGE", language1.SelectedItem.ToString());
-            data.Add("LANGFIRST", langFirst);
+            data.Add("LANGFIRST", "english");
             data.Add("FIRSTBOOT", "1");
 
             //ModernDialog.ShowMessage(data.ElementAt(0).Value + " " + data.ElementAt(1).Value + " " + data.ElementAt(2).Value, "Themes", MessageBoxButton.OK);
+            Console.WriteLine(data.ElementAt(0).Value + " " + data.ElementAt(1).Value + " " + data.ElementAt(2).Value);
 
             string condition = "ID = 1;";
             try
@@ -80,7 +81,7 @@ namespace BahariModernUI
 
                     var dlgInside = new ModernDialog
                     {
-                        Title = BahariModernUI.Resources.StringResources.Theme,
+                        Title = BahariModernUI.Resources.StringResources.Warning,
                         Content = BahariModernUI.Resources.StringResources.FirstBoot
                     };
                     dlgInside.YesButton.Content = BahariModernUI.Resources.StringResources.Yes;
