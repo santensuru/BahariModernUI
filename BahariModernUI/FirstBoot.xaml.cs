@@ -100,8 +100,9 @@ namespace BahariModernUI
                         //System.Windows.Forms.Application.Restart();
                         //System.Windows.Application.Current.Shutdown();
                         MainWindow mainView = new MainWindow();
-                        mainView.Owner = this;
-                        this.Hide();
+                        //mainView.Owner = this;
+                        //this.Hide();
+                        App.Current.Windows[0].Close();
                         mainView.Show();
                     }
                 }
