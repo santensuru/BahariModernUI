@@ -64,7 +64,7 @@ namespace BahariModernUI.Pages
             var lat = pinLocation.Latitude;
             var lon = pinLocation.Longitude;
 
-            double[] location = new double[3];
+            double[] location = new double[tot];
             int i;
             double min = 999999999;
             int posision = 0;
