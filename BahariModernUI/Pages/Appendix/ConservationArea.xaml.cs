@@ -30,7 +30,8 @@ namespace BahariModernUI.Pages.Appendix
                 SQLiteDatabase db = new SQLiteDatabase();
                 DataTable users;
                 String query = "SELECT NAMA ";
-                query += "FROM KONSERVASI;";
+                query += "FROM KONSERVASI ";
+                query += "ORDER BY NAMA ASC;";
 
                 users = db.GetDataTable(query);
 

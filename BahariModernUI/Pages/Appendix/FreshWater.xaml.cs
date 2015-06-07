@@ -32,7 +32,8 @@ namespace BahariModernUI.Pages.Appendix
                 DataTable users;
                 String query = "SELECT NAMA ";
                 query += "FROM BIOTA ";
-                query += "WHERE HABITAT = 0;";
+                query += "WHERE HABITAT = 0 ";
+                query += "ORDER BY NAMA ASC;";
 
                 users = db.GetDataTable(query);
 
