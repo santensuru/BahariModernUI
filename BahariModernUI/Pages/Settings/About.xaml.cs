@@ -27,9 +27,10 @@ namespace BahariModernUI.Pages.Settings
             about.Text = BahariModernUI.Resources.StringResources.About.ToUpper();
             about1.Text = BahariModernUI.Resources.StringResources.AboutText;
             joinVentureWith.Text = BahariModernUI.Resources.StringResources.Join.ToUpper();
-            joinVentureWith1.Text = "Direktorat Jendral Kelautan, Pesisir dan Pulau-pulau Kecil - Kementerian Kelautan dan Perikanan\nYayasan Terumbu Karang Indonesia";
+            //joinVentureWith1.Text = "Direktorat Jendral Kelautan, Pesisir dan Pulau-pulau Kecil - Kementerian Kelautan dan Perikanan\r\n";
+            joinVentureWith1.Text = "Yayasan Terumbu Karang Indonesia";
             poweredBy.Text = BahariModernUI.Resources.StringResources.Powered.ToUpper();
-            poweredBy1.Text = "Bing Map\nHelix Toolkit\nIntel RealSense\nSQLite\nwww.ausarabexplore.info";
+            poweredBy1.Text = "Bing Map\r\nHelix Toolkit\r\nIntel RealSense\r\nSQLite\r\nwww.ausarabexplore.info\r\nSparrow Chart";
 
             Run run1 = new Run(BahariModernUI.Resources.StringResources.Term + " ...");
 

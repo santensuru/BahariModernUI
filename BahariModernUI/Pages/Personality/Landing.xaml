@@ -6,7 +6,9 @@
              xmlns:mui="http://firstfloorsoftware.com/ModernUI"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-             Loaded="Load">
+             Loaded="Load"
+             xmlns:sparrow="http://sparrowtoolkit.codeplex.com/wpf"
+             xmlns:local="clr-namespace:BahariModernUI.Pages.Personality">
     <Grid Style="{StaticResource ContentRoot}">
         <Grid x:Name="login">
             <ScrollViewer>
@@ -35,8 +37,26 @@
             <ScrollViewer>
                 <StackPanel MinWidth="200">
                     <TextBlock x:Name="name" Style="{StaticResource Heading2}" Margin="0,0,0,8" />
-                    <TextBlock x:Name="score" />
-                    <Image x:Name="photo" />
+                    <Grid Margin="0,16,0,-16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="550px" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <sparrow:SparrowChart Height="250px" Width="500px" x:Name="scorechart" Grid.Column="0">
+                            <!--<sparrow:SparrowChart.DataContext>
+                                <local:ScoreViewModel/>
+                            </sparrow:SparrowChart.DataContext>-->
+                            <sparrow:SparrowChart.XAxis>
+                                <sparrow:LinearXAxis/>
+                            </sparrow:SparrowChart.XAxis>
+                            <sparrow:SparrowChart.YAxis>
+                                <sparrow:LinearYAxis/>
+                            </sparrow:SparrowChart.YAxis>
+                            <sparrow:LineSeries PointsSource="{Binding Collection}" XPath="X" YPath="Y"/>
+                        </sparrow:SparrowChart>
+                        <TextBlock x:Name="score" Grid.Column="1" FontSize="120pt" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <!--<Image x:Name="photo" />-->
 
                     <TextBlock Text="" Margin="0,8,0,8" />
 

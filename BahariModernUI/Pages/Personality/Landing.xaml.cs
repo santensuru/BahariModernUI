@@ -41,34 +41,6 @@ namespace BahariModernUI.Pages.Personality
 
         private void Load(object sender, RoutedEventArgs e)
         {
-            //if (app.LoginName != "")
-            //{
-            //    BBCodeBlock bs = new BBCodeBlock();
-            //    try
-            //    {
-            //        bs.LinkNavigator.Navigate(new Uri("/Pages/Personality/Logout.xaml", UriKind.Relative), this);
-                    
-
-            //    }
-            //    catch (Exception error)
-            //    {
-            //        ModernDialog.ShowMessage(error.Message, FirstFloor.ModernUI.Resources.NavigationFailed, MessageBoxButton.OK);
-            //    }
-            //}
-            //else
-            //{
-            //    BBCodeBlock bs = new BBCodeBlock();
-            //    try
-            //    {
-            //        bs.LinkNavigator.Navigate(new Uri("/Pages/Personality/Login.xaml", UriKind.Relative), this);
-
-            //    }
-            //    catch (Exception error)
-            //    {
-            //        ModernDialog.ShowMessage(error.Message, FirstFloor.ModernUI.Resources.NavigationFailed, MessageBoxButton.OK);
-            //    }
-            //}
-
             if (app.LoginName != "")
             {
                 this.login.Visibility = System.Windows.Visibility.Hidden;
@@ -178,6 +150,19 @@ namespace BahariModernUI.Pages.Personality
                 {
                     MessageBox.Show(crap.Message);
                 }
+                
+                data.Clear();
+                data.Add("USERNAME", this.reguser.Text);
+                data.Add("SCORE", "0");
+                try
+                {
+                    db.Insert("SCORE", data);
+                }
+                catch (Exception crap)
+                {
+                    MessageBox.Show(crap.Message);
+                }
+
                 this.regname.Text = "";
                 this.reguser.Text = "";
                 this.regpassword.Password = "";
@@ -225,6 +210,8 @@ namespace BahariModernUI.Pages.Personality
                 error += fail.Message.ToString() + "\n\n";
                 MessageBox.Show(error);
             }
+            ScoreViewModel scm = new ScoreViewModel();
+            scorechart.DataContext = scm;
         }
 
         private void logindata(string who) {
@@ -235,14 +222,7 @@ namespace BahariModernUI.Pages.Personality
             string condition = "ID = 1";
             try
             {
-                if (db.Update("SETTING", data, condition) == true)
-                {
-                    //ModernDialog.ShowMessage("Set as favorite succesfully.", "Favorite", MessageBoxButton.OK);
-                }
-                else
-                {
-                    //ModernDialog.ShowMessage("Set as favorite failed.", "Favorite", MessageBoxButton.OK);
-                }
+                db.Update("SETTING", data, condition);
             }
             catch (Exception crap)
             {
