@@ -7,7 +7,8 @@
         ContentSource="/Pages/Maps.xaml"
         MinHeight="720"
         MinWidth="1280"
-        Loaded="ModernWindow_Loaded">
+        Loaded="ModernWindow_Loaded"
+        Closing="ModernWindow_Closing">
 
     <mui:ModernWindow.MenuLinkGroups>
         <mui:LinkGroup x:Name="main">

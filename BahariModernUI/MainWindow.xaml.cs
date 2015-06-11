@@ -26,10 +26,14 @@ namespace BahariModernUI
     public partial class MainWindow : ModernWindow
     {
         App app = (App)App.Current;
+        DateTime start;
+        DateTime end;
         
         public MainWindow()
         {
             InitializeComponent();
+
+            start = DateTime.Now.ToLocalTime();
 
             app.LoginName = "";
             app.LoginUser = "";
@@ -160,17 +164,57 @@ namespace BahariModernUI
             //this.Height = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea.Height;
         }
 
-        //private void ModernWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-        //    try
-        //    {
-        //        System.Windows.Application.Current.Shutdown(); 
-        //        //this.Owner.Show();
-        //    } catch(Exception ex)
-        //    {
-        //        //nop
-        //    }
-        //}
+        private void ModernWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            //try
+            //{
+            //    System.Windows.Application.Current.Shutdown();
+            //    //this.Owner.Show();
+            //}
+            //catch (Exception ex)
+            //{
+            //    //nop
+            //}
+
+            end = DateTime.Now.ToLocalTime();
+
+            if (app.LoginUser != "")
+            {
+                // Insert Last Score
+                SQLiteDatabase db = new SQLiteDatabase();
+                Dictionary<String, String> data = new Dictionary<String, String>();
+                data.Add("USERNAME", app.LoginUser);
+                data.Add("SCORE", end.Subtract(start).TotalMinutes.ToString());
+                try
+                {
+                    db.Insert("SCORE", data);
+                }
+                catch (Exception crap)
+                {
+                    MessageBox.Show(crap.Message);
+                }
+
+                // Get Average Score
+                DataTable users;
+                String query = "SELECT AVG( SCORE ) AS AVERAGE ";
+                query += "FROM SCORE ";
+                query += "WHERE USERNAME = '" + app.LoginUser + "';";
+                users = db.GetDataTable(query);
+                String scoreAvg = "";
+                foreach (DataRow r in users.Rows)
+                {
+                    scoreAvg = r["AVERAGE"].ToString();
+                }
+
+                // Insert Average Score
+                data.Clear();
+                data.Add("SCORE", scoreAvg);
+                string condition = "USERNAME LIKE '%" + app.LoginUser + "%'";
+                db.Update("USER", data, condition);
+            }
+
+            //Console.WriteLine(end.Subtract(start).TotalMinutes);
+        }
 
     }
 }
