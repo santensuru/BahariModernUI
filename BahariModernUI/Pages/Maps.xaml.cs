@@ -80,6 +80,7 @@ namespace BahariModernUI.Pages
 
             string text = ToolTipService.GetToolTip(center[posision]).ToString();
 
+            // TODO: bug fix for first time (because of setup page)
             var _mainWindow = (MainWindow)Application.Current.MainWindow;
 
             if (selected != "Kawasan Konservasi")
