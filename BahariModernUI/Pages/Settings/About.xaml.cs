@@ -43,7 +43,7 @@ namespace BahariModernUI.Pages.Settings
             {
                 //System.Diagnostics.Process.Start(e.Uri.ToString());
 
-                var _mainWindow = (MainWindow)Application.Current.MainWindow;
+                var _mainWindow = (MainWindow)Window.GetWindow(this);
                 
                 TermAndCondition newdialoge = new TermAndCondition();
                 newdialoge.Owner = _mainWindow;
@@ -61,7 +61,7 @@ namespace BahariModernUI.Pages.Settings
             {
                 //System.Diagnostics.Process.Start(e.Uri.ToString());
 
-                var _mainWindow = (MainWindow)Application.Current.MainWindow;
+                var _mainWindow = (MainWindow)Window.GetWindow(this);
 
                 License newdialoge = new License();
                 newdialoge.Owner = _mainWindow;

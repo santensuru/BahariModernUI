@@ -57,7 +57,7 @@ namespace BahariModernUI.Pages.Appendix
 
         private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var _mainWindow = (MainWindow)Application.Current.MainWindow;
+            var _mainWindow = (MainWindow)Window.GetWindow(this);
 
             TextBlock o = e.OriginalSource as TextBlock;
             //ModernDialog.ShowMessage(o.Text, "", MessageBoxButton.OK);
@@ -69,7 +69,7 @@ namespace BahariModernUI.Pages.Appendix
 
         //private void MainListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
-        //    var _mainWindow = (MainWindow)Application.Current.MainWindow;
+        //    var _mainWindow = (MainWindow)Window.GetWindow(this);
 
         //    string biota = (tStack.SelectedItem as BiotaModel).Nama.ToString();
 
