@@ -1,10 +1,10 @@
 # BahariModernUI
 PKMKC
 
-#PKM Karsa Cipta
+## PKM Karsa Cipta
 RANCANG BANGUN APLIKASI TERANGI BAHARI DENGAN INTEL® REALSENSE™ TECHNOLOGY SEBAGAI SOLUSI EDUKASI KEKAYAAN BAHARI INDONESIA
 
-#MIT License
+## MIT License
 Copyright (c) Terangi Bahari
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
