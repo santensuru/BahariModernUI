@@ -62,7 +62,7 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>BA3132BFA98C185435304D1B456469ED78970E73</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>FF597E59BF2D2B225CA3C6F51080BE2352E05E31</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>BahariModernUI_1_TemporaryKey.pfx</ManifestKeyFile>
